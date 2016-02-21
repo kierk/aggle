@@ -1,0 +1,8 @@
+CREATE table Users (User_ID Text Primary Key, Email Text, Password Text, F_Name Text, L_Name Text);
+
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("1", "bob@bob.com", "hunter2", "BOB", "DropTables");
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("2", "bob@bob.com", "hunter2", "BOB", "DropTables");
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("3", "bob@bob.com", "hunter2", "BOB", "DropTables");
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("55", "bob@bob.com", "hunter2", "BOB", "DropTables");
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("100", "bob@bob.com", "hunter2", "BOB", "DropTables");
+INSERT into Users(User_ID, Email, Password, F_Name, L_Name) values("22", "bob@bob.com", "hunter2", "BOB", "DropTables");

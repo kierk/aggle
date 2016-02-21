@@ -1,0 +1,10 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE Users (User_ID Text Primary Key, Email Text, Password Text, F_Name Text, L_Name Text);
+INSERT INTO "Users" VALUES('1','bob@bob.com','hunter2','BOB','DropTables');
+INSERT INTO "Users" VALUES('2','bob@bob.com','hunter2','BOB','DropTables');
+INSERT INTO "Users" VALUES('3','bob@bob.com','hunter2','BOB','DropTables');
+INSERT INTO "Users" VALUES('55','bob@bob.com','hunter2','BOB','DropTables');
+INSERT INTO "Users" VALUES('100','bob@bob.com','hunter2','BOB','DropTables');
+INSERT INTO "Users" VALUES('22','bob@bob.com','hunter2','BOB','DropTables');
+COMMIT;
