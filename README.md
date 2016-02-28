@@ -1,7 +1,8 @@
-# ec500_AgileApp
+# aggle
 Course project for EC500 Agile Software Development for ECE Applications.
 
-Mission Goals:  
+
+### Mission Goals:  
 - [ ] Learn iOS, and develop a sweet app
 - [ ] Develop an amazing backend to support the app
 - [ ] Be champions in EC500
