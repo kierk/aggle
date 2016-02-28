@@ -6,5 +6,5 @@ Mission Goals:
 - [ ] Develop an amazing backend to support the app
 - [ ] Be champions in EC500
 - [ ] ???
-- [ ] :dancer: :dancer: dancer:
+- [ ] :dancer: :dancer: :dancer:
 
