@@ -16,7 +16,7 @@ case $ACTION in
     production)
 	# Start production server
 	printf "${purple}[*] Starting remote server for PRODUCTION${off}\n"
-	./apiserver.py -x 0.0.0.0 -p 5000
+	nohup ./apiserver.py -x 0.0.0.0 -p 5000 &
 	;;
     debug)
 	# Start local debug server
