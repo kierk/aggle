@@ -24,7 +24,7 @@ case $ACTION in
 	# Use "ssh -X" to get Xforward and then "firefox 127.0.0.1:5000"
 	printf "${purple}[*] Starting local server for DEBUG${off}\n"
 	printf "${purple}Use 'ssh -X' to get Xforward and then 'firefox 127.0.0.1:5000'${off}\n"
-	./apiserver.py -x 127.0.0.1 -p 5000
+	./apiserver.py -x 127.0.0.1 -p 5000 --debug
 	;;
     stop)
 	# Stop a production server

@@ -15,6 +15,7 @@
 import traceback, os, posixpath
 import argparse, sqlite3, pprint
 
+from sqlalchemy import create_engine, MetaData, Table
 from flask import Flask, request, json, session
 from flask.ext.cors import CORS
 from flask_limiter import Limiter
@@ -24,12 +25,21 @@ from apihelper import json_dump, SqliteSession
 #**********************************************************
 # Server setup
 #**********************************************************
+## Database stuff
+
+
+engine = create_engine('sqlite:///./db/test.db', convert_unicode=True)
+metadata = MetaData(bind=engine)
+
+## API stuff
 DELAY = True
 app = Flask(__name__)
 with open('key.secret', 'r') as secret_key:
     app.secret_key = secret_key.read()
-
 cors = CORS(app)
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./db/test.db'
+#db = SQLAlchemy(app)
 
 # Can add pre(before) or post(after) hooks here...
 # def exposer_headers(response):
@@ -44,14 +54,14 @@ cors = CORS(app)
 #    pass
 
 
-@app.route('/priv/login', methods=['POST'])
+@app.route('/login', methods=['POST'])
 # @limit
 def post_login():
     """
     Attempts login of the user
     POST /priv/login
     Data: {
-           "username": "eugene@eugenekolo.com",
+           "username": "eugene@example.com",
            "password": "love"
            }
     """
@@ -64,18 +74,37 @@ def post_login():
         print(traceback.format_exc())
         return "Error", 500
 
-@app.route('/priv/logout', methods=['POST'])
+@app.route('/logout', methods=['POST'])
 def post_logout():
     session.clear()
     return "Logged out homie", 200
 
-@app.route('/priv/message/<int:idx>', methods=['GET'])
+@app.route('/message/<int:idx>', methods=['GET'])
 def get_message(idx):
     try:
         return json_dump({'hello': 'from get_message'})
     except Exception:
         print(traceback.format_exc())
         return "Error", 500
+
+@app.route('/user', methods=['POST'])
+def add_user():
+    users = Table('users', metadata, autoload=True)
+    payload = json.loads(request.get_data())
+    username = payload['username']
+    firstname = payload['firstname']
+    lastname = payload['lastname']
+    email = payload['email']
+    
+    db = engine.connect()
+    db.execute(users.insert(), User_Name=username, First_Name=firstname, Last_Name=lastname, Email=email)
+    return "Successfully added user"
+
+@app.route('/user/<int:idx>', methods=['GET'])
+def get_user(idx):
+    users = Table('users', metadata, autoload=True)
+    r = users.select(users.c.User_ID == idx).execute().first()
+    return json_dump(dict(r))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
