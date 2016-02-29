@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="stroked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Tech" sketch:type="MSLayerGroup" transform="translate(-118.000000, -489.000000)" stroke="#0d96ad" stroke-width="2">
+        <g id="Tech" sketch:type="MSLayerGroup" transform="translate(-118.000000, -489.000000)" stroke="#c12e2e" stroke-width="2">
             <g id="Message" transform="translate(125.000000, 498.000000)" sketch:type="MSShapeGroup">
                 <path d="M35.4808339,30 L43.9938589,30 C45.1017583,30 46,29.1083227 46,28.008383 L46,1.99161703 C46,0.89784041 45.10182,0 43.9938589,0 L2.0061411,0 C0.898241717,0 0,0.891677316 0,1.99161703 L0,28.008383 C0,29.1021596 0.898179965,30 2.0061411,30 L22.3968688,30 L22.3968688,41.1603025 L35.4808339,30 Z" id="Rectangle-366" stroke-linejoin="round"></path>
                 <path d="M6.5,5 L35,5" id="Line" stroke-linecap="square"></path>
