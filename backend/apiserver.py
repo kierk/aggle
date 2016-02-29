@@ -8,30 +8,34 @@
 #
 # TODO: Install a session manager
 # TODO: Write a setup.py
+# TODO: Examine grequests
+# TODO: Get working with sqlite3
 #**************************************************************************************************
 
 import traceback, os, posixpath
 import argparse, sqlite3, pprint
 
-from flask import Flask, request, json
-from flask.ext.cors import CORS
+from flask import Flask, request, json, session
+ from flask.ext.cors import CORS
 from flask_limiter import Limiter
 
+from apihelper import json_dump, SqliteSession
 
 #**********************************************************
 # Server setup
 #**********************************************************
 DELAY = True
-
 app = Flask(__name__)
+with open('key.secret', 'r') as secret_key:
+    app.secret_key = secret_key.read()
+
+cors = CORS(app)
 
 # Can add pre(before) or post(after) hooks here...
 # def exposer_headers(response):
 #    response.headers.add('Access-Control-Expose-Headers', 'Content-Dispositions, Content-Length')
 # apps.after_request(expose_headers)
 # TODO(eugenek): https://github.com/maxcountryman/flask-login
-
-cors = CORS(app)
 
 # Can add rate limiting here...
 # limiter = Limiter(app)
@@ -40,40 +44,38 @@ cors = CORS(app)
 #    pass
 
 
-@app.route('/api/login', methods=['POST'])
+@app.route('/priv/login', methods=['POST'])
 # @limit
 def post_login():
+    """
+    Attempts login of the user
+    POST /priv/login
+    Data: {
+           "username": "eugene@eugenekolo.com",
+           "password": "love"
+           }
+    """
     try:
         payload = json.loads(request.get_data())
-        pprint.pprint(payload)
+        username = payload['username']
+        password = payload['password']
         return json_dump({'hello': 'from post_login'})
     except Exception:
         print(traceback.format_exc())
         return "Error", 500
 
-@app.route('/api/message/<int:idx>', methods=['GET'])
-# @limit
+@app.route('/priv/logout', methods=['POST'])
+def post_logout():
+    session.clear()
+    return "Logged out homie", 200
+
+@app.route('/priv/message/<int:idx>', methods=['GET'])
 def get_message(idx):
     try:
         return json_dump({'hello': 'from get_message'})
     except Exception:
         print(traceback.format_exc())
         return "Error", 500
-
-
-@app.route('/api/account', methods=['POST'])
-# @limit
-def post_account():
-    try:
-        payload = json.loads(request.get_data())
-        pprint.pprint(payload)
-        return json_dump({'hello': 'from post_account'})
-    except Exception:
-        print(traceback.format_exc())
-        return "Error", 500
-
-def json_dump(d):
-    return json.dumps(d, indent=4, separators=(',',': '))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
