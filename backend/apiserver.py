@@ -91,11 +91,11 @@ def get_message(idx):
 def add_user():
     users = Table('users', metadata, autoload=True)
     payload = json.loads(request.get_data())
-    username = payload['username']
-    firstname = payload['firstname']
-    lastname = payload['lastname']
-    email = payload['email']
-    
+    username = payload['User_Name']
+    firstname = payload['First_Name']
+    lastname = payload['Last_Name']
+    email = payload['Email']
+
     db = engine.connect()
     db.execute(users.insert(), User_Name=username, First_Name=firstname, Last_Name=lastname, Email=email)
     return "Successfully added user"
