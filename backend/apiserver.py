@@ -16,7 +16,7 @@ import traceback, os, posixpath
 import argparse, sqlite3, pprint
 
 from flask import Flask, request, json, session
- from flask.ext.cors import CORS
+from flask.ext.cors import CORS
 from flask_limiter import Limiter
 
 from apihelper import json_dump, SqliteSession
