@@ -17,6 +17,7 @@ case $ACTION in
 	# Start production server
 	printf "${purple}[*] Starting remote server for PRODUCTION${off}\n"
 	nohup ./apiserver.py -x 0.0.0.0 -p 5000 &
+	echo $! > server.pid
 	;;
     debug)
 	# Start local debug server
@@ -25,6 +26,11 @@ case $ACTION in
 	printf "${purple}Use 'ssh -X' to get Xforward and then 'firefox 127.0.0.1:5000'${off}\n"
 	./apiserver.py -x 127.0.0.1 -p 5000
 	;;
+    stop)
+	# Stop a production server
+	printf "${purple}[*] Killing production server${off}\n"
+	kill `cat server.pid`
+	rm server.pid
 esac
 
 printf "${purple}[*] Done${off}\n"

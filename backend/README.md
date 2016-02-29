@@ -1,7 +1,7 @@
 ## Quickstart
 
-    start.sh setup
-    start.sh <debug|production>
+    server.sh setup
+    server.sh <debug|production>
 
 ## Installation
 
