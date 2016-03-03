@@ -2,8 +2,7 @@
 
 ##SQL commands and keywords should be in all CAPS
 
-###Example
-```
+```sql
 	SELECT, CREATE, PRIMARY KEY, FOREIGN KEY, INSERT INTO [table name] VALUES
 ```
 
