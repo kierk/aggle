@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tinderSwipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SSx-k6-Z3f"/>
+                        <viewControllerLayoutGuide type="bottom" id="sx9-j6-UZ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamborghini" translatesAutoresizingMaskIntoConstraints="NO" id="YX7-0M-aO7">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="z8A-Ry-5RI"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lao-74-MX3">
+                                <rect key="frame" x="277" y="417" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="1up-4Q-SWK"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <segue destination="A3B-SE-Zat" kind="presentation" id="sPh-VH-laA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YX7-0M-aO7" firstAttribute="top" secondItem="SSx-k6-Z3f" secondAttribute="bottom" constant="216" id="7zs-O2-9fQ"/>
+                            <constraint firstItem="lao-74-MX3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DpX-KN-XNm"/>
+                            <constraint firstItem="lao-74-MX3" firstAttribute="top" secondItem="YX7-0M-aO7" secondAttribute="bottom" constant="53" id="VhJ-NU-cME"/>
+                            <constraint firstItem="YX7-0M-aO7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mgy-N0-ATt"/>
+                            <constraint firstItem="lao-74-MX3" firstAttribute="centerX" secondItem="YX7-0M-aO7" secondAttribute="centerX" id="qKE-DK-wuK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="314"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="0d1-bH-ONI">
+            <objects>
+                <viewController id="A3B-SE-Zat" customClass="QuestionViewController" customModule="tinderSwipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Euq-DW-nCC"/>
+                        <viewControllerLayoutGuide type="bottom" id="MZk-wD-SYc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mk3-2L-bBM" customClass="QuestionView" customModule="tinderSwipe" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMQ-tx-2FP">
+                                <rect key="frame" x="25" y="484" width="36" height="30"/>
+                                <state key="normal" title="False"/>
+                                <connections>
+                                    <action selector="falsePressed:" destination="A3B-SE-Zat" eventType="touchUpInside" id="tuU-MO-mMt"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Score:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rL3-xc-3ZC">
+                                <rect key="frame" x="180" y="385" width="240" height="91"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Efa-Qd-DRF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-Wq-xfw">
+                                <rect key="frame" x="545" y="484" width="35" height="30"/>
+                                <state key="normal" title=" True"/>
+                                <connections>
+                                    <action selector="truePressed:" destination="A3B-SE-Zat" eventType="touchUpInside" id="uSu-D7-GjS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RiL-Wq-xfw" secondAttribute="trailing" constant="141" id="HEG-uu-u5m"/>
+                            <constraint firstItem="rL3-xc-3ZC" firstAttribute="top" secondItem="Euq-DW-nCC" secondAttribute="bottom" constant="365" id="Yvc-SA-pTU"/>
+                            <constraint firstItem="bMQ-tx-2FP" firstAttribute="leading" secondItem="mk3-2L-bBM" secondAttribute="leading" constant="143" id="ZAb-vK-4cu"/>
+                            <constraint firstItem="rL3-xc-3ZC" firstAttribute="centerX" secondItem="mk3-2L-bBM" secondAttribute="centerX" id="f0a-ND-tCT"/>
+                            <constraint firstItem="MZk-wD-SYc" firstAttribute="top" secondItem="bMQ-tx-2FP" secondAttribute="bottom" constant="86" id="jcM-rF-cNK"/>
+                            <constraint firstItem="RiL-Wq-xfw" firstAttribute="baseline" secondItem="bMQ-tx-2FP" secondAttribute="baseline" id="m43-1h-1x4"/>
+                            <constraint firstItem="bMQ-tx-2FP" firstAttribute="top" secondItem="rL3-xc-3ZC" secondAttribute="bottom" constant="8" symbolic="YES" id="w2O-ws-DB9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scoreView" destination="rL3-xc-3ZC" id="I9z-Ln-NrX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVa-B6-bQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205" y="314"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lamborghini" width="800" height="446"/>
+    </resources>
+</document>
