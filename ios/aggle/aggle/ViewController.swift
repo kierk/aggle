@@ -15,13 +15,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        if (FBSDKAccessToken.currentAccessToken() == nil) {
-//            print("Not loged in..")
-//        } else {
-//            print("Loged in...")
-//        }
-        
         let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
         loginButton.center = self.view.center
@@ -52,7 +45,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-//        print("User Loged out...")
     }
     
     

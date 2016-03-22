@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231921CA16EAA00E070A9 /* PhotoViewController.swift */; };
+		506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231941CA17AC000E070A9 /* MoreViewController.swift */; };
+		506231971CA1847A00E070A9 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231961CA1847A00E070A9 /* SwipeViewController.swift */; };
 		50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B7F8861C886EA40026B95F /* AppDelegate.swift */; };
 		50B7F8891C886EA40026B95F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B7F8881C886EA40026B95F /* ViewController.swift */; };
 		50B7F88C1C886EA40026B95F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B7F88A1C886EA40026B95F /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		506231921CA16EAA00E070A9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		506231941CA17AC000E070A9 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		506231961CA1847A00E070A9 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		50B7F8831C886EA40026B95F /* aggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B7F8861C886EA40026B95F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B7F8881C886EA40026B95F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,10 +113,13 @@
 				50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */,
 				50B7F8861C886EA40026B95F /* AppDelegate.swift */,
 				50B7F8881C886EA40026B95F /* ViewController.swift */,
+				506231921CA16EAA00E070A9 /* PhotoViewController.swift */,
+				506231961CA1847A00E070A9 /* SwipeViewController.swift */,
 				50B7F88A1C886EA40026B95F /* Main.storyboard */,
 				50B7F88D1C886EA40026B95F /* Assets.xcassets */,
 				50B7F88F1C886EA40026B95F /* LaunchScreen.storyboard */,
 				50B7F8921C886EA40026B95F /* Info.plist */,
+				506231941CA17AC000E070A9 /* MoreViewController.swift */,
 			);
 			path = aggle;
 			sourceTree = "<group>";
@@ -264,8 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506231971CA1847A00E070A9 /* SwipeViewController.swift in Sources */,
 				50B7F8891C886EA40026B95F /* ViewController.swift in Sources */,
+				506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */,
 				50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */,
+				506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +512,7 @@
 				50B7F8AD1C886EA50026B95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50B7F8AE1C886EA50026B95F /* Build configuration list for PBXNativeTarget "aggleTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +521,7 @@
 				50B7F8B01C886EA50026B95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50B7F8B11C886EA50026B95F /* Build configuration list for PBXNativeTarget "aggleUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +530,7 @@
 				50B7F8B31C886EA50026B95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
