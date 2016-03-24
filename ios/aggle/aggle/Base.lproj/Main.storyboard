@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Aggle-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Aggle" id="rkj-BX-vkF"/>
+                    <navigationItem key="navigationItem" id="rkj-BX-vkF"/>
                     <connections>
                         <segue destination="YBn-Gr-jxi" kind="presentation" identifier="showNew" id="KVc-c6-tzB"/>
                     </connections>
@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="994"/>
         </scene>
-        <!--Aggle-->
+        <!--Photo View Controller-->
         <scene sceneID="Pc0-fW-exN">
             <objects>
                 <viewController id="JUM-fB-Cal" customClass="PhotoViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,17 +40,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
                                 <rect key="frame" x="20" y="88" width="134" height="30"/>
                                 <state key="normal" title="Open Photo Library"/>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="JZP-Zj-GoW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-vb-wEF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-vb-wEF">
                                 <rect key="frame" x="20" y="134" width="560" height="381"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
                                 <rect key="frame" x="532" y="88" width="48" height="30"/>
                                 <state key="normal" title="Post it!"/>
                                 <connections>
@@ -63,14 +63,14 @@
                             <constraint firstItem="VeF-6x-ZFE" firstAttribute="trailing" secondItem="qJ6-vb-wEF" secondAttribute="trailing" id="7Xr-Rp-rJ4"/>
                             <constraint firstItem="VeF-6x-ZFE" firstAttribute="baseline" secondItem="PjC-xZ-tbj" secondAttribute="baseline" id="MIl-rz-Gog"/>
                             <constraint firstItem="qJ6-vb-wEF" firstAttribute="trailing" secondItem="mq5-Uw-U42" secondAttribute="trailingMargin" id="MY3-hi-5NX"/>
-                            <constraint firstItem="6DZ-9Z-bot" firstAttribute="top" secondItem="qJ6-vb-wEF" secondAttribute="bottom" constant="85" id="TM9-04-dXq"/>
                             <constraint firstItem="qJ6-vb-wEF" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leadingMargin" id="c7T-8y-8HO"/>
+                            <constraint firstItem="PjC-xZ-tbj" firstAttribute="top" secondItem="vtI-5A-KhS" secondAttribute="bottom" constant="68" id="eKc-kV-dFk"/>
                             <constraint firstItem="qJ6-vb-wEF" firstAttribute="top" secondItem="PjC-xZ-tbj" secondAttribute="bottom" constant="16" id="gee-ac-seU"/>
+                            <constraint firstItem="6DZ-9Z-bot" firstAttribute="top" secondItem="qJ6-vb-wEF" secondAttribute="bottom" constant="85" id="lvE-1j-sw1"/>
                             <constraint firstItem="qJ6-vb-wEF" firstAttribute="leading" secondItem="PjC-xZ-tbj" secondAttribute="leading" id="nUN-OO-Hky"/>
-                            <constraint firstItem="PjC-xZ-tbj" firstAttribute="top" secondItem="vtI-5A-KhS" secondAttribute="bottom" constant="68" id="rSw-gv-U2o"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Aggle" id="4O6-MU-zAu"/>
+                    <navigationItem key="navigationItem" id="4O6-MU-zAu"/>
                     <connections>
                         <outlet property="ImageDisplay" destination="qJ6-vb-wEF" id="uAS-DW-AM7"/>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="3505" y="640"/>
         </scene>
-        <!--Aggle-->
+        <!--View Controller-->
         <scene sceneID="UwJ-As-ROU">
             <objects>
                 <viewController id="nO7-5F-cb9" sceneMemberID="viewController">
@@ -94,13 +94,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1209152415394783" green="0.93897777795791626" blue="0.93774312734603882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Aggle" id="hJu-6P-75S"/>
+                    <navigationItem key="navigationItem" id="hJu-6P-75S"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhN-TJ-W2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3497" y="1383"/>
         </scene>
-        <!--Aggle-->
+        <!--More View Controller-->
         <scene sceneID="UOn-gz-KLn">
             <objects>
                 <viewController id="RXi-BG-PUg" customClass="MoreViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,13 +126,13 @@
                             <constraint firstItem="upk-fP-16L" firstAttribute="centerY" secondItem="uuJ-gJ-01j" secondAttribute="centerY" id="l8g-xk-b9C"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Aggle" id="wKp-Nb-uiw"/>
+                    <navigationItem key="navigationItem" id="wKp-Nb-uiw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NU-eR-Uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3497" y="2129"/>
         </scene>
-        <!--Aggle-->
+        <!--Swipe View Controller-->
         <scene sceneID="ZUN-C2-6eP">
             <objects>
                 <viewController id="ucK-1T-kIE" customClass="SwipeViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Aggle" id="XKr-iQ-Pdu"/>
+                    <navigationItem key="navigationItem" id="XKr-iQ-Pdu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVz-gd-B0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,4 +273,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="vFD-4n-F7H"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
