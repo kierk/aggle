@@ -1,8 +1,8 @@
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Firebase.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Koloda.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/pop.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "Firebase" -framework "Koloda" -framework "pop"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AWSCognito.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AWSCore.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AWSS3.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/ELCImagePickerController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Firebase.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JTSImageViewController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Koloda.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/pop.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AWSCognito" -framework "AWSCore" -framework "AWSS3" -framework "ELCImagePickerController" -framework "Firebase" -framework "JTSImageViewController" -framework "Koloda" -framework "pop"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
 PODS_ROOT = ${SRCROOT}/Pods

@@ -1,0 +1,9 @@
+{
+  "firebase": "aggle",  //name of firebase app to which this hosting links against
+  "public": "website",  // to which directory in project to upload file sto
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

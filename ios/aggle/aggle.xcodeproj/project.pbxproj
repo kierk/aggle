@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10D67AC91CB01F88007B9431 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D67AC81CB01F88007B9431 /* Constants.swift */; };
+		10D67ACA1CB01F88007B9431 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D67AC81CB01F88007B9431 /* Constants.swift */; };
+		10D67ACB1CB01F88007B9431 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D67AC81CB01F88007B9431 /* Constants.swift */; };
+		10D67ACE1CB061D9007B9431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B7F8881C886EA40026B95F /* ViewController.swift */; };
+		10D67ACF1CB061DA007B9431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B7F8881C886EA40026B95F /* ViewController.swift */; };
 		506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231921CA16EAA00E070A9 /* PhotoViewController.swift */; };
 		506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231941CA17AC000E070A9 /* MoreViewController.swift */; };
 		506231971CA1847A00E070A9 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231961CA1847A00E070A9 /* SwipeViewController.swift */; };
@@ -41,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		050B985DA0A195DC96DEDBED /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10D67AC71CB01288007B9431 /* aggle-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "aggle-Bridging-Header.h"; sourceTree = "<group>"; };
+		10D67AC81CB01F88007B9431 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		488765526E1E050F02943ABB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		506231921CA16EAA00E070A9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		506231941CA17AC000E070A9 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +123,7 @@
 		50B7F8851C886EA40026B95F /* aggle */ = {
 			isa = PBXGroup;
 			children = (
+				10D67AC71CB01288007B9431 /* aggle-Bridging-Header.h */,
 				50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */,
 				50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */,
 				50B7F8861C886EA40026B95F /* AppDelegate.swift */,
@@ -127,6 +135,7 @@
 				50B7F88F1C886EA40026B95F /* LaunchScreen.storyboard */,
 				50B7F8921C886EA40026B95F /* Info.plist */,
 				506231941CA17AC000E070A9 /* MoreViewController.swift */,
+				10D67AC81CB01F88007B9431 /* Constants.swift */,
 			);
 			path = aggle;
 			sourceTree = "<group>";
@@ -353,6 +362,7 @@
 				506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */,
 				50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */,
 				506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */,
+				10D67AC91CB01F88007B9431 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +370,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D67ACE1CB061D9007B9431 /* ViewController.swift in Sources */,
 				50B7F89C1C886EA50026B95F /* aggleTests.swift in Sources */,
+				10D67ACA1CB01F88007B9431 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +380,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D67ACF1CB061DA007B9431 /* ViewController.swift in Sources */,
 				50B7F8A71C886EA50026B95F /* aggleUITests.swift in Sources */,
+				10D67ACB1CB01F88007B9431 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,8 +461,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "aggle/aggle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Debug;
 		};
@@ -485,7 +501,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "aggle/aggle-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -504,6 +522,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "aggle/aggle-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -521,6 +540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "aggle/aggle-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -3,7 +3,38 @@
 <plist version="1.0">
 <dict>
     
-    
+<!--    amazon aws config stuff start here (http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html) -->
+ 
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>amazonaws.com</key>
+            <dict>
+                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+            <key>amazonaws.com.cn</key>
+            <dict>
+                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+ 
+<!--    amazon aws config stuff end here-->
+
+
+
+
 
 <!--Start Max Info.plist from git pull-->
 

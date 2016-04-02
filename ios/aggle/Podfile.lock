@@ -1,15 +1,32 @@
 PODS:
+  - AWSCognito (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSCore (2.3.6)
+  - AWSS3 (2.3.6):
+    - AWSCore (= 2.3.6)
+  - ELCImagePickerController (0.2.0)
   - Firebase (2.5.1)
+  - JTSImageViewController (1.5.1)
   - Koloda (2.0.10):
     - pop (~> 1.0)
   - pop (1.0.9)
 
 DEPENDENCIES:
+  - AWSCognito
+  - AWSCore
+  - AWSS3
+  - ELCImagePickerController
   - Firebase (>= 2.5.1)
+  - JTSImageViewController
   - Koloda (~> 2.0.10)
 
 SPEC CHECKSUMS:
+  AWSCognito: af54fe65171c7c994c134e5d29b1ee60ee234825
+  AWSCore: 917d84b32974136194a905b98c0ae25c9f3350b8
+  AWSS3: 1caaf6b45100503fecf3d418c394519a89409a74
+  ELCImagePickerController: b1b7084434a7d49f2cfc916bde1f3ba353d38de9
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   Koloda: 10f747feeff5e425061f78e5ce17208783e34a99
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 

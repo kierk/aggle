@@ -12,7 +12,12 @@ import FBSDKLoginKit
 import Firebase
 
 
+
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    
+    
+    
     
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     
@@ -28,6 +33,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         self.view.addSubview(loginButton)
         print("here, loaded correctly")
+        
+        
+        
         
     }
     
@@ -91,7 +99,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         var users = [authData.uid : userInfo]
                         usersRef.updateChildValues(users)
-                        
+                        self.performSegueWithIdentifier("showNew", sender: self)
                     }
             })
             

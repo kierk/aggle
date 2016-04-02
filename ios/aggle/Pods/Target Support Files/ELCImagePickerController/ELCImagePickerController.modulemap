@@ -1,0 +1,6 @@
+framework module ELCImagePickerController {
+  umbrella header "ELCImagePickerController-umbrella.h"
+
+  export *
+  module * { export * }
+}

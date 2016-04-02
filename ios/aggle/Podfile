@@ -1,6 +1,7 @@
 #testAggle
+source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
+platform :ios, ‘8.0’
 
 
 use_frameworks! # this allows you to use import Firebase
@@ -8,6 +9,21 @@ use_frameworks! # this allows you to use import Firebase
 
 pod 'Firebase', '>= 2.5.1'
 pod 'Koloda', '~> 2.0.10'  #install Koloda libraries and also installs POP library since I guess they work together.  #change 1
+
+pod 'ELCImagePickerController'
+pod 'JTSImageViewController'
+
+#pods for AWS Mobile SDK for iOS (http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup.html)
+
+
+pod ‘AWSS3’
+pod ‘AWSCognito’
+pod ‘AWSCore’
+
+
+
+
+
 
 
 #work around fix

@@ -8,6 +8,9 @@
 
 import UIKit
 import FBSDKCoreKit
+import AWSCore
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        //********service config for amazon aws (http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup.html )********
+        
+        
+        
+        
+        
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1, identityPoolId:"us-east-1:7c69fcfc-4487-4875-89d5-8ae91a01f2f7")
+        
+        let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
+        
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+        
+        
+        
+        
+        
+        
+        
+        //***********   service config for amazon aws ends  *******************************
         
         let navBackgroundImage:UIImage! = UIImage(named: "GGnav.png")
         UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
