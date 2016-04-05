@@ -19,7 +19,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    let ref = Firebase(url:"https://aggle.firebaseio.com/")
+    let ref = Firebase(url:"https://aggle.firebaseio.com/imageURL")
     
     
     
@@ -106,14 +106,21 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 }
 
 
+//UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
-
-class UploadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,ELCImagePickerControllerDelegate {
+class UploadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,ELCImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var uploadRequests = Array<AWSS3TransferManagerUploadRequest?>()
     var uploadFileURLs = Array<NSURL?>()
+    var endURLPATH = ""
+    
+    
+    let ref = Firebase(url:"https://aggle.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,6 +213,15 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
                         self.uploadRequests[index] = nil
                         self.uploadFileURLs[index] = uploadRequest.body
                         print(self.uploadFileURLs[0])
+                        
+                        
+                        var myURL = self.uploadFileURLs[0]?.absoluteString
+                        var urlRef = self.ref.childByAppendingPath("users") // url as string
+                        
+                        //var users = [authData.uid : userInfo]
+                       // urlRef.updateChildValues(users)
+                        
+                        
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
