@@ -4,3 +4,9 @@
 *.elf
 *.secret
 *.out
+
+#adding some files that are giving me problems
+#http://stackoverflow.com/questions/4683513/xcodeproj-under-version-control/4684751#4684751
+
+*.DS_Store
+xcuserdata/
