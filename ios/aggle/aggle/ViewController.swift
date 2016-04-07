@@ -73,23 +73,25 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                         // if we make it here, user should be logged in and should be added
                         // to the users table as a registered user
                     else {
+                        
+                        self.performSegueWithIdentifier("showNew", sender: self) //here new change
                         print(authData)
                         print("Logged in! \(authData) The Users uid is \(authData.uid)")
                         print("And their display name is \(authData.providerData["displayName"])")
                         print("And their email is \(authData.providerData["email"])")
                         
                         
-                        var uid = String(authData.uid)
+                        //_ = String(authData.uid)
                         
-                        var userDisplayName = String(authData.providerData["displayName"])   // probably btter way of doing this
+                        let userDisplayName = String(authData.providerData["displayName"])   // probably btter way of doing this
                         
-                        var userEmail = String(authData.providerData["email"])
+                        let userEmail = String(authData.providerData["email"])
                         
-                        var userInfo = ["Full Name" : userDisplayName, "Email": userEmail] // key is uid
+                        let userInfo = ["Full Name" : userDisplayName, "Email": userEmail] // key is uid
                         
-                        var usersRef = self.ref.childByAppendingPath("users")
+                        let usersRef = self.ref.childByAppendingPath("users")
                         
-                        var users = [authData.uid : userInfo]
+                        let users = [authData.uid : userInfo]
                         usersRef.updateChildValues(users)
                         
                     }
