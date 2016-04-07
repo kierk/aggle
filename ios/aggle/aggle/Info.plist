@@ -2,25 +2,61 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    
+    
+
+<!--Start Max Info.plist from git pull-->
+
+<!--    <key>CFBundleURLTypes</key>-->
+<!--    <array>-->
+<!--        <dict>-->
+<!--            <key>CFBundleURLSchemes</key>-->
+<!--            <array>-->
+<!--                <string>fb1711245905757398</string>-->
+<!--            </array>-->
+<!--        </dict>-->
+<!--    </array>-->
+<!--    <key>FacebookAppID</key>-->
+<!--    <string>1711245905757398</string>-->
+<!--    <key>FacebookDisplayName</key>-->
+<!--    <string>aggle</string>-->
+<!---->
+<!--    -->
+<!--    <key>LSApplicationQueriesSchemes</key>-->
+<!--    <array>-->
+<!--        <string>fbauth2</string>-->
+<!--    </array>-->
+
+<!--End Max Info.plist from git pull-->
+
+    
+<!--Start Jose Info.plist-->
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>fb1711245905757398</string>
+                <string>fbauth2</string>
+                <string>fb1719153311701598</string>
             </array>
         </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>1711245905757398</string>
+    <string>1719153311701598</string>
     <key>FacebookDisplayName</key>
     <string>aggle</string>
-
     
     <key>LSApplicationQueriesSchemes</key>
     <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
         <string>fbauth2</string>
+        <string>fbshareextension</string>
     </array>
+    
+<!--End Jose Info.plist-->
+    
+    
     
     
 	<key>CFBundleDevelopmentRegion</key>
