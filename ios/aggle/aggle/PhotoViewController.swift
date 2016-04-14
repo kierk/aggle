@@ -13,7 +13,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     internal var base64Image = "";
     
-     let imageRef = Firebase(url:"https://aggle.firebaseio.com/")
+     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,18 +41,19 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func PostAction(sender: UIButton) {
         
         print("[PostAction] hey");
-        print(self.base64Image);
         
-        //let users = [authData.uid : userInfo]
-        //usersRef.updateChildValues(users)
+        let picBase64 = self.base64Image;
+        let description = "test description of item"
+        let price = 11235
+        let imageInfo = ["description" : description, "price" : price, "pic_base64" : picBase64, "owner_id" : "authData.uid"] // value for image uploaded
         
-        let postImaged = [self.base64Image : "test"];
+        let imageRef = ref.childByAppendingPath("items_for_sale");
+        let imageIDref = imageRef.childByAutoId()  // this generates a unique ID each time it is called. When can then use this to find the image later on. Note that this is now the ref that we will update
         
-        imageRef.updateChildValues(postImaged);
-        
-        
-        
+        imageIDref.updateChildValues(imageInfo as [NSObject : AnyObject]) // this updates the DB
     }
+    
+    
     
     @IBAction func PhotoLibraryAction(sender: UIButton) {
         
@@ -77,7 +78,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         // this stores the UIImage object in temp.
-        var image : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
+        let image : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
         let imageData = UIImagePNGRepresentation(image);
         
         
@@ -94,7 +95,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         
-        let a = 5;
+        _ = 5;
         
 
         
