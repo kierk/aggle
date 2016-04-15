@@ -1,0 +1,55 @@
+{
+  "Dislikes" : {
+    "1234" : [ "picid9", "picid10" ],
+    "9876" : [ "picid15" ]
+  },
+  "Likes" : {
+    "1234" : [ "picid3", "picid4" ],
+    "9876" : [ "picid1", "picid2" ]
+  },
+  "UserInfo" : {
+    "1234" : {
+      "Email" : "testemail_1@bu.edu",
+      "Name" : "user1"
+    },
+    "9876" : {
+      "Email" : "testemai_2@bu.edu",
+      "Name" : "user2"
+    }
+  },
+  "Users" : {
+    "1234" : {
+      "Name" : "User1",
+      "ZipCode" : "02215"
+    },
+    "9876" : {
+      "Name" : "user2",
+      "ZipCode" : "90210"
+    }
+  },
+  "for_sale" : {
+    "itemid" : [ "description", "price", "owner_id", "zipcode", "pic_base64" ]
+  },
+  "items_sold" : {
+    "itemid" : [ "price", "seller_id", "buyer_id", "date" ]
+  },
+  "TestUser" : {
+    "User_1_id" : {
+      "Info" : {
+        "Name" : "Nick",
+        "Email" : "Nvmusella@gmail.com",
+        "Zip" : "02134",
+        "selling" : {
+          "item1" : [ "description", "price", "owner_id", "zipcode", "pic_base64" ],
+          "item2" : [ "description", "price", "owner_id", "zipcode", "pic_base64" ]
+        },
+        "sold" : {
+          "item1" : [ "description", "price", "owner_id", "zipcode", "pic_base64" ],
+          "item2" : [ "description", "price", "owner_id", "zipcode", "pic_base64" ]
+        },
+        "like" : ["item1pic", "item2pic"],
+        "dislike" : ["item3pic", "item4pic"]
+      }
+    }
+  }
+}
