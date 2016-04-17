@@ -127,8 +127,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                         //print("authdata.uid is \(authData.uid)")
                         print(snapshot.value.object)
                         
-                        if snapshot.childSnapshotForPath("users/ \(authData.uid)").exists(){
+                        if !(snapshot.childSnapshotForPath("users/ \(authData.uid)").exists()){
                             usersRef.updateChildValues(users)
+                            print("here")
                         }
                     })
                     
