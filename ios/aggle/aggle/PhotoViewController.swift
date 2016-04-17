@@ -14,16 +14,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var currentImage: UIImageView!
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
@@ -128,10 +118,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     
     
-
-    
-    
-    
     @IBAction func didPressTakeAnother(sender: AnyObject) {
         captureSession!.startRunning()
     }
@@ -142,92 +128,10 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func takePicture(sender: UIButton) {
         
         
-        
-        
-        
-        
-        
-        //===========================================================================================
-        //============================== code below is for camera stuff //============================
-        //============================================================================================
-
-//            if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
-//            if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-//                imagePicker.allowsEditing = false
-//                imagePicker.sourceType = .Camera
-//                imagePicker.cameraCaptureMode = .Photo
-//                presentViewController(imagePicker, animated: true, completion: {})
-//                
-//                
-//                
-//                
-//            } else {
-//                print(("Rear camera doesn't exist", message: "Application cannot access the camera."))
-//            }
-//        } else {
-//            print(("Camera inaccessable", message: "Application cannot access the camera."))
-//        }
-        
-        
-        
     }
     
     
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.navigationItem.title = "Aggle"
-//        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-//        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    
-        
-        
-        
-        
-        
-        //===========================================================================================
-        //============================== code below is for camera stuff //============================
-        //============================================================================================
-        
-//        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//            print("Got an image")
-//            if let pickedImage:UIImage = (info[UIImagePickerControllerOriginalImage]) as? UIImage {
-//                //let selectorToCall = Selector("imageWasSavedSuccessfully:didFinishSavingWithError:context:")
-//                //UIImageWriteToSavedPhotosAlbum(pickedImage, self, selectorToCall, nil)
-//            }
-//            imagePicker.dismissViewControllerAnimated(true, completion: {
-//                print("hey")
-//                func UIImageWriteToSavedPhotosAlbum(pickedImage: UIImage){
-//                    print("heyyyyyy")
-//                }
-//            })
-//        }
-//        
-//        func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-//            print("User canceled image")
-//            dismissViewControllerAnimated(true, completion: {
-//                // Anything you want to happen when the user selects cancel
-//            })
-//        }
-//        
-//        
-//        
-//
-//        // Do any additional setup after loading the view.
-//        //super.viewDidLoad()
-    
-    //====================================================================================================//
-    //===================================================================================================//
-    
-//    }
-    
-    
-    
-    
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -235,8 +139,18 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
+    
+    //===========================================================================================
+    //============= code below is for base64 encoding of picture when pushed to db //============================
+    //============================================================================================
+    
+    
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Post: UIButton!
+    
+    
+    
+    // this function is triggered when user presses post on the app. 
     
     @IBAction func PostAction(sender: UIButton) {
         
@@ -259,8 +173,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         print("[PhotoLibraryAction] hi");
         
-        
-        
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .PhotoLibrary
@@ -271,6 +183,10 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var ImageDisplay: UIImageView!
     
+    
+    //this function is trigered when a picture is selected from the photo library.
+    // The function encodes the selected picture to base64 and sets the global variable 
+    // base64image to hold the encoded data of the image that is selected
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
         ImageDisplay.image=info[UIImagePickerControllerOriginalImage]as?UIImage;dismissViewControllerAnimated(true, completion: nil)
@@ -287,40 +203,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         // this encodes correctly
          self.base64Image = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength);
-        
-        //print("\n\n\nthis is the original data\n\n\n" + String(imageData))
-        
-        print("\nthis is the encoded data\n\n\n\n " + self.base64Image)
-        
-        
-        //this is for decoding for later
-        let decodedData = NSData(base64EncodedString: self.base64Image, options:NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        
-        //print("\n\n\n\n\n\n\n\nthis is the decoded data" + String(decodedData))
-        
-        
-        
-        
-        // for debugging breakpoints
-        
-        
-        
-        
-        _ = 5;
-        
-
-        
-        
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
