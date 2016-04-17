@@ -222,7 +222,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qD7-d1-Gdo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JId-7D-YUI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toC-MZ-zoN">
@@ -254,6 +254,7 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="zipCodeTextField" destination="iO8-TZ-r1W" id="iMr-wh-IhX"/>
                     </connections>
@@ -267,6 +268,7 @@
         <scene sceneID="NnI-In-xgd">
             <objects>
                 <tabBarController id="YBn-Gr-jxi" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3ZC-ND-GTf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,6 +330,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iHX-0Q-FUZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sell" image="camera" id="P9K-iG-N4I"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cFU-uL-dVQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -347,6 +350,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Osg-cK-400" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Messages" image="messages" id="RLv-ex-yUw"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ogs-VQ-iVQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -118,12 +118,22 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("zipcode is " + self.mainZipCode)
                         
                     let users = [authData.uid : userInfo]
-//                    
-//                    self.ref.observeSingleEventOfType(.Value, withBlock: {
-//                        snapshot in 
-//                    })
                     
-                    usersRef.updateChildValues(users)
+                    self.ref.observeSingleEventOfType(.Value, withBlock: {
+                        snapshot in
+                        
+                        // do stuff
+                        print("in here")
+                        //print(self.ref.childByAppendingPath("users/"))
+                        //print("authdata.uid is \(authData.uid)")
+                        print(snapshot.value.object)
+                        
+                        if snapshot.childSnapshotForPath("users/ \(authData.uid)").exists(){
+                            usersRef.updateChildValues(users)
+                        }
+                    })
+                    
+                    
             })
             
         }
