@@ -1,0 +1,269 @@
+{
+  "ConvoDB" : {
+    "Convo1" : {
+      "Item" : "item1",
+      "Messages" : [
+        {
+          "date" : "12315151222",
+          "from" : "Nick",
+          "to" : "Eugene",
+          "text" : "Hi, I'm interested in your Megalarge IPad9 - Nick"
+        },
+        {
+          "date" : "12315151333",
+          "from" : "Eugene",
+          "to" : "Nick",
+          "text" : "Hi Nick, it's only 500 bottle caps!"
+        },
+        {
+          "date" : "12315151444",
+          "from" : "Eugene",
+          "to" : "Nick",
+          "text" : "Are you interested?"
+        }
+      ]
+    },
+    "Convo2" : {
+      "Item" : "item1",
+      "Messages" : [
+        {
+          "date" : "12315151252",
+          "from" : "Jane",
+          "to" : "Eugene",
+          "text" : "Hi, I'm interested in your Megalarge IPad9 - Jane"
+        },
+        {
+          "date" : "12315151352",
+          "from" : "Eugene",
+          "to" : "Jane",
+          "text" : "Hi Jane, I have another offer for 500, do you want it for 550?"
+        }
+      ]
+    },
+    "Convo3" : {
+      "Item" : "item2",
+      "Messages" : [
+        {
+          "date" : "12561981771",
+          "from" : "Nick",
+          "to" : "Sally",
+          "text" : "Hi Sally, I can do $35 for your lollerskates."
+        }
+      ]
+    },
+    "Convo4" : {
+      "Item" : "item2",
+      "Messages" : [
+        {
+          "date" : "12312312311",
+          "from" : "Eugene",
+          "to" : "Sally",
+          "text" : "Hi Sally, how much for your lollerskates? - Eugene"
+        },
+        {
+          "date" : "12312312411",
+          "from" : "Sally",
+          "to" : "Eugene",
+          "text" : "They're $50, like it says."
+        },
+        {
+          "date" : "12312312911",
+          "from" : "Eugene",
+          "to" : "Sally",
+          "text" : "No need to get snappy with me! I can get them for $50 in the store."
+        }
+      ]
+    }
+  },
+
+  "ZipDB" : {
+    "00214" : {
+      "Item1" : {
+        "Description" : "descript",
+        "ItemZip" : "00214",
+        "Owner" : "User1",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : ""
+      },
+      "Item2" : {
+        "Description" : "descript",
+        "Owner" : "User1",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : "",
+        "Zipcode" : "00214"
+      },
+      "Item3" : {
+        "Description" : "descript",
+        "ItemZip" : "00214",
+        "Owner" : "User2",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : ""
+      },
+      "Item4" : {
+        "Description" : "descript",
+        "Owner" : "User2",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : "",
+        "Zipcode" : "00214"
+      }
+    },
+    "00215" : {
+      "Item5" : {
+        "Description" : "descript",
+        "ItemZip" : "00215",
+        "Owner" : "User3",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : ""
+      },
+      "Item6" : {
+        "Description" : "descript",
+        "Owner" : "User3",
+        "Pic" : "pic_base64",
+        "Price" : "$",
+        "SoldTo" : "",
+        "Zipcode" : "00215"
+      }
+    }
+  },
+
+  "UserDB" : {
+    "User1" : {
+      "Dislike" : [ "Item3", "Item4" ],
+      "Email" : "Nvmusella@gmail.com",
+      "Like" : [ "Item1", "Item2" ],
+      "Name" : "Nick",
+      "Selling" : {
+        "Item1" : {
+          "Description" : "descript",
+          "ItemZip" : "00214",
+          "Owner" : "User1",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : ""
+        },
+        "Item2" : {
+          "Description" : "descript",
+          "Owner" : "User1",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "",
+          "Zipcode" : "00214"
+        }
+      },
+      "Sold" : {
+        "Item7" : {
+          "Description" : "descript",
+          "ItemZip" : "00214",
+          "Owner" : "User1",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User2"
+        },
+        "Item8" : {
+          "Description" : "descript",
+          "Owner" : "User1",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User3",
+          "Zipcode" : "00214"
+        }
+      },
+      "Zipcode" : "00214",
+      "Conversations" : ["Convo1", "Convo3"]
+    },
+    "User2" : {
+      "Dislike" : [ "Item3", "Item4" ],
+      "Email" : "eugenek@bu.edu",
+      "Like" : [ "Item1", "Item2" ],
+      "Name" : "Eugene",
+      "Selling" : {
+        "Item3" : {
+          "Description" : "descript",
+          "ItemZip" : "00214",
+          "Owner" : "User2",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : ""
+        },
+        "Item4" : {
+          "Description" : "descript",
+          "Owner" : "User2",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "",
+          "Zipcode" : "00214"
+        }
+      },
+      "Sold" : {
+        "Item10" : {
+          "Description" : "descript",
+          "Owner" : "User2",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User3",
+          "Zipcode" : "00214"
+        },
+        "Item9" : {
+          "Description" : "descript",
+          "ItemZip" : "00214",
+          "Owner" : "User2",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User1"
+        }
+      },
+      "Zip" : "00214",
+      "Conversations" : ["Convo1", "Convo2", "Convo4"]
+    },
+    "User3" : {
+      "Dislike" : [ "Item3", "Item4" ],
+      "Email" : "mightymax@bu.edu",
+      "Like" : [ "Item1", "Item2" ],
+      "Name" : "Max",
+      "Selling" : {
+        "Item5" : {
+          "Description" : "descript",
+          "ItemZip" : "00215",
+          "Owner" : "User3",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : ""
+        },
+        "Item6" : {
+          "Description" : "descript",
+          "Owner" : "User3",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "",
+          "Zipcode" : "00215"
+        }
+      },
+      "Sold" : {
+        "Item11" : {
+          "Description" : "descript",
+          "ItemZip" : "00215",
+          "Owner" : "User3",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User1"
+        },
+        "Item12" : {
+          "Description" : "descript",
+          "Owner" : "User3",
+          "Pic" : "pic_base64",
+          "Price" : "$",
+          "SoldTo" : "User2",
+          "Zipcode" : "00215"
+        }
+      },
+      "Zip" : "00215"
+    }
+  }
+
+
+}
