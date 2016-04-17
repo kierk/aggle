@@ -28,9 +28,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxi-y7-hg3">
                                 <rect key="frame" x="153" y="223" width="70" height="30"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="enterZip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ftz-wg-flR"/>
                                 </connections>
@@ -38,11 +36,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter zip code first!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-dv-4oB">
                                 <rect key="frame" x="44" y="108" width="286" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gj9-0o-zZo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="156" id="Dzg-TP-Boe"/>
                             <constraint firstItem="zxi-y7-hg3" firstAttribute="top" secondItem="gj9-0o-zZo" secondAttribute="bottom" constant="17" id="Ikq-a1-0K9"/>
