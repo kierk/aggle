@@ -14,9 +14,13 @@ import Firebase
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var zipText: UITextField!
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     var mainZipCode : String = ""
     
+    @IBAction func enterZip(sender: AnyObject) {
+        self.mainZipCode = zipText.text!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +45,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
             FBSDKProfile.setCurrentProfile(nil)
             
-            // if user doesn't have token, he isn't registered, so make him enter a zipcode
-            self.performSegueWithIdentifier("ZipCode", sender: self)
+
             print("AccessToken doesn't exist exists")
             
             
@@ -130,22 +133,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("in logout");
         
     }
-    
-    
-    @IBAction func cancelZipCodeViewController(segue:UIStoryboardSegue) {
-        self.mainZipCode = "02215"
-    }
-    
-    
-    @IBAction func saveZipCode(segue:UIStoryboardSegue) {
-        if let zipCodeViewController = segue.sourceViewController as? ZipCodeViewController{
-            //self.mainZipCode = zipCodeViewController.mainZipCode!
-            print("here")
-            //print(self.mainZipCode)
-            //print(zipCodeViewController.mainZipCode)
-            print(self.mainZipCode)
-        }
-    }
+
     
     
 }
