@@ -25,6 +25,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Aggle"
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print("[\nViewController/viewDidLoad] hi");
         //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
