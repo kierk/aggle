@@ -11,6 +11,19 @@ import Firebase
 import AVFoundation
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBOutlet weak var currentImage: UIImageView!
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
@@ -18,9 +31,114 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     internal var base64Image = "";
     
      let ref = Firebase(url:"https://aggle.firebaseio.com/")
-     
     
-    // this is button
+    
+    
+    @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var capturedImage: UIImageView!
+
+    
+    
+    var captureSession: AVCaptureSession?
+    var stillImageOutput: AVCaptureStillImageOutput?
+    var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = "Aggle"
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+    }
+    
+    
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+        captureSession = AVCaptureSession()
+        captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
+        
+        let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        
+        var error: NSError?
+        var input: AVCaptureDeviceInput!
+        do {
+            input = try AVCaptureDeviceInput(device: backCamera)
+        } catch let error1 as NSError {
+            error = error1
+            input = nil
+        }
+        
+        if error == nil && captureSession!.canAddInput(input) {
+            captureSession!.addInput(input)
+            
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+            if captureSession!.canAddOutput(stillImageOutput) {
+                captureSession!.addOutput(stillImageOutput)
+                
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewView.layer.addSublayer(previewLayer!)
+                capturedImage.layer.addSublayer(previewLayer!)
+                captureSession!.startRunning()
+            }
+        }
+        
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        previewLayer!.frame = previewView.bounds
+    }
+    
+    
+    @IBAction func didPressTakePhoto(sender: UIButton) {
+        
+        
+        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+                if (sampleBuffer != nil) {
+                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
+                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
+                    
+                    
+                    //let image = UIImageView(image: cgImageRef!, highlightedImage: 1.0)
+                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+                    self.capturedImage.image = image
+                    //self.previewView.i = image
+                    
+                }
+            })
+        }
+    }
+
+    
+    
+
+    
+    
+    
+    @IBAction func didPressTakeAnother(sender: AnyObject) {
+        captureSession!.startRunning()
+    }
+    
+    
+    
+
     @IBAction func takePicture(sender: UIButton) {
         
         
@@ -56,12 +174,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.title = "Aggle"
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.navigationItem.title = "Aggle"
+//        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+//        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    
+        
+        
+        
         
         
         //===========================================================================================
@@ -98,7 +220,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //====================================================================================================//
     //===================================================================================================//
     
-    }
+//    }
     
     
     
@@ -128,7 +250,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let imageRef = ref.childByAppendingPath("items_for_sale");
         let imageIDref = imageRef.childByAutoId()  // this generates a unique ID each time it is called. When can then use this to find the image later on. Note that this is now the ref that we will update
         
-        imageIDref.updateChildValues(imageInfo as [NSObject : AnyObject]) // this updates the DB
+        imageIDref.updateChildValues(imageInfo as! [NSObject : AnyObject]) // this updates the DB
     }
     
     

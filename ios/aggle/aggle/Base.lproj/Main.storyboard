@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
                                 <rect key="frame" x="16" y="20" width="134" height="30"/>
                                 <state key="normal" title="Open Photo Library">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,10 +85,7 @@
                                     <action selector="PhotoLibraryAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="JZP-Zj-GoW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-vb-wEF">
-                                <rect key="frame" x="16" y="342" width="343" height="173"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
                                 <rect key="frame" x="311" y="20" width="48" height="30"/>
                                 <state key="normal" title="Post it!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,41 +94,39 @@
                                     <action selector="PostAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="kfX-tl-KHS"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LK-tV-KtW">
-                                <rect key="frame" x="340" y="112" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
+                                <rect key="frame" x="20" y="58" width="339" height="454"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyc-ZL-Whx">
-                                <rect key="frame" x="108" y="146" width="95" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
+                                <rect key="frame" x="20" y="58" width="339" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
+                                <rect key="frame" x="164" y="556" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="takePicture:" destination="JUM-fB-Cal" eventType="touchUpInside" id="wJo-WC-McR"/>
+                                    <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VeF-6x-ZFE" firstAttribute="trailing" secondItem="qJ6-vb-wEF" secondAttribute="trailing" id="7Xr-Rp-rJ4"/>
                             <constraint firstItem="VeF-6x-ZFE" firstAttribute="baseline" secondItem="PjC-xZ-tbj" secondAttribute="baseline" id="MIl-rz-Gog"/>
-                            <constraint firstItem="qJ6-vb-wEF" firstAttribute="trailing" secondItem="mq5-Uw-U42" secondAttribute="trailingMargin" id="MY3-hi-5NX"/>
-                            <constraint firstItem="qJ6-vb-wEF" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leadingMargin" id="c7T-8y-8HO"/>
                             <constraint firstItem="PjC-xZ-tbj" firstAttribute="top" secondItem="vtI-5A-KhS" secondAttribute="bottom" constant="68" id="eKc-kV-dFk"/>
-                            <constraint firstItem="qJ6-vb-wEF" firstAttribute="top" secondItem="PjC-xZ-tbj" secondAttribute="bottom" constant="16" id="gee-ac-seU"/>
-                            <constraint firstItem="6DZ-9Z-bot" firstAttribute="top" secondItem="qJ6-vb-wEF" secondAttribute="bottom" constant="85" id="lvE-1j-sw1"/>
-                            <constraint firstItem="qJ6-vb-wEF" firstAttribute="leading" secondItem="PjC-xZ-tbj" secondAttribute="leading" id="nUN-OO-Hky"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4O6-MU-zAu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ImageDisplay" destination="qJ6-vb-wEF" id="uAS-DW-AM7"/>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
                         <outlet property="Post" destination="VeF-6x-ZFE" id="9AV-eC-eb7"/>
-                        <outlet property="currentImage" destination="0LK-tV-KtW" id="M1x-5K-9dE"/>
+                        <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
+                        <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3484.5" y="451.5"/>
+            <point key="canvasLocation" x="3484.5" y="493.5"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="UwJ-As-ROU">
