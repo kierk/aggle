@@ -57,7 +57,6 @@
                     <connections>
                         <outlet property="zipText" destination="gj9-0o-zZo" id="zht-c9-qhS"/>
                         <segue destination="YBn-Gr-jxi" kind="presentation" identifier="showNew" id="KVc-c6-tzB"/>
-                        <segue destination="NRE-jm-Sls" kind="presentation" identifier="ZipCode" id="Tmk-FT-K6m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,8 +119,13 @@
                     <connections>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
                         <outlet property="Post" destination="VeF-6x-ZFE" id="9AV-eC-eb7"/>
+<<<<<<< HEAD
                         <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
                         <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>
+=======
+                        <outlet property="currentImage" destination="0LK-tV-KtW" id="M1x-5K-9dE"/>
+                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
+>>>>>>> efde07ff948c4c180a8b7f79a20a9573db49ea96
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,11 +154,76 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="showImage" destination="uru-Pi-XyD" id="ePi-3Z-ZJt"/>
+                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="convoSettingsSegue" id="KyI-zR-qsZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhN-TJ-W2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3485" y="1299"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Mee-g6-qyL">
+            <objects>
+                <viewController id="3UG-oP-jNF" customClass="SettingsViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="20g-32-3bj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ta6-7V-umX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEf-MQ-mjA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8G-GS-OkY">
+                                <rect key="frame" x="57" y="49" width="261" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="1NR-Bc-wMy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jML-va-aev">
+                                <rect key="frame" x="20" y="584" width="62" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="8wz-Fh-tvZ"/>
+                                    <constraint firstAttribute="width" constant="62" id="pua-qF-Yqj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <segue destination="YBn-Gr-jxi" kind="presentation" id="62K-RY-A0p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-dj-MJc">
+                                <rect key="frame" x="293" y="584" width="62" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="PML-ub-rJP"/>
+                                    <constraint firstAttribute="width" constant="62" id="Yi1-eS-HAS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="YBn-Gr-jxi" kind="presentation" id="QgY-Ws-uIF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C8G-GS-OkY" firstAttribute="leading" secondItem="cEf-MQ-mjA" secondAttribute="leadingMargin" constant="41" id="Cop-nj-38c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xFU-dj-MJc" secondAttribute="trailing" constant="4" id="Rc0-N9-Q8n"/>
+                            <constraint firstItem="C8G-GS-OkY" firstAttribute="top" secondItem="20g-32-3bj" secondAttribute="bottom" constant="29" id="SPq-MY-JHq"/>
+                            <constraint firstItem="xFU-dj-MJc" firstAttribute="baseline" secondItem="jML-va-aev" secondAttribute="baseline" id="ckT-DG-qks"/>
+                            <constraint firstItem="C8G-GS-OkY" firstAttribute="centerX" secondItem="cEf-MQ-mjA" secondAttribute="centerX" id="iQV-Q1-9wi"/>
+                            <constraint firstItem="jML-va-aev" firstAttribute="leading" secondItem="cEf-MQ-mjA" secondAttribute="leadingMargin" constant="4" id="wec-Ky-7gz"/>
+                            <constraint firstAttribute="bottom" secondItem="jML-va-aev" secondAttribute="bottom" constant="20" symbolic="YES" id="yfI-pR-jqZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="79V-H0-qBA"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xq6-RU-7Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4557.5" y="978.5"/>
         </scene>
         <!--More View Controller-->
         <scene sceneID="UOn-gz-KLn">
@@ -186,6 +255,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="wKp-Nb-uiw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="moreSettingsSegue" id="B2q-QZ-kf4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NU-eR-Uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,61 +278,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="XKr-iQ-Pdu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="swipeSettingsSegue" id="MJa-na-BLR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVz-gd-B0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3484.5" y="-360.5"/>
-        </scene>
-        <!--ZipCode-->
-        <scene sceneID="Oyn-Ec-gjf">
-            <objects>
-                <viewController title="ZipCode" id="NRE-jm-Sls" customClass="ZipCodeViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jaY-nv-5oC"/>
-                        <viewControllerLayoutGuide type="bottom" id="qD7-d1-Gdo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JId-7D-YUI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toC-MZ-zoN">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Enter ZipCode" id="Awg-jK-CoF">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0eJ-at-Rz8">
-                                            <color key="tintColor" red="0.66666666669999997" green="0.088008591950000006" blue="0.1052317742" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="E1E-7B-ktW" kind="unwind" identifier="CancelZipCode" unwindAction="cancelZipCodeViewController:" id="Szc-Nl-PI3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="S3p-5D-8Cw">
-                                            <color key="tintColor" red="0.66666666669999997" green="0.088008591950000006" blue="0.1052317742" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="E1E-7B-ktW" kind="unwind" identifier="SaveZipCode" unwindAction="saveZipCode:" id="Srs-NZ-lbF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZipCode" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-TZ-r1W">
-                                <rect key="frame" x="139" y="319" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="zipCodeTextField" destination="iO8-TZ-r1W" id="iMr-wh-IhX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gBp-0i-ojo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="E1E-7B-ktW" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1792.5" y="202.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NnI-In-xgd">
@@ -388,6 +412,8 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="62K-RY-A0p"/>
+        <segue reference="pdX-rs-tLg"/>
         <segue reference="vFD-4n-F7H"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

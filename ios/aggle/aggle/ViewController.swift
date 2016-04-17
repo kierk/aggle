@@ -19,8 +19,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var mainZipCode : String = ""
     
     @IBAction func enterZip(sender: AnyObject) {
-        self.mainZipCode = zipText.text!
-        zipText.text = ""
+        if (Int(zipText.text!) != nil && zipText.text!.characters.count == 5){
+            self.mainZipCode = zipText.text!
+            zipText.text = ""
+        }
+        else{
+            let alert = UIAlertView()
+            alert.message = "Enter a valid zip code please"
+            alert.addButtonWithTitle("Okay")
+            alert.show()
+        }
     }
     
     override func viewDidLoad() {
@@ -95,7 +103,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             
             
-            
             let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
             ref.authWithOAuthProvider("facebook", token: accessToken,
@@ -113,33 +120,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     let userDisplayName = String(authData.providerData["displayName"])   // probably btter way of doing this
                         
                     let userEmail = String(authData.providerData["email"])
-                    let zipCode = self.mainZipCode
                     
+                    if (self.mainZipCode == ""){
+                        self.mainZipCode = "02215"
+                    }
                     
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": zipCode] // key is uid
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": self.mainZipCode] // key is uid
                         
                     let usersRef = self.ref.childByAppendingPath("users")
                     print("zipcode is " + self.mainZipCode)
                         
                     let users = [authData.uid : userInfo]
+                    usersRef.updateChildValues(users)
                     
-                    
-                    // still buggy, for some reason keeps 
-                    
-                    self.ref.childByAppendingPath("users").observeSingleEventOfType(.Value, withBlock: {
-                        snapshot in
-                        
-                        // do stuff
-                        print("in here")
-                        //print(self.ref.childByAppendingPath("users/"))
-                        //print("authdata.uid is \(authData.uid)")
-                        //print(snapshot.value.object)
-                        print(snapshot.childSnapshotForPath("users/ \(authData.uid)"))
-                        if !(snapshot.childSnapshotForPath("users/ \(authData.uid)").exists()){
-                            usersRef.updateChildValues(users)
-                            print("here")
-                        }
-                    })
                     
                     
             })

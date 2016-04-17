@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5002F5551CC411B500894BBE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002F5541CC411B500894BBE /* SettingsViewController.swift */; };
 		501755F91CBAD84000239F9E /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501755F81CBAD84000239F9E /* PictureView.swift */; };
 		501755FB1CBADA0500239F9E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501755FA1CBADA0500239F9E /* MessageViewController.swift */; };
 		506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231921CA16EAA00E070A9 /* PhotoViewController.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		050B985DA0A195DC96DEDBED /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		488765526E1E050F02943ABB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5002F5541CC411B500894BBE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		501755F81CBAD84000239F9E /* PictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
 		501755FA1CBADA0500239F9E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		506231921CA16EAA00E070A9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				50B7F88D1C886EA40026B95F /* Assets.xcassets */,
 				50B7F88F1C886EA40026B95F /* LaunchScreen.storyboard */,
 				50B7F8921C886EA40026B95F /* Info.plist */,
+				5002F5541CC411B500894BBE /* SettingsViewController.swift */,
 			);
 			path = aggle;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */,
 				506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */,
 				501755FB1CBADA0500239F9E /* MessageViewController.swift in Sources */,
+				5002F5551CC411B500894BBE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

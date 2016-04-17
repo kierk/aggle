@@ -26,9 +26,13 @@ class MessageViewController: UIViewController {
     override func viewDidLoad() {
         print("[viewDidLoad] hi")
         super.viewDidLoad()
+        self.navigationItem.title = "Aggle"
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        
-//        self.navigationItem.title = "Aggle"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MessageViewController.setBttnTouched(_:)))
+
 //        
 //        let imageRef = Firebase(url: "https://aggle.firebaseio.com/items_for_sale")
 //        
@@ -65,9 +69,17 @@ class MessageViewController: UIViewController {
 //        })
     }
     
+    
+    
+    func setBttnTouched(sender: UIBarButtonItem) {
+        
+        performSegueWithIdentifier("convoSettingsSegue", sender: self)
+        
+    }
+    
 }
 
-        
+
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         //self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
