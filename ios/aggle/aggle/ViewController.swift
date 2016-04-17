@@ -15,13 +15,15 @@ import Firebase
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
+    var mainZipCode : String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("top function");
-        // FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        // FBSDKProfile.setCurrentProfile(nil)
+        print("[\nViewController/viewDidLoad] hi");
+        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        FBSDKProfile.setCurrentProfile(nil)
         
         
         
@@ -34,7 +36,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         else{   //if user doesn't have token, go here
+            
+            
+            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            FBSDKProfile.setCurrentProfile(nil)
+            
+            // if user doesn't have token, he isn't registered, so make him enter a zipcode
+            self.performSegueWithIdentifier("ZipCode", sender: self)
             print("AccessToken doesn't exist exists")
+            
+            
             //print(FBSDKAccessToken.currentAccessToken().userID)
             
             let loginButton = FBSDKLoginButton()
@@ -59,15 +70,23 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-
-        print("button has been clicked")
+        
+        print("[\nViewController/loginButton] hi");
+        
         
         if error != nil {  // This means we have an error
             print(error.localizedDescription)
             
-        } else {
+        }
+        
+        
+        
+        else {
             
-            print("in login else");
+            print("[\nViewController/loginButton] in login else");
+            
+            
+            
             
             let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
@@ -76,6 +95,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     
                     self.performSegueWithIdentifier("showNew", sender: self) //here new change
+                    
                     print(authData)
                     print("Logged in! \(authData) The Users uid is \(authData.uid)")
                     print("And their display name is \(authData.providerData["displayName"])")
@@ -85,13 +105,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     let userDisplayName = String(authData.providerData["displayName"])   // probably btter way of doing this
                         
                     let userEmail = String(authData.providerData["email"])
-                        
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail] // key is uid
+                    let zipCode = self.mainZipCode
+                    
+                    
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": zipCode] // key is uid
                         
                     let usersRef = self.ref.childByAppendingPath("users")
-                        
+                    print("zipcode is " + self.mainZipCode)
                         
                     let users = [authData.uid : userInfo]
+//                    
+//                    self.ref.observeSingleEventOfType(.Value, withBlock: {
+//                        snapshot in 
+//                    })
+                    
                     usersRef.updateChildValues(users)
             })
             
@@ -105,8 +132,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
+    @IBAction func cancelZipCodeViewController(segue:UIStoryboardSegue) {
+        self.mainZipCode = "02215"
+    }
     
     
+    @IBAction func saveZipCode(segue:UIStoryboardSegue) {
+        if let zipCodeViewController = segue.sourceViewController as? ZipCodeViewController{
+            //self.mainZipCode = zipCodeViewController.mainZipCode!
+            print("here")
+            //print(self.mainZipCode)
+            //print(zipCodeViewController.mainZipCode)
+            print(self.mainZipCode)
+        }
+    }
     
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,13 +15,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="rkj-BX-vkF"/>
                     <connections>
                         <segue destination="YBn-Gr-jxi" kind="presentation" identifier="showNew" id="KVc-c6-tzB"/>
+                        <segue destination="NRE-jm-Sls" kind="presentation" identifier="ZipCode" id="Tmk-FT-K6m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -37,11 +38,11 @@
                         <viewControllerLayoutGuide type="bottom" id="6DZ-9Z-bot"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mq5-Uw-U42">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
-                                <rect key="frame" x="20" y="20" width="134" height="30"/>
+                                <rect key="frame" x="16" y="20" width="134" height="30"/>
                                 <state key="normal" title="Open Photo Library">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -49,16 +50,26 @@
                                     <action selector="PhotoLibraryAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="JZP-Zj-GoW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-vb-wEF">
-                                <rect key="frame" x="20" y="134" width="560" height="381"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-vb-wEF">
+                                <rect key="frame" x="16" y="342" width="343" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
-                                <rect key="frame" x="532" y="20" width="48" height="30"/>
+                                <rect key="frame" x="311" y="20" width="48" height="30"/>
                                 <state key="normal" title="Post it!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PostAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="kfX-tl-KHS"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LK-tV-KtW">
+                                <rect key="frame" x="340" y="112" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyc-ZL-Whx">
+                                <rect key="frame" x="108" y="146" width="95" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="JUM-fB-Cal" eventType="touchUpInside" id="wJo-WC-McR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,11 +90,12 @@
                         <outlet property="ImageDisplay" destination="qJ6-vb-wEF" id="uAS-DW-AM7"/>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
                         <outlet property="Post" destination="VeF-6x-ZFE" id="9AV-eC-eb7"/>
+                        <outlet property="currentImage" destination="0LK-tV-KtW" id="M1x-5K-9dE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3505" y="640"/>
+            <point key="canvasLocation" x="3484.5" y="451.5"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="UwJ-As-ROU">
@@ -94,15 +106,23 @@
                         <viewControllerLayoutGuide type="bottom" id="sjd-Gv-Ade"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FRf-8O-XiL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uru-Pi-XyD">
+                                <rect key="frame" x="67" y="270" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hJu-6P-75S"/>
+                    <connections>
+                        <outlet property="showImage" destination="uru-Pi-XyD" id="ePi-3Z-ZJt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhN-TJ-W2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="1383"/>
+            <point key="canvasLocation" x="3485" y="1299"/>
         </scene>
         <!--More View Controller-->
         <scene sceneID="UOn-gz-KLn">
@@ -113,11 +133,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2oW-Vw-F49"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uuJ-gJ-01j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upk-fP-16L">
-                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <rect key="frame" x="164" y="319" width="48" height="30"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -147,15 +167,66 @@
                         <viewControllerLayoutGuide type="bottom" id="T4e-cn-nT4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hLS-h5-tsR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="XKr-iQ-Pdu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVz-gd-B0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="-88"/>
+            <point key="canvasLocation" x="3484.5" y="-360.5"/>
+        </scene>
+        <!--ZipCode-->
+        <scene sceneID="Oyn-Ec-gjf">
+            <objects>
+                <viewController title="ZipCode" id="NRE-jm-Sls" customClass="ZipCodeViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jaY-nv-5oC"/>
+                        <viewControllerLayoutGuide type="bottom" id="qD7-d1-Gdo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JId-7D-YUI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toC-MZ-zoN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Enter ZipCode" id="Awg-jK-CoF">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0eJ-at-Rz8">
+                                            <color key="tintColor" red="0.66666666669999997" green="0.088008591950000006" blue="0.1052317742" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="E1E-7B-ktW" kind="unwind" identifier="CancelZipCode" unwindAction="cancelZipCodeViewController:" id="Szc-Nl-PI3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="S3p-5D-8Cw">
+                                            <color key="tintColor" red="0.66666666669999997" green="0.088008591950000006" blue="0.1052317742" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="E1E-7B-ktW" kind="unwind" identifier="SaveZipCode" unwindAction="saveZipCode:" id="Srs-NZ-lbF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZipCode" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-TZ-r1W">
+                                <rect key="frame" x="139" y="319" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="zipCodeTextField" destination="iO8-TZ-r1W" id="iMr-wh-IhX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBp-0i-ojo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="E1E-7B-ktW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1792.5" y="202.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NnI-In-xgd">
@@ -182,6 +253,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qnj-1q-hjN" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CTI-wj-yzz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -201,6 +273,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8YL-Aq-uqc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="Wmf-6r-eqt"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gyk-BH-gNa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -270,6 +343,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nf8-DO-MB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2685" y="2129"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NUp-aV-Z4C">
+            <objects>
+                <viewController id="GwQ-6l-Iz0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FAy-3b-2Mx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLv-QB-3ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
