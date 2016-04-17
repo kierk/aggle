@@ -20,6 +20,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBAction func enterZip(sender: AnyObject) {
         self.mainZipCode = zipText.text!
+        zipText.text = ""
     }
     
     override func viewDidLoad() {
