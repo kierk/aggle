@@ -63,6 +63,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(PhotoViewController.setBttnTouched(_:)))
         
         //===========================================================================================
         //============================== code below is for camera stuff //============================
@@ -103,6 +104,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
+    func setBttnTouched(sender: UIBarButtonItem) {
+        
+        performSegueWithIdentifier("photoSettingsSegue", sender: self)
+        
+    }
     
     
     

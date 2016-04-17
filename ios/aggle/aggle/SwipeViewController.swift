@@ -48,6 +48,12 @@ class SwipeViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(SwipeViewController.setBttnTouched(_:)))
+        
+        
         // Start with a 0 score
         score = 0
         
@@ -72,6 +78,12 @@ class SwipeViewController: UIViewController {
         self.view.addGestureRecognizer(pan)
     }
     //--------------------------------------------------------------------------------------------------//
+    
+    func setBttnTouched(sender: UIBarButtonItem) {
+        
+        performSegueWithIdentifier("swipeSettingsSegue", sender: self)
+        
+    }
     
     
     //--------------------------------------------------------------------------------------------------//

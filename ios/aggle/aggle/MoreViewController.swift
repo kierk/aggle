@@ -17,8 +17,17 @@ class MoreViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
+        
         // Do any additional setup after loading the view.
     }
+    
+    func setBttnTouched(sender: UIBarButtonItem) {
+        
+        performSegueWithIdentifier("moreSettingsSegue", sender: self)
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
