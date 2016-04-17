@@ -20,6 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="rkj-BX-vkF"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="YBn-Gr-jxi" kind="presentation" identifier="showNew" id="KVc-c6-tzB"/>
                         <segue destination="NRE-jm-Sls" kind="presentation" identifier="ZipCode" id="Tmk-FT-K6m"/>
@@ -38,7 +39,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6DZ-9Z-bot"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mq5-Uw-U42">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
@@ -106,7 +107,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sjd-Gv-Ade"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FRf-8O-XiL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uru-Pi-XyD">
@@ -133,10 +134,10 @@
                         <viewControllerLayoutGuide type="bottom" id="2oW-Vw-F49"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uuJ-gJ-01j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upk-fP-16L">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upk-fP-16L">
                                 <rect key="frame" x="164" y="319" width="48" height="30"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,6 +220,7 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="zipCodeTextField" destination="iO8-TZ-r1W" id="iMr-wh-IhX"/>
                     </connections>
@@ -232,6 +234,7 @@
         <scene sceneID="NnI-In-xgd">
             <objects>
                 <tabBarController id="YBn-Gr-jxi" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3ZC-ND-GTf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,6 +296,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iHX-0Q-FUZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sell" image="camera" id="P9K-iG-N4I"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cFU-uL-dVQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,6 +316,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Osg-cK-400" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Messages" image="messages" id="RLv-ex-yUw"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ogs-VQ-iVQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -343,19 +348,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nf8-DO-MB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2685" y="2129"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="NUp-aV-Z4C">
-            <objects>
-                <viewController id="GwQ-6l-Iz0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FAy-3b-2Mx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QLv-QB-3ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
