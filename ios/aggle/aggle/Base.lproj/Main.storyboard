@@ -93,11 +93,8 @@
                                     <action selector="PostAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="kfX-tl-KHS"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
-                                <rect key="frame" x="20" y="58" width="339" height="454"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
-                                <rect key="frame" x="20" y="58" width="339" height="454"/>
+                                <rect key="frame" x="20" y="58" width="339" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
@@ -107,6 +104,9 @@
                                     <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
+                                <rect key="frame" x="16" y="358" width="339" height="162"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -119,13 +119,7 @@
                     <connections>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
                         <outlet property="Post" destination="VeF-6x-ZFE" id="9AV-eC-eb7"/>
-<<<<<<< HEAD
-                        <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
-                        <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>
-=======
-                        <outlet property="currentImage" destination="0LK-tV-KtW" id="M1x-5K-9dE"/>
                         <segue destination="3UG-oP-jNF" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
->>>>>>> efde07ff948c4c180a8b7f79a20a9573db49ea96
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>

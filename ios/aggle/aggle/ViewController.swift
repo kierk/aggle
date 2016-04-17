@@ -51,6 +51,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.performSegueWithIdentifier("showNew", sender: self)
             
         }
+            
+            
+        
         
         else{   //if user doesn't have token, go here
             
@@ -95,7 +98,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             
         }
         
-        
+        else if result.isCancelled {
+            
+        }
+            
+            
         
         else {
             

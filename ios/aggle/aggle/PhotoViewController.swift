@@ -81,7 +81,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
                 previewView.layer.addSublayer(previewLayer!)
-                capturedImage.layer.addSublayer(previewLayer!)
                 captureSession!.startRunning()
             }
         }
