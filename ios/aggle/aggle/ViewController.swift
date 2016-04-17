@@ -39,8 +39,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print("[\nViewController/viewDidLoad] hi");
-        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        FBSDKProfile.setCurrentProfile(nil)
+        //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        //FBSDKProfile.setCurrentProfile(nil)
         
         
         
@@ -55,8 +55,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         else{   //if user doesn't have token, go here
             
             
-            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-            FBSDKProfile.setCurrentProfile(nil)
+            //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            //FBSDKProfile.setCurrentProfile(nil)
             
 
             print("AccessToken doesn't exist exists")
@@ -132,6 +132,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("zipcode is " + self.mainZipCode)
                         
                     let users = [authData.uid : userInfo]
+<<<<<<< HEAD
                     usersRef.updateChildValues(users)
 //                    self.ref.observeSingleEventOfType(.Value, withBlock: {
 //                        snapshot in
@@ -146,6 +147,26 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 //                            usersRef.updateChildValues(users)
 //                        }
 //                    })
+=======
+                    
+                    
+                    // still buggy, for some reason keeps 
+                    
+                    self.ref.childByAppendingPath("users").observeSingleEventOfType(.Value, withBlock: {
+                        snapshot in
+                        
+                        // do stuff
+                        print("in here")
+                        //print(self.ref.childByAppendingPath("users/"))
+                        //print("authdata.uid is \(authData.uid)")
+                        //print(snapshot.value.object)
+                        print(snapshot.childSnapshotForPath("users/ \(authData.uid)"))
+                        if !(snapshot.childSnapshotForPath("users/ \(authData.uid)").exists()){
+                            usersRef.updateChildValues(users)
+                            print("here")
+                        }
+                    })
+>>>>>>> f2dcb5471ff4cd45cc5f175903e827687144bab1
                     
                     
             })
