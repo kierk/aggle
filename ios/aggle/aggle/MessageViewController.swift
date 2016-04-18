@@ -8,7 +8,8 @@
 
 import UIKit
 import Firebase
-class MessageViewController: UIViewController {
+import JSQMessagesViewController
+class MessageViewController: JSQMessagesViewController {
 
     
     @IBOutlet weak var showImage: UIImageView!
@@ -18,13 +19,22 @@ class MessageViewController: UIViewController {
     //let imageRef = Firebase(url: "https://aggle.firebaseio.com/items_for_sale")
     
     
-    
-    
-    
+    var ref = Firebase(url: "https://aggle.firebaseio.com")
+    let myJSQMessagesViewController = JSQMessagesViewController()
     
     
     override func viewDidLoad() {
+        self.senderId = ref.authData.uid
+        self.senderDisplayName = "Jose"
+        //self.myJSQMessagesViewController.senderId = String(self.ref.authData.uid)
+        //self.myJSQMessagesViewController.senderDisplayName = "Joe"
+        
+        
+        print(ref.authData.uid)
         print("[viewDidLoad] hi")
+        
+        
+        
         super.viewDidLoad()
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
@@ -32,6 +42,12 @@ class MessageViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MessageViewController.setBttnTouched(_:)))
+        
+        
+        
+        
+        
+        
 
 //        
 //        let imageRef = Firebase(url: "https://aggle.firebaseio.com/items_for_sale")
