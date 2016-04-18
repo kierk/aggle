@@ -17,9 +17,10 @@ class MessageViewController: JSQMessagesViewController {
     
     //@IBOutlet var showImage: UIImageView!
     //let imageRef = Firebase(url: "https://aggle.firebaseio.com/items_for_sale")
+    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    var messageRef: Firebase!
     
-    
-    var ref = Firebase(url: "https://aggle.firebaseio.com")
+    var ref = Firebase(url:"https://aggle.firebaseio.com/")
     
     var messages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
@@ -29,8 +30,9 @@ class MessageViewController: JSQMessagesViewController {
         self.senderId = ref.authData.uid
         self.senderDisplayName = "Jose"
         setupBubbles()
+        messageRef = rootRef.childByAppendingPath("messages")
         
-        
+        // not sure what these are supposed to do, they give an error whenever I run them
         
         //collectionView!.collectionViewLayout.incomingAvatarViewSize =
         //collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -91,16 +93,42 @@ class MessageViewController: JSQMessagesViewController {
         }
     
     
-        override func viewDidAppear(animated: Bool) {
-            super.viewDidAppear(animated)
-            // messages from someone else
-            addMessage("foo", text: "Hey person!")
-            // messages sent from local sender
-            addMessage(senderId, text: "Yo!")
-            addMessage(senderId, text: "I like turtles!")
-            // animates the receiving of a new message on the view
-            finishReceivingMessage()
+    
+        //When send button is pressed, this adds the message to the database.
+        override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
+            
+            let itemRef = messageRef.childByAutoId() // 1
+            let messageItem = [ // 2
+                "text": text,
+                "senderId": senderId
+            ]
+            itemRef.setValue(messageItem) // 3
+            
+            // 4
+            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+            // 5
+            finishSendingMessage()
         }
+    
+    
+    
+        // this changes the text color in the textbubbles
+        override func collectionView(collectionView: UICollectionView,
+                                 cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+            let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+                as! JSQMessagesCollectionViewCell
+        
+            let message = messages[indexPath.item]
+        
+            if message.senderId == senderId {
+                cell.textView!.textColor = UIColor.whiteColor()
+            } else {
+                cell.textView!.textColor = UIColor.blackColor()
+            }
+        
+        return cell
+    }
         
         
 
