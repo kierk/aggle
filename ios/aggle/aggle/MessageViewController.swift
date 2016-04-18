@@ -53,6 +53,13 @@ class MessageViewController: JSQMessagesViewController {
         }
     
     
+        override func viewDidAppear(animated: Bool) {
+            super.viewDidAppear(animated)
+            observeMessages()
+        }
+    
+    
+    
         override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
             return messages[indexPath.item]
         }
@@ -128,7 +135,25 @@ class MessageViewController: JSQMessagesViewController {
             }
         
         return cell
-    }
+        }
+    
+    // this will query messages from the db and update them in the chat screen
+        private func observeMessages() {
+            // 1
+            let messagesQuery = messageRef.queryLimitedToLast(25)
+            // 2
+            messagesQuery.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+                // 3
+                let id = snapshot.value["senderId"] as! String
+                let text = snapshot.value["text"] as! String
+            
+                // 4
+                self.addMessage(id, text: text)
+            
+                // 5
+                self.finishReceivingMessage()
+            }
+        }
         
         
 
