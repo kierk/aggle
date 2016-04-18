@@ -7,10 +7,11 @@ use_frameworks! # this allows you to use import Firebase
 
 
 pod 'Firebase', '>= 2.5.1'
-pod 'Koloda', '~> 2.0.10'  #install Koloda libraries and also installs POP library since I guess they work together.  #change 1
+pod 'JSQMessagesViewController'
 
 
 #work around fix
-post_install do |installer|
-    `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
-end
+#post_install do |installer|
+#    `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 
+#'s/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+#end
