@@ -246,7 +246,7 @@
 				TargetAttributes = {
 					50B7F8821C886EA40026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = WPFZSRF7W9;
+						DevelopmentTeam = 5TXK5LGEWP;
 					};
 					50B7F8961C886EA50026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -508,7 +508,7 @@
 			baseConfigurationReference = 7B8120F5DEE341B23F051E86 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -517,7 +517,7 @@
 				INFOPLIST_FILE = aggle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -528,7 +528,7 @@
 			baseConfigurationReference = 488765526E1E050F02943ABB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +537,7 @@
 				INFOPLIST_FILE = aggle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

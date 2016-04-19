@@ -119,7 +119,8 @@
                     <connections>
                         <outlet property="PhotoLibrary" destination="PjC-xZ-tbj" id="U3Z-8O-OzL"/>
                         <outlet property="Post" destination="VeF-6x-ZFE" id="9AV-eC-eb7"/>
-                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
+                        <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
+                        <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>                <outlet property="currentImage" destination="0LK-tV-KtW" id="M1x-5K-9dE"/>                        <segue destination="3UG-oP-jNF" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
