@@ -10,8 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    @IBOutlet weak var name: UILabel!
+    let user = User.sharedInstance
+    
+    @IBOutlet weak var zipCode: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.text = self.user.name.substringWithRange(Range<String.Index>(start: self.user.name.startIndex.advancedBy(9), end: self.user.name.endIndex.advancedBy(-1)))
+        
+        zipCode.text = self.user.zip
         // Do any additional setup after loading the view.
     }
 
