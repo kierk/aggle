@@ -14,6 +14,8 @@ import Firebase
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
+    let user = User.sharedInstance
+    
     @IBOutlet weak var zipText: UITextField!
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     var mainZipCode : String = ""
@@ -118,6 +120,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     self.performSegueWithIdentifier("showNew", sender: self) //here new change
                     
+                    
+                    self.user.name = String(authData.providerData["displayName"])
+                    
                     print(authData)
                     print("Logged in! \(authData) The Users uid is \(authData.uid)")
                     print("And their display name is \(authData.providerData["displayName"])")
@@ -131,6 +136,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     if (self.mainZipCode == ""){
                         self.mainZipCode = "02215"
                     }
+                    
+                    self.user.zip = self.mainZipCode
                     
                     let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": self.mainZipCode] // key is uid
                         
