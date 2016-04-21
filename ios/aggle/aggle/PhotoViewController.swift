@@ -45,7 +45,17 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(PhotoViewController.setBttnTouched(_:)))
         
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            let myAlertView: UIAlertView = UIAlertView(title: "Error", message: "Device has no camera", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: "")
+            myAlertView.show()
+        }
     }
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
     
     
     
@@ -55,65 +65,109 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         
-        captureSession = AVCaptureSession()
-        captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
+        //captureSession = AVCaptureSession()
+        //captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
         
-        let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        //let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
-        var error: NSError?
-        var input: AVCaptureDeviceInput!
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera)
-        } catch let error1 as NSError {
-            error = error1
-            input = nil
-        }
-        
-        if error == nil && captureSession!.canAddInput(input) {
-            captureSession!.addInput(input)
-            
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-            if captureSession!.canAddOutput(stillImageOutput) {
-                captureSession!.addOutput(stillImageOutput)
-                
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewView.layer.addSublayer(previewLayer!)
-                captureSession!.startRunning()
-            }
-        }
+        //var error: NSError?
+//        var input: AVCaptureDeviceInput!
+//        do {
+//            input = try AVCaptureDeviceInput(device: backCamera)
+//        } catch let error1 as NSError {
+//            error = error1
+//            input = nil
+//        }
+//        
+//        if error == nil && captureSession!.canAddInput(input) {
+//            captureSession!.addInput(input)
+//            
+//            stillImageOutput = AVCaptureStillImageOutput()
+//            stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+//            if captureSession!.canAddOutput(stillImageOutput) {
+//                captureSession!.addOutput(stillImageOutput)
+//                
+//                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+//                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+//                previewView.layer.addSublayer(previewLayer!)
+//                captureSession!.startRunning()
+//            }
+//        }
         
     }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        previewLayer!.frame = previewView.bounds
+        
+        //========== commenting out ================//
+        //previewLayer!.frame = previewView.bounds
     }
+    
+    
+    
+    @IBAction func selectPhoto(sender: UIButton) {
+        
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        
+        var picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .PhotoLibrary
+        self.presentViewController(picker, animated: true, completion: { _ in })
+        
+        
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        
+        
+    }
+    
     
     
     @IBAction func didPressTakePhoto(sender: UIButton) {
         
+        // commenting out commenting out =========================///
+//        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+//            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+//            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+//                if (sampleBuffer != nil) {
+//                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+//                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
+//                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
+//                    
+//                    
+//                    //let image = UIImageView(image: cgImageRef!, highlightedImage: 1.0)
+//                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+//                    self.capturedImage.image = image
+//                    //self.previewView.i = image
+//                    
+//                }
+//            })
+//        }
         
-        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
-            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
-            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
-                if (sampleBuffer != nil) {
-                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
-                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
-                    
-                    
-                    //let image = UIImageView(image: cgImageRef!, highlightedImage: 1.0)
-                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    self.capturedImage.image = image
-                    //self.previewView.i = image
-                    
-                }
-            })
-        }
+        
+        
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        
+        
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .Camera
+        self.presentViewController(picker, animated: true, completion: { _ in })
+        
+        
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        //===================== NEW FUNCTION =======================//
+        
     }
 
     
@@ -132,7 +186,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBAction func takePicture(sender: UIButton) {
         
-        
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .Camera
+        self.presentViewController(picker, animated: true, completion: { _ in })
     }
     
     
@@ -192,23 +250,62 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //this function is trigered when a picture is selected from the photo library.
     // The function encodes the selected picture to base64 and sets the global variable 
     // base64image to hold the encoded data of the image that is selected
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
-        ImageDisplay.image=info[UIImagePickerControllerOriginalImage]as?UIImage;dismissViewControllerAnimated(true, completion: nil)
-        
-        print("[imagePickerController] hi");
-        
-        
-        
-        
-        // this stores the UIImage object in var image.
-        let image : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
-        let imageData = UIImagePNGRepresentation(image);
-        
-        
-        // this encodes correctly
-         self.base64Image = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength);
+
+    
+    
+        //commenting out commenting out ======================///
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+//    {
+//        ImageDisplay.image=info[UIImagePickerControllerOriginalImage]as?UIImage;dismissViewControllerAnimated(true, completion: nil)
+//        
+//        print("[imagePickerController] hi");
+//        
+//        
+//        
+//        
+//        
+//        
+//        // this stores the UIImage object in var image.
+//        let image : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
+//        let imageData = UIImagePNGRepresentation(image);
+//        
+//        
+//        // this encodes correctly
+//         self.base64Image = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength);
+//    }
+    
+    
+    
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    
+    func imagePickerController(picker:UIImagePickerController,didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let chosenImage: UIImage = ([UIImagePickerControllerOriginalImage]as?UIImage)!;dismissViewControllerAnimated(true, completion: nil)
+        self.capturedImage.image = chosenImage
+        picker.dismissViewControllerAnimated(true, completion: { _ in })
     }
+    
+    
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    
+    
+    
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: { _ in })
+    }
+    
+    
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
+    //===================== NEW FUNCTION =======================//
 
    
 }
