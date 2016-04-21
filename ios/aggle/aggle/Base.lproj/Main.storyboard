@@ -150,6 +150,7 @@
                         <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
                         <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>
                         <segue destination="3UG-oP-jNF" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
+                        <segue destination="vA6-nD-3vK" kind="presentation" identifier="segueItemDetails" id="9lb-O0-tnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -573,6 +574,75 @@
             </objects>
             <point key="canvasLocation" x="3917" y="-391"/>
         </scene>
+        <!--Item Detail-->
+        <scene sceneID="bwz-vU-VjB">
+            <objects>
+                <viewController id="vA6-nD-3vK" customClass="ItemDetail" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ePO-0I-5rR"/>
+                        <viewControllerLayoutGuide type="bottom" id="1EB-Wc-3xh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qXt-6f-wqg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Price" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39Z-2c-mO7">
+                                <rect key="frame" x="139" y="459" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a Description" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-xa-hHF">
+                                <rect key="frame" x="72" y="538" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubf-ja-cgJ">
+                                <rect key="frame" x="167" y="592" width="40" height="30"/>
+                                <state key="normal" title="Set"/>
+                                <connections>
+                                    <action selector="setItemDetails:" destination="vA6-nD-3vK" eventType="touchUpInside" id="7bW-Po-phJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-YR-wzo">
+                                <rect key="frame" x="143" y="509" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-4H-iQc">
+                                <rect key="frame" x="20" y="61" width="335" height="336"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULa-Pl-oeP">
+                                <rect key="frame" x="157" y="423" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pA0-Vk-eAz">
+                                <rect key="frame" x="19" y="7" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="fQK-KG-6Vg" kind="unwind" unwindAction="cancelToPlayersViewController:" id="ZYf-nG-FEw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66666666669999997" green="0.088008591950000006" blue="0.1052317742" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="JDM-YR-wzo" id="iSQ-72-mZw"/>
+                        <outlet property="itemDescription" destination="XcC-xa-hHF" id="LYg-ws-067"/>
+                        <outlet property="itemImageView" destination="Dhy-4H-iQc" id="9x9-mC-yFI"/>
+                        <outlet property="itemPrice" destination="39Z-2c-mO7" id="LVf-Ze-bN6"/>
+                        <outlet property="priceLabel" destination="ULa-Pl-oeP" id="lym-D0-8wn"/>
+                        <segue destination="JUM-fB-Cal" kind="presentation" id="sLe-yz-fa1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZI2-2o-1Ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fQK-KG-6Vg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4576.5" y="70.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" width="32" height="32"/>
@@ -585,6 +655,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="vFD-4n-F7H"/>
         <segue reference="KVc-c6-tzB"/>
+        <segue reference="sLe-yz-fa1"/>
         <segue reference="pdX-rs-tLg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

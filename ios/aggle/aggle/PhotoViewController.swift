@@ -33,6 +33,13 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    var image: UIImage?
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+    }
     
     
     
@@ -101,12 +108,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //========== commenting out ================//
-        //previewLayer!.frame = previewView.bounds
-    }
+    
     
     
     
@@ -212,26 +214,54 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //============================================================================================
     
     
+    
+    
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Post: UIButton!
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("heha")
+        
+        if(segue.identifier == "segueItemDetails"){
+            print("here")
+            //let image = UIImage()
+            let DestViewController = segue.destinationViewController as! ItemDetail
+            //self.image = DestViewController.tempUI
+            DestViewController.tempUI = self.image!
+            
+            //let tempImage = UIImage()
+            //DestViewController.itemImageView.image = UIImage()
+            //DestViewController.itemImageView.image = image
+            //itemImageView.image = image
+            
+        }
+        
+    }
     
     
     // this function is triggered when user presses post on the app. 
     
     @IBAction func PostAction(sender: UIButton) {
         
-        print("[PostAction] hey");
+        //self.presentedViewController(capturedImage.image, animated: true, completion: nil)
+        //self.presentViewController(UIVie, animated: <#T##Bool#>, completion:
+        //presentViewController(PhotoViewController() as UIViewController, animated: true, completion: nil)
+        print("in post button")
+        //performSegueWithIdentifier("segueItemDetails", sender: self)
         
-        let picBase64 = self.base64Image;
-        let description = "test description of item"
-        let price = 11235
-        let imageInfo = ["description" : description, "price" : price, "pic_base64" : picBase64, "owner_id" : "authData.uid"] // value for image uploaded
         
-        let imageRef = ref.childByAppendingPath("items_for_sale");
-        let imageIDref = imageRef.childByAutoId()  // this generates a unique ID each time it is called. When can then use this to find the image later on. Note that this is now the ref that we will update
-        
-        imageIDref.updateChildValues(imageInfo as! [NSObject : AnyObject]) // this updates the DB
+//        print("[PostAction] hey");
+//        
+//        let picBase64 = self.base64Image;
+//        let description = "test description of item"
+//        let price = 11235
+//        let imageInfo = ["description" : description, "price" : price, "pic_base64" : picBase64, "owner_id" : "authData.uid"] // value for image uploaded
+//        
+//        let imageRef = ref.childByAppendingPath("items_for_sale");
+//        let imageIDref = imageRef.childByAutoId()  // this generates a unique ID each time it is called. When can then use this to find the image later on. Note that this is now the ref that we will update
+//        
+//        imageIDref.updateChildValues(imageInfo as! [NSObject : AnyObject]) // this updates the DB
     }
     
     
@@ -285,14 +315,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //===================== NEW FUNCTION =======================//
     
     func imagePickerController(picker:UIImagePickerController,didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
+        print("in image picker controller")
         
         //info is a dictionary that has lots of metadata on the image that you pick
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        self.image = chosenImage
         capturedImage.contentMode = .ScaleAspectFit //3
         capturedImage.image = chosenImage //4
         dismissViewControllerAnimated(true, completion: nil) //5
         
+        performSegueWithIdentifier("segueItemDetails", sender: self)
         
         //let chosenImage: UIImage = ([UIImagePickerControllerOriginalImage]as?UIImage)!;dismissViewControllerAnimated(true, completion: nil)
         //self.capturedImage.image = chosenImage
@@ -320,5 +352,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //===================== NEW FUNCTION =======================//
     //===================== NEW FUNCTION =======================//
 
-   
+    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+    }
 }
