@@ -3,14 +3,20 @@ PODS:
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Koloda (3.0.0):
+    - pop (~> 1.0)
+  - pop (1.0.9)
 
 DEPENDENCIES:
   - Firebase (>= 2.5.1)
   - JSQMessagesViewController
+  - Koloda (~> 3.0.0)
 
 SPEC CHECKSUMS:
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Koloda: 315aa5d2ef4138df90c42ee77c18af0727528e6a
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
 COCOAPODS: 0.39.0
