@@ -16,9 +16,10 @@ class MessageViewController: JSQMessagesViewController {
     
     
     //@IBOutlet var showImage: UIImageView!
-    //let imageRef = Firebase(url: "https://aggle.firebaseio.com/items_for_sale")
+    
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     var messageRef: Firebase!
+    
     
     var ref = Firebase(url:"https://aggle.firebaseio.com/")
     
@@ -27,10 +28,13 @@ class MessageViewController: JSQMessagesViewController {
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
     override func viewDidLoad() {
-        self.senderId = ref.authData.uid
-        self.senderDisplayName = "Jose"
+        self.senderId = ref.authData.uid!
+        
+        
+        self.senderDisplayName = User.sharedInstance.name
+        
         setupBubbles()
-        messageRef = rootRef.childByAppendingPath("messages")
+        messageRef = rootRef.childByAppendingPath("ConvoDB")
         
         // not sure what these are supposed to do, they give an error whenever I run them
         
@@ -38,7 +42,7 @@ class MessageViewController: JSQMessagesViewController {
         //collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         //collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
-        print(ref.authData.uid)
+       
         print("[viewDidLoad] hi")
         
         
@@ -57,6 +61,55 @@ class MessageViewController: JSQMessagesViewController {
             super.viewDidAppear(animated)
             observeMessages()
         }
+    
+    
+    
+    // next two functions handle names above the text bubbles
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        let message = messages[indexPath.item];
+        
+        // Sent by me, skip
+        
+        //if message.senderId == self.senderId {
+        //    return nil;
+        //}
+        
+        // Same as previous sender, skip
+//        if indexPath.item > 0 {
+//            let previousMessage = messages[indexPath.item - 1];
+//            if previousMessage.senderId == message.senderId
+//            {
+//                return nil;
+//            }
+//        }
+        
+        return NSAttributedString(string:message.senderDisplayName)
+    }
+    
+    
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        let message = messages[indexPath.item]
+        
+//        // Sent by me, skip
+//        if message.senderId == self.senderId {
+//            return CGFloat(0.0);
+//        }
+//        
+//        // Same as previous sender, skip
+//        if indexPath.item > 0 {
+//            let previousMessage = messages[indexPath.item - 1];
+//            if previousMessage.senderId == message.senderId {
+//                return CGFloat(0.0);
+//            }
+//        }
+        
+        return kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
+    
+    
+    
     
     
     
@@ -94,8 +147,8 @@ class MessageViewController: JSQMessagesViewController {
     
     
     
-        func addMessage(id: String, text: String) {
-            let message = JSQMessage(senderId: id, displayName: "", text: text)
+    func addMessage(id: String, text: String, displayName: String) {
+            let message = JSQMessage(senderId: id, displayName: displayName, text: text)
             messages.append(message)
         }
     
@@ -104,12 +157,33 @@ class MessageViewController: JSQMessagesViewController {
         //When send button is pressed, this adds the message to the database.
         override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
             
-            let itemRef = messageRef.childByAutoId() // 1
+            //let uniqueID = messageRef.childByAutoId()
+            //let itemRef = messageRef.childByAutoId() // 1
             let messageItem = [ // 2
                 "text": text,
                 "senderId": senderId
             ]
-            itemRef.setValue(messageItem) // 3
+          
+            
+            let convoRef = ref.childByAppendingPath("users/" + (self.senderId) + "/" + "Conversations") // path for Users conversation table
+            let messageReff = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
+            
+            let convoDB = ref.childByAppendingPath("ConvoDB/")
+            
+            let convoDB_ref = convoDB.childByAutoId()
+            
+            let ConvoInfo = [
+                "itemID": "itemID",
+                "Messages" : ["date" : "july 10", "from" : self.senderId, "text" : text, "to" : "someone", "name": self.senderDisplayName]
+            ]
+            
+            convoDB_ref.setValue(ConvoInfo)
+            //messageReff.setValue(messageItem)
+            messageReff.updateChildValues(messageItem)
+            
+            self.messageRef = convoDB_ref.childByAppendingPath("Messages/")
+            print("up here")
+            print(self.messageRef)
             
             // 4
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -120,39 +194,46 @@ class MessageViewController: JSQMessagesViewController {
     
     
     
-        // this changes the text color in the textbubbles
-        override func collectionView(collectionView: UICollectionView,
-                                 cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
-                as! JSQMessagesCollectionViewCell
+    
+    
+    
+    
         
-            let message = messages[indexPath.item]
-        
-            if message.senderId == senderId {
-                cell.textView!.textColor = UIColor.whiteColor()
-            } else {
-                cell.textView!.textColor = UIColor.blackColor()
-            }
-        
-        return cell
-        }
     
     // this will query messages from the db and update them in the chat screen
         private func observeMessages() {
             // 1
-            let messagesQuery = messageRef.queryLimitedToLast(25)
-            // 2
-            messagesQuery.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
-                // 3
-                let id = snapshot.value["senderId"] as! String
-                let text = snapshot.value["text"] as! String
             
+            
+            //let messagesQuery = self.messageRef.childByAppendingPath("Messages").queryLimitedToLast(25)
+            let messagesQuery = self.messageRef.queryLimitedToLast(25)
+            // 2
+            print("hereeeee")
+            if(self.messageRef != nil){
+                print(self.messageRef)
+            }
+            print(messagesQuery.description)
+            //messagesQuery.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+           
+            messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+            // 3
+                print(snapshot.description)
+                let temp1 = snapshot.value
+                print(temp1)
+                let id = snapshot.childSnapshotForPath("Messages").value["from"] as! String
+                print("printing")
+                //print(snapshot.value.objectForKey("Messages/date"))
+                //let id = "sam"
+                //let temp = snapshot.childSnapshotForPath("Messages").value["text"]!!.description
+                let text = snapshot.childSnapshotForPath("Messages").value["text"] as! String
+                let displayName = snapshot.childSnapshotForPath("Messages").value["name"] as! String
+                //let text = "haha"
                 // 4
-                self.addMessage(id, text: text)
+                self.addMessage(id, text: text, displayName: displayName)
             
                 // 5
                 self.finishReceivingMessage()
-            }
+            })
         }
         
         

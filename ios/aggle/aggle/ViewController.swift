@@ -121,7 +121,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.performSegueWithIdentifier("showNew", sender: self) //here new change
                     
                     
-                    self.user.name = String(authData.providerData["displayName"])
+                    self.user.name = String((authData.providerData["displayName"])!)
                     
                     print(authData)
                     print("Logged in! \(authData) The Users uid is \(authData.uid)")
@@ -129,9 +129,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("And their email is \(authData.providerData["email"])")
                     //_ = String(authData.uid)
                         
-                    let userDisplayName = String(authData.providerData["displayName"])   // probably btter way of doing this
+                    let userDisplayName = String((authData.providerData["displayName"])!)   // probably btter way of doing this
                         
-                    let userEmail = String(authData.providerData["email"])
+                    let userEmail = String((authData.providerData["email"])!)
                     
                     if (self.mainZipCode == ""){
                         self.mainZipCode = "02215"
@@ -139,9 +139,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     self.user.zip = self.mainZipCode
                     
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": self.mainZipCode] // key is uid
+                    
+                    
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": self.mainZipCode,
+                        ] // key is uid
+                    
                         
-                    let usersRef = self.ref.childByAppendingPath("users")
+                    let usersRef = self.ref.childByAppendingPath("UsersDB")
                     print("zipcode is " + self.mainZipCode)
                         
                     let users = [authData.uid : userInfo]
