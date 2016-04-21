@@ -138,7 +138,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     }
                     
                     self.user.zip = self.mainZipCode
-                    
+                    self.user.email = userEmail
+                    self.user.pic = String((authData.providerData["profileImageURL"])!)
                     
                     
                     let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "Zip Code": self.mainZipCode,

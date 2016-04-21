@@ -23,5 +23,7 @@ class User {
     }
     
     var name: String!
+    var email: String!
     var zip: String!
+    var pic: String!
 }

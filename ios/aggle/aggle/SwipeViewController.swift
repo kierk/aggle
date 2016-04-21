@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Firebase
 class SwipeViewController: UIViewController {
-
+    
+    let ref = Firebase(url:"https://aggle.firebaseio.com/")
     //--------------------------------------------------------------------------------------------------//
     var score: Int!
     var done: Bool = false
@@ -34,8 +35,8 @@ class SwipeViewController: UIViewController {
     var data: [(String, Bool)] = [
         ("crock_20", true),
         ("speakers_45", true),
-        ("pomsky", true),
-        ("lawn_500", false),
+        ("pomsky", false),
+        ("lawn_500", true),
     ]
     //--------------------------------------------------------------------------------------------------//
     
@@ -98,11 +99,21 @@ class SwipeViewController: UIViewController {
     //--------------------------------------------------------------------------------------------------//
     func determineJudgement(answer: Bool) {
         
-        // If its the right answer, set the score
-        if self.currentPictureView.answer == answer && !self.done{
-            self.score = self.score + 1
-            //            self.scoreView.text = "Score: \(self.score)"
+        let temp = ref.authData.uid
+        
+        if answer == true{
+            let likesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Likes")
         }
+        
+        else{
+            let disLikesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Dislikes")
+        }
+        
+//        // If its the right answer, set the score
+//        if self.currentPictureView.answer == answer && !self.done{
+//            self.score = self.score + 1
+//            //            self.scoreView.text = "Score: \(self.score)"
+//        }
         
         // Run the swipe animation
         self.currentPictureView.swipe(answer)
@@ -119,6 +130,7 @@ class SwipeViewController: UIViewController {
             self.pictureViews.append(noMoreView)
             self.view.addSubview(noMoreView)
             self.done = true
+            
             return
         }
         
