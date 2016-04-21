@@ -77,7 +77,7 @@ class MessageViewController: JSQMessagesViewController {
     
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let message = messages[indexPath.item]
+        _ = messages[indexPath.item]
         
 //        // Sent by me, skip
 //        if message.senderId == self.senderId {
@@ -143,7 +143,6 @@ class MessageViewController: JSQMessagesViewController {
     
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        <#code#>
     }
     
     
