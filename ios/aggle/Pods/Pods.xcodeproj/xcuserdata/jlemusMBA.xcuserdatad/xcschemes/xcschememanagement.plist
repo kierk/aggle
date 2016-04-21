@@ -8,31 +8,64 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>JSQMessagesViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>JSQSystemSoundPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Koloda.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0848D57CB92561598CDD30E7066900A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2AF9897D988A051916617D917F213BE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3A7C75D779C4EF50204FFAD2A874060A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>95DB89A8BFC5FF0BF98458651D0163CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0F999819378D449E96595B2B718D25C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

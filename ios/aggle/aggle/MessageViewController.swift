@@ -15,8 +15,6 @@ class MessageViewController: JSQMessagesViewController {
     @IBOutlet weak var showImage: UIImageView!
     
     
-    //@IBOutlet var showImage: UIImageView!
-    
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     var messageRef: Firebase!
     
@@ -27,25 +25,14 @@ class MessageViewController: JSQMessagesViewController {
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
+    
     override func viewDidLoad() {
-        self.senderId = ref.authData.uid!
-        
-        
-        self.senderDisplayName = User.sharedInstance.name
-        
-        setupBubbles()
-        messageRef = rootRef.childByAppendingPath("ConvoDB")
-        
-        // not sure what these are supposed to do, they give an error whenever I run them
-        
-        //collectionView!.collectionViewLayout.incomingAvatarViewSize =
-        //collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        //collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        
-       
         print("[viewDidLoad] hi")
         
-        
+        self.senderId = ref.authData.uid!
+        self.senderDisplayName = String((ref.authData.providerData["displayName"])!)
+        setupBubbles()
+        messageRef = rootRef.childByAppendingPath("ConvoDB")
         
         super.viewDidLoad()
         self.navigationItem.title = "Aggle"
@@ -147,15 +134,21 @@ class MessageViewController: JSQMessagesViewController {
     
     
     
-    func addMessage(id: String, text: String, displayName: String) {
-            let message = JSQMessage(senderId: id, displayName: displayName, text: text)
+    func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
+        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
             messages.append(message)
         
         }
     
     
     
+    override func didPressAccessoryButton(sender: UIButton!) {
+        <#code#>
+    }
+    
+    
         //When send button is pressed, this adds the message to the database.
+    
         override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
             
             
@@ -166,7 +159,7 @@ class MessageViewController: JSQMessagesViewController {
                 "text": text,
                 "senderId": senderId
             ]
-          
+         
             
             let convoRef = ref.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations") // path for Users conversation table
             let messageReff = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
@@ -177,7 +170,7 @@ class MessageViewController: JSQMessagesViewController {
             
             let ConvoInfo = [
                 "itemID": "itemID",
-                "Messages" : ["date" : "july 10", "from" : self.senderId, "text" : text, "to" : "someone", "name": self.senderDisplayName]
+                "Messages" : ["date" : String(date), "from" : self.senderId, "text" : text, "to" : "someone", "name": self.senderDisplayName]
             ]
             
             convoDB_ref.setValue(ConvoInfo)
@@ -187,6 +180,7 @@ class MessageViewController: JSQMessagesViewController {
             self.messageRef = convoDB_ref.childByAppendingPath("Messages/")
             print("up here")
             print(self.messageRef)
+            
             
             // 4
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -225,14 +219,19 @@ class MessageViewController: JSQMessagesViewController {
                 print(temp1)
                 let id = snapshot.childSnapshotForPath("Messages").value["from"] as! String
                 print("printing")
+                print(self.senderDisplayName)
                 //print(snapshot.value.objectForKey("Messages/date"))
                 //let id = "sam"
                 //let temp = snapshot.childSnapshotForPath("Messages").value["text"]!!.description
                 let text = snapshot.childSnapshotForPath("Messages").value["text"] as! String
-                let displayName = snapshot.childSnapshotForPath("Messages").value["name"] as! String
+                let displayName = self.senderDisplayName as! String
                 //let text = "haha"
                 // 4
-                self.addMessage(id, text: text, displayName: displayName)
+                
+                let myDate = NSDate()
+                
+                self.addMessage(id, displayName: displayName, date: myDate, text: text)
+               // self.addMessage(<#T##id: String##String#>, text: <#T##String#>, displayName: <#T##String#>, date: <#T##NSDate#>, media: <#T##JSQMessageMediaData#>)
             
                 // 5
                 self.finishReceivingMessage()
