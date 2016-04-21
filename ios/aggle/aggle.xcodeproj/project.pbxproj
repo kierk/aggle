@@ -249,7 +249,7 @@
 				TargetAttributes = {
 					50B7F8821C886EA40026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 5TXK5LGEWP;
+						DevelopmentTeam = WPFZSRF7W9;
 					};
 					50B7F8961C886EA50026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -521,7 +521,7 @@
 				INFOPLIST_FILE = aggle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -541,7 +541,7 @@
 				INFOPLIST_FILE = aggle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxli.aggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

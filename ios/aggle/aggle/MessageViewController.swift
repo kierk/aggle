@@ -150,12 +150,15 @@ class MessageViewController: JSQMessagesViewController {
     func addMessage(id: String, text: String, displayName: String) {
             let message = JSQMessage(senderId: id, displayName: displayName, text: text)
             messages.append(message)
+        
         }
     
     
     
         //When send button is pressed, this adds the message to the database.
         override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
+            
+            
             
             //let uniqueID = messageRef.childByAutoId()
             //let itemRef = messageRef.childByAutoId() // 1
@@ -165,7 +168,7 @@ class MessageViewController: JSQMessagesViewController {
             ]
           
             
-            let convoRef = ref.childByAppendingPath("users/" + (self.senderId) + "/" + "Conversations") // path for Users conversation table
+            let convoRef = ref.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations") // path for Users conversation table
             let messageReff = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
             
             let convoDB = ref.childByAppendingPath("ConvoDB/")

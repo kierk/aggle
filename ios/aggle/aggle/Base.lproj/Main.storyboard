@@ -97,16 +97,23 @@
                                 <rect key="frame" x="20" y="58" width="339" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
+                                <rect key="frame" x="16" y="358" width="339" height="162"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-jY-40z">
+                                <rect key="frame" x="34" y="558" width="57" height="30"/>
+                                <state key="normal" title="Gallery"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="V74-ip-xgU"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
-                                <rect key="frame" x="164" y="556" width="46" height="30"/>
+                                <rect key="frame" x="289" y="558" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
-                                <rect key="frame" x="16" y="358" width="339" height="162"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -441,8 +448,8 @@
         <image name="pomsky" width="640" height="494"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="62K-RY-A0p"/>
-        <segue reference="KyI-zR-qsZ"/>
+        <segue reference="QgY-Ws-uIF"/>
+        <segue reference="pdX-rs-tLg"/>
         <segue reference="vFD-4n-F7H"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
