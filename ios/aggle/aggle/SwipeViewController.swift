@@ -34,8 +34,8 @@ class SwipeViewController: UIViewController {
     var data: [(String, Bool)] = [
         ("crock_20", true),
         ("speakers_45", true),
-        ("pomsky", true),
-        ("lawn_500", false),
+        ("pomsky", false),
+        ("lawn_500", true),
     ]
     //--------------------------------------------------------------------------------------------------//
     
