@@ -143,7 +143,11 @@ class MessageViewController: JSQMessagesViewController {
     
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        <#code#>
+        var picker: UIImagePickerController = UIImagePickerController()
+        //picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .PhotoLibrary
+        self.presentViewController(picker, animated: true, completion: { _ in })
     }
     
     
