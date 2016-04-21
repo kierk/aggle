@@ -59,19 +59,31 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         print("Final Price is ")
         priceLabel.text = itemPrice.text
         updateDataBase(descriptionLabel.text!, price: priceLabel.text!)
-        
-        
     }
     
     
     func updateDataBase(description:String, price: String){
+        let userDB_ref = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid)
+        
+        userDB_ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            print(snapshot.description)
+            self.zipCode = snapshot.value.objectForKey("ZipCode") as! String
+            print(self.zipCode)
+        })
+        
+
+        
+        
+        
+        
         let itemDescription = description
         let itemPrice = price
         let itemZipCode = self.zipCode
         let ownerID = rootRef.authData.uid
         let base64String = self.base64String
         let soldTo = "someone"
-        
+        print("haaaaaaaaaaaaaaaaaaaaaaa")
+        print(itemZipCode)
         
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + "10029").childByAutoId()
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : "10029", "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
