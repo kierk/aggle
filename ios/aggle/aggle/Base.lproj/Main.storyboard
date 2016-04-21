@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
                                 <rect key="frame" x="16" y="20" width="134" height="30"/>
                                 <state key="normal" title="Open Photo Library">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,8 +83,38 @@
                                     <action selector="PhotoLibraryAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="JZP-Zj-GoW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
-                                <rect key="frame" x="311" y="20" width="48" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
+                                <rect key="frame" x="20" y="58" width="335" height="245"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
+                                <rect key="frame" x="16" y="358" width="339" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="7CL-6s-fur"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-jY-40z">
+                                <rect key="frame" x="34" y="558" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="ufw-MU-l5T"/>
+                                </constraints>
+                                <state key="normal" title="Gallery"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="V74-ip-xgU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
+                                <rect key="frame" x="289" y="558" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
+                                <rect key="frame" x="149" y="605" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="mQ6-H5-zso"/>
+                                </constraints>
                                 <state key="normal" title="Post it!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -92,32 +122,24 @@
                                     <action selector="PostAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="kfX-tl-KHS"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
-                                <rect key="frame" x="20" y="58" width="339" height="232"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
-                                <rect key="frame" x="16" y="358" width="339" height="162"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-jY-40z">
-                                <rect key="frame" x="34" y="558" width="57" height="30"/>
-                                <state key="normal" title="Gallery"/>
-                                <connections>
-                                    <action selector="selectPhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="V74-ip-xgU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
-                                <rect key="frame" x="289" y="558" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7776675820350647" green="0.27476853132247925" blue="0.080855391919612885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VeF-6x-ZFE" firstAttribute="baseline" secondItem="PjC-xZ-tbj" secondAttribute="baseline" id="MIl-rz-Gog"/>
-                            <constraint firstItem="PjC-xZ-tbj" firstAttribute="top" secondItem="vtI-5A-KhS" secondAttribute="bottom" constant="68" id="eKc-kV-dFk"/>
+                            <constraint firstItem="PjC-xZ-tbj" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leadingMargin" id="4fh-3S-r9w"/>
+                            <constraint firstItem="xEA-7X-kIE" firstAttribute="trailing" secondItem="UAU-aS-wyd" secondAttribute="trailing" id="7PR-v2-G5g"/>
+                            <constraint firstItem="qLG-jY-40z" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leadingMargin" constant="18" id="Kt5-a3-RjI"/>
+                            <constraint firstItem="UAU-aS-wyd" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leadingMargin" id="NW6-j7-bVy"/>
+                            <constraint firstItem="VeF-6x-ZFE" firstAttribute="top" secondItem="UAU-aS-wyd" secondAttribute="bottom" constant="85" id="RIW-qh-kZL"/>
+                            <constraint firstItem="6DZ-9Z-bot" firstAttribute="top" secondItem="qLG-jY-40z" secondAttribute="bottom" constant="79" id="S59-Mv-NhU"/>
+                            <constraint firstItem="LS3-T7-Tw7" firstAttribute="baseline" secondItem="qLG-jY-40z" secondAttribute="baseline" id="S6w-Iy-o7b"/>
+                            <constraint firstItem="LS3-T7-Tw7" firstAttribute="top" secondItem="UAU-aS-wyd" secondAttribute="bottom" constant="38" id="W5h-Ih-rpW"/>
+                            <constraint firstItem="VeF-6x-ZFE" firstAttribute="leading" secondItem="mq5-Uw-U42" secondAttribute="leading" constant="149" id="WSb-uT-Le6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UAU-aS-wyd" secondAttribute="trailing" constant="4" id="apI-cf-3ap"/>
+                            <constraint firstItem="xEA-7X-kIE" firstAttribute="top" secondItem="PjC-xZ-tbj" secondAttribute="bottom" constant="8" symbolic="YES" id="asd-Dc-v3g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LS3-T7-Tw7" secondAttribute="trailing" constant="24" id="kDp-T7-53F"/>
+                            <constraint firstItem="xEA-7X-kIE" firstAttribute="centerX" secondItem="mq5-Uw-U42" secondAttribute="centerX" id="lYe-FV-mib"/>
+                            <constraint firstItem="PjC-xZ-tbj" firstAttribute="top" secondItem="vtI-5A-KhS" secondAttribute="bottom" id="nYo-54-8dJ"/>
+                            <constraint firstItem="UAU-aS-wyd" firstAttribute="top" secondItem="xEA-7X-kIE" secondAttribute="bottom" constant="55" id="ogq-bB-4r2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4O6-MU-zAu"/>
@@ -454,7 +476,7 @@
                                 <rect key="frame" x="0.0" y="74" width="320" height="494"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
                                 <rect key="frame" x="76" y="504" width="34" height="34"/>
                                 <state key="normal" image="ic_skip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -463,7 +485,7 @@
                                     <action selector="leftButtonTapped" destination="Spq-Pa-vbL" eventType="touchUpInside" id="eCa-8r-Etx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-Mt-38n">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-Mt-38n">
                                 <rect key="frame" x="211" y="505" width="38" height="34"/>
                                 <state key="normal" image="ic_like">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -508,7 +530,7 @@
                                     <constraint firstAttribute="bottom" secondItem="uxy-Le-1To" secondAttribute="bottom" constant="12" id="mgD-hb-moU"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Il-IE-xFb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Il-IE-xFb">
                                 <rect key="frame" x="160" y="504" width="1" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -561,14 +583,9 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-<!--<<<<<<< HEAD-->
-<!--        <segue reference="QgY-Ws-uIF"/>-->
-<!--        <segue reference="pdX-rs-tLg"/>-->
-<!--=======-->
-<!-->>>>>>> ce1d478d58faca23ac3b2b8309ee874a3f4248bd-->
         <segue reference="vFD-4n-F7H"/>
         <segue reference="KVc-c6-tzB"/>
-        <segue reference="rbM-kL-4WX"/>
+        <segue reference="pdX-rs-tLg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

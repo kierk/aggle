@@ -38,12 +38,15 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(PhotoViewController.setBttnTouched(_:)))
+        
+        
         
         //===================== NEW FUNCTION =======================//
         //===================== NEW FUNCTION =======================//
@@ -191,6 +194,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.allowsEditing = true
         picker.sourceType = .Camera
         self.presentViewController(picker, animated: true, completion: { _ in })
+        
     }
     
     
@@ -281,9 +285,18 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //===================== NEW FUNCTION =======================//
     
     func imagePickerController(picker:UIImagePickerController,didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let chosenImage: UIImage = ([UIImagePickerControllerOriginalImage]as?UIImage)!;dismissViewControllerAnimated(true, completion: nil)
-        self.capturedImage.image = chosenImage
-        picker.dismissViewControllerAnimated(true, completion: { _ in })
+        
+        
+        //info is a dictionary that has lots of metadata on the image that you pick
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        capturedImage.contentMode = .ScaleAspectFit //3
+        capturedImage.image = chosenImage //4
+        dismissViewControllerAnimated(true, completion: nil) //5
+        
+        
+        //let chosenImage: UIImage = ([UIImagePickerControllerOriginalImage]as?UIImage)!;dismissViewControllerAnimated(true, completion: nil)
+        //self.capturedImage.image = chosenImage
+        //picker.dismissViewControllerAnimated(true, completion: { _ in })
     }
     
     
