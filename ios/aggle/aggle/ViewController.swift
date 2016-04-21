@@ -15,6 +15,8 @@ import Firebase
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let user = User.sharedInstance
+    //let zip =
+    
     
     @IBOutlet weak var zipText: UITextField!
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
@@ -148,7 +150,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                     let usersRef = self.ref.childByAppendingPath("UsersDB")
                     print("zipcode is " + self.mainZipCode)
-                        
+                    
+                    User.sharedInstance.zip = self.mainZipCode
+                    
+                    print(User.sharedInstance.zip)
+                    
                     let users = [authData.uid : userInfo]
                     usersRef.updateChildValues(users)
                     
