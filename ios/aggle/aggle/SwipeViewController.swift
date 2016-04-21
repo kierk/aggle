@@ -102,11 +102,14 @@ class SwipeViewController: UIViewController {
         let temp = ref.authData.uid
         
         if answer == true{
-            let likesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Likes")
+            let likesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Likes").childByAutoId()
+            
+            likesRef.setValue("testing")
         }
         
         else{
-            let disLikesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Dislikes")
+            let disLikesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Dislikes").childByAutoId()
+            disLikesRef.setValue("dislikesTesting")
         }
         
 //        // If its the right answer, set the score
