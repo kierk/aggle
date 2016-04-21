@@ -77,7 +77,7 @@ class MessageViewController: JSQMessagesViewController {
     
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let message = messages[indexPath.item]
+        _ = messages[indexPath.item]
         
 //        // Sent by me, skip
 //        if message.senderId == self.senderId {
@@ -143,11 +143,14 @@ class MessageViewController: JSQMessagesViewController {
     
     
     override func didPressAccessoryButton(sender: UIButton!) {
+//<<<<<<< HEAD
         var picker: UIImagePickerController = UIImagePickerController()
         //picker.delegate = self
         picker.allowsEditing = true
         picker.sourceType = .PhotoLibrary
         self.presentViewController(picker, animated: true, completion: { _ in })
+//=======
+//>>>>>>> ce1d478d58faca23ac3b2b8309ee874a3f4248bd
     }
     
     
