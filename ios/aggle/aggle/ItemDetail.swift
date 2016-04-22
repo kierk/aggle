@@ -27,10 +27,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
      let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
      var tempUI = UIImage()
      var base64String = String()
-     var zipCode = User.sharedInstance.zip
-    
-    
-    
+     var zipCode = "10029"
     
     override func viewDidLoad() {
         itemImageView.image = tempUI // this displays the image
@@ -40,7 +37,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("hi hi")
+        
     }
     
     
@@ -48,7 +45,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let image : UIImage = itemImageView.image! as UIImage
         let imageData = UIImagePNGRepresentation(image)
         
-        self.base64String = String(imageData!.base64EncodedDataWithOptions(.Encoding64CharacterLineLength))
+        self.base64String = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
     }
     
     
@@ -56,7 +53,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBAction func setItemDetails(sender: AnyObject) {
         
         descriptionLabel.text = itemDescription.text
-        print("Final Price is ")
+        
         priceLabel.text = itemPrice.text
         updateDataBase(descriptionLabel.text!, price: priceLabel.text!)
     }
@@ -71,19 +68,14 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             print(self.zipCode)
         })
         
-
-        
-        
-        
-        
         let itemDescription = description
         let itemPrice = price
         let itemZipCode = self.zipCode
         let ownerID = rootRef.authData.uid
         let base64String = self.base64String
         let soldTo = "someone"
-        print("haaaaaaaaaaaaaaaaaaaaaaa")
-        print(itemZipCode)
+        
+       
         
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + "10029").childByAutoId()
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : "10029", "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]

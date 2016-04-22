@@ -18,6 +18,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     //let zip =
     
     
+    
     @IBOutlet weak var zipText: UITextField!
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     var mainZipCode : String = ""
@@ -43,8 +44,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print("[\nViewController/viewDidLoad] hi");
-        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        FBSDKProfile.setCurrentProfile(nil)
+        //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        //FBSDKProfile.setCurrentProfile(nil)
         
         
         
@@ -62,8 +63,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         else{   //if user doesn't have token, go here
             
             
-            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-            FBSDKProfile.setCurrentProfile(nil)
+            //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            //FBSDKProfile.setCurrentProfile(nil)
             
 
             print("AccessToken doesn't exist exists")
