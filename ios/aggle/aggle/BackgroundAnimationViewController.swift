@@ -43,11 +43,27 @@ class BackgroundAnimationViewController: UIViewController {
         kolodaView.animator = BackgroundKolodaAnimator(koloda: kolodaView)
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         
-        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
-            self.zipCode = object as! String
-            print("\n\ncalling pullValuesFromDB in viewDidLoad\n\n")
-            pullValuesFromDB(self.zipCode)
+        
+        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
+            self.zipCode = object.objectForKey("ZipCode")! as! String
+            print("mainZip is")
+            print(self.zipCode)
+            
         }
+        
+        let tempZipCode = User.sharedInstance.zip
+        pullValuesFromDB(tempZipCode)
+        
+//        
+//        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
+//            self.zipCode = object as! String
+//            print("\n\ncalling pullValuesFromDB in viewDidLoad, first show zipcode\n\n")
+//            print(self.zipCode)
+//            pullValuesFromDB(self.zipCode)
+//        }
+        
+        
+        
         
     }
     
@@ -82,19 +98,21 @@ class BackgroundAnimationViewController: UIViewController {
     
     func pullValuesFromDB(zipCode : String){
         
-        
-        
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
         
         print("\n[pullValuesFromDB]\n")
-        
+        print(self.zipCode)
          currentUserZipCodeRef.queryLimitedToFirst(3).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
                 print("Loading keys \(zipKeys.key)")
                 
                 if let temp = (zipKeys).value.objectForKey("base64Encoding"){
-                    self.base64decode(temp as! String)
+                    print("higher hey")
+                    if(((zipKeys).value.objectForKey("OwnerID")) as! String != self.rootRef.authData.uid){
+                        self.base64decode(temp as! String)
+                        print("hey there")
+                    }
                 }
             }
         })

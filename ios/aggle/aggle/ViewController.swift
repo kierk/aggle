@@ -104,12 +104,46 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.user.email = userEmail
                     self.user.pic = String((authData.providerData["profileImageURL"])!)
                     let userID = authData.uid
+                    //userDict.append(["ZipCode" : self.mainZipCode, "Full Name" : userDisplayName])
                     
-                    // object can be used to get each user's display name and/or zip code
-                    if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
-                        print("new is")
-                        print(object)
+                    
+                    //var userDict = [String : [String : String]]()
+                    
+                    
+                    
+                    
+                   
+                    //* NSUser default logic*//
+                    
+                    // initialize the dicitonary to be stored in userDefaults
+                    let userDict : [String : [String:String]] = [
+                        userID : ["ZipCode" : self.mainZipCode, "Full Name" : userDisplayName]]
+                    
+                    // set the userDefault
+                    userDefaults.setObject(userDict, forKey: userID)
+                    
+                    // first get values for userID, then get values for zipCode
+                    if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
+                        self.mainZipCode = object.objectForKey("ZipCode")! as! String
+                        print("mainZip is")
+                        print(self.mainZipCode)
+                        
                     }
+                    
+                    
+                    //* NSUser default logic*//
+                    
+                    
+//                    // object can be used to get each user's display name and/or zip code
+//                    if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
+//                        print("new is")
+//                        //print(object)
+//                        self.mainZipCode = String(object)
+//                        print(self.mainZipCode)
+//                        
+//                    }
+                    
+                    
                     
                     
                     let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
