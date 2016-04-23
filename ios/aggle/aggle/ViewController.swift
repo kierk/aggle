@@ -11,6 +11,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
+let userDefaults = NSUserDefaults.standardUserDefaults()
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -144,6 +145,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.user.email = userEmail
                     self.user.pic = String((authData.providerData["profileImageURL"])!)
                     
+                    
+                    
+                    var varConstants = [String]()
+                    
+                    varConstants.append(authData.uid)
+                    varConstants.append(self.mainZipCode)
+                    varConstants.append(userDisplayName)
+                    
+                    //userDefaults.setObject(self.mainZipCode, forKey: authData.uid)
+                    userDefaults.setObject(varConstants, forKey: authData.uid)
+                    
+                    
+                    
+                    
+                    
+                    print("in viewcontroller id is " + authData.uid)
+                    print("in viewcontroller zipcode is " + self.mainZipCode)
+                    print("in viewcontroller displayname is " + userDisplayName)
                     
                     let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
                         ] // key is uid
