@@ -160,9 +160,9 @@
 				E605104B1CC901830011A4AE /* CustomKolodaView.swift */,
 				E605104C1CC901830011A4AE /* CustomOverlayView.swift */,
 				50B7F88D1C886EA40026B95F /* Assets.xcassets */,
+				50B7F88A1C886EA40026B95F /* Main.storyboard */,
 				501755F81CBAD84000239F9E /* PictureView.swift */,
 				506231961CA1847A00E070A9 /* SwipeViewController.swift */,
-				50B7F88A1C886EA40026B95F /* Main.storyboard */,
 				50B7F88F1C886EA40026B95F /* LaunchScreen.storyboard */,
 				107A05581CCB77D1008D6BAF /* OverlayView.xib */,
 				E605104E1CC901830011A4AE /* CustomOverlayView.xib */,
@@ -275,11 +275,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Max Li";
+				ORGANIZATIONNAME = Aggle;
 				TargetAttributes = {
 					50B7F8821C886EA40026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = WPFZSRF7W9;
+						DevelopmentTeam = YWY25ZQ5TV;
 					};
 					50B7F8961C886EA50026B95F = {
 						CreatedOnToolsVersion = 7.2.1;
