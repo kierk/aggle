@@ -41,7 +41,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        // nothing atm
     }
     
     

@@ -2,9 +2,10 @@
 //  SwipeViewController.swift
 //  aggle
 //
-//  Created by Max Li on 3/22/16.
-//  Copyright © 2016 Max Li. All rights reserved.
-//
+// DEPRECATED DEPRECATED
+// DEPRECATED DEPRECATED
+// DEPRECATED DEPRECATED
+
 
 import UIKit
 import Firebase
