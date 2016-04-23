@@ -144,6 +144,15 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
         print("[koloda(koloda: KolodaView, viewForCardAtIndex index: UInt)]")
         
         
+        if let userConstants = NSUserDefaults.standardUserDefaults().objectForKey(rootRef.authData.uid){
+            print("in koloda swipe, id is  \(userConstants[0])")
+            print("in koloda swipe, zipCode is  \(userConstants[1])")
+            print("in koloda swipe displayname is  \(userConstants[2])")
+        }
+        
+        
+        
+        
         //return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
         
         if((mainDecodedDataList.count > 0)){

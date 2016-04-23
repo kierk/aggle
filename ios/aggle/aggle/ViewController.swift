@@ -11,6 +11,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
+let userDefaults = NSUserDefaults.standardUserDefaults()
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     let TAG = "[ViewController]"
@@ -107,7 +108,30 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.user.pic = String((authData.providerData["profileImageURL"])!)
                     
                     
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,] // key is uid
+
+                    
+                    var varConstants = [String]()
+                    
+                    varConstants.append(authData.uid)
+                    varConstants.append(self.mainZipCode)
+                    varConstants.append(userDisplayName)
+                    
+                    //userDefaults.setObject(self.mainZipCode, forKey: authData.uid)
+                    userDefaults.setObject(varConstants, forKey: authData.uid)
+                    
+                    
+                    
+                    
+                    
+                    print("in viewcontroller id is " + authData.uid)
+                    print("in viewcontroller zipcode is " + self.mainZipCode)
+                    print("in viewcontroller displayname is " + userDisplayName)
+                    
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
+                        ] // key is uid
+//=======
+//                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,] // key is uid
+//>>>>>>> 36cbd5a902bc84df73d85f95f339f219ac3f00fb
                     
                     let usersRef = self.ref.childByAppendingPath("UsersDB")
                     print(self.TAG + "zipcode is " + self.mainZipCode)
