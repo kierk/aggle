@@ -28,8 +28,12 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     override func viewDidLoad() {
         
         let userID = rootRef.authData.uid
-        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
-            self.zipCode = object as! String
+        // set zipcode
+        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
+            self.zipCode = object.objectForKey("ZipCode")! as! String
+            //print("mainZip is")
+            //print(self.zipCode)
+            
         }
         
         itemImageView.image = tempUI // this displays the image
@@ -66,7 +70,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         
         userDB_ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
-            print(snapshot.description)
+            //print(snapshot.description)
             self.zipCode = snapshot.value.objectForKey("ZipCode") as! String
             print(self.zipCode)
         })

@@ -193,7 +193,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "229"
             endingLineNumber = "229"
-            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkName = "cancelToPlayersViewController(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -208,9 +208,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            endingLineNumber = "233">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -220,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/ItemDetail.swift"
-            timestampString = "483097332.621873"
+            timestampString = "483105000.920406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "updateDataBase(_:price:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -236,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/ItemDetail.swift"
-            timestampString = "483097956.899117"
+            timestampString = "483105000.920406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "updateDataBase(_:price:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -268,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483102501.111689"
+            timestampString = "483113801.463367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "koloda(kolodaBackgroundCardAnimation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -284,13 +282,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483102501.111689"
+            timestampString = "483111748.855185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "pullValuesFromDB(_:)"
-            landmarkType = "5">
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "BackgroundAnimationViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -300,12 +298,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483102501.111689"
+            timestampString = "483116093.606088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "koloda(_:viewForCardOverlayAtIndex:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483115917.863976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "koloda(_:viewForCardAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
