@@ -29,7 +29,17 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
      var base64String = String()
      var zipCode = "10029"
     
+    
     override func viewDidLoad() {
+        
+        let userID = rootRef.authData.uid
+        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
+            print("newwwwwwwwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWW is")
+            print(object)
+            self.zipCode = object as! String
+            print(self.zipCode)
+        }
+        
         itemImageView.image = tempUI // this displays the image
         if (itemImageView.image != nil){
             base64Encode()
@@ -77,8 +87,8 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
        
         
-        let zipRef = rootRef.childByAppendingPath("ZipDB/" + "10029").childByAutoId()
-        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : "10029", "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
+        let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode).childByAutoId()
+        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : self.zipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
         
         zipRef.setValue(zipInfo)
     }

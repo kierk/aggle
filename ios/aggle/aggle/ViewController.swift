@@ -13,6 +13,7 @@ import Firebase
 
 let userDefaults = NSUserDefaults.standardUserDefaults()
 
+
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     let TAG = "[ViewController]"
     let user = User.sharedInstance
@@ -42,20 +43,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print(TAG + "[viewDidLoad] hi");
-        //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        //FBSDKProfile.setCurrentProfile(nil)
+        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        FBSDKProfile.setCurrentProfile(nil)
         
         if (FBSDKAccessToken.currentAccessToken() != nil){  // if user has token, go to main screen
             print(TAG + "AccessToken exists");
             print(TAG + FBSDKAccessToken.currentAccessToken().userID)
             self.performSegueWithIdentifier("showNew", sender: self)
         } else {   //if user doesn't have token, go here
-            //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-            //FBSDKProfile.setCurrentProfile(nil)
+            
+            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            FBSDKProfile.setCurrentProfile(nil)
         
             print(TAG + "AccessToken doesn't exist exists")
-            
-            //print(FBSDKAccessToken.currentAccessToken().userID)
             
             let loginButton = FBSDKLoginButton()
             loginButton.readPermissions = ["public_profile", "email", "user_friends"]
@@ -64,6 +64,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             self.view.addSubview(loginButton)
             print(TAG + "here, loaded correctly")
+            
+            
         }
     }
     
@@ -91,12 +93,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     self.user.name = String((authData.providerData["displayName"])!)
                     
-                    print(authData)
-                    print(self.TAG + "Logged in! \(authData) The Users uid is \(authData.uid)")
-                    print(self.TAG + "And their display name is \(authData.providerData["displayName"])")
-                    print(self.TAG + "And their email is \(authData.providerData["email"])")
-                    
-                    let userDisplayName = String((authData.providerData["displayName"])!)   // probably btter way of doing this
+                    let userDisplayName = String((authData.providerData["displayName"])!)
                     let userEmail = String((authData.providerData["email"])!)
                     
                     if (self.mainZipCode == ""){
@@ -106,32 +103,17 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.user.zip = self.mainZipCode
                     self.user.email = userEmail
                     self.user.pic = String((authData.providerData["profileImageURL"])!)
+                    let userID = authData.uid
                     
+                    // object can be used to get each user's display name and/or zip code
+                    if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
+                        print("new is")
+                        print(object)
+                    }
                     
-
-                    
-                    var varConstants = [String]()
-                    
-                    varConstants.append(authData.uid)
-                    varConstants.append(self.mainZipCode)
-                    varConstants.append(userDisplayName)
-                    
-                    //userDefaults.setObject(self.mainZipCode, forKey: authData.uid)
-                    userDefaults.setObject(varConstants, forKey: authData.uid)
-                    
-                    
-                    
-                    
-                    
-                    print("in viewcontroller id is " + authData.uid)
-                    print("in viewcontroller zipcode is " + self.mainZipCode)
-                    print("in viewcontroller displayname is " + userDisplayName)
                     
                     let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
-                        ] // key is uid
-//=======
-//                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,] // key is uid
-//>>>>>>> 36cbd5a902bc84df73d85f95f339f219ac3f00fb
+                    ]
                     
                     let usersRef = self.ref.childByAppendingPath("UsersDB")
                     print(self.TAG + "zipcode is " + self.mainZipCode)

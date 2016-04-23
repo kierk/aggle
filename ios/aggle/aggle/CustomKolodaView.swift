@@ -36,5 +36,7 @@ class CustomKolodaView: KolodaView {
         }
         return CGRectZero
     }
+    
+    
 
 }

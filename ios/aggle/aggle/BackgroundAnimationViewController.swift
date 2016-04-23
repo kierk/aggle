@@ -24,62 +24,86 @@ var mainDecodedDataList = [NSData]()
 
 
 class BackgroundAnimationViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var kolodaView: CustomKolodaView!
+    
+    var calledOnce = false
     
     
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-    var zipCode = "10029"
-    
+    var zipCode : String = "00000"
+    var size : Int = 0
     
     //MARK: Lifecycle
     override func viewDidLoad() {
+        print("STARTING\n")
+        let userID = rootRef.authData.uid
         super.viewDidLoad()
         kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
         kolodaView.countOfVisibleCards = kolodaCountOfVisibleCards
         kolodaView.delegate = self
         kolodaView.dataSource = self
         kolodaView.animator = BackgroundKolodaAnimator(koloda: kolodaView)
-        
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        //self.zipCode = User.sharedInstance.zip
-        //print(self.zipCode)
-        pullValuesFromDB()
         
-        
+        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
+            self.zipCode = object as! String
+            print("\n\ncalling pullValuesFromDB in viewDidLoad\n\n")
+            pullValuesFromDB(self.zipCode)
+        }
         
     }
     
     
     //MARK: IBActions
     @IBAction func leftButtonTapped() {
-        print("[@IBAction func leftButtonTapped()]")
+        //print("[@IBAction func leftButtonTapped()]")
         kolodaView?.swipe(SwipeResultDirection.Left)
     }
     
     @IBAction func rightButtonTapped() {
-        print("[@IBAction func rightButtonTapped()]")
+        //print("[@IBAction func rightButtonTapped()]")
         kolodaView?.swipe(SwipeResultDirection.Right)
     }
     
     @IBAction func undoButtonTapped() {
-        print("[@IBAction func undoButtonTapped()]")
+        //print("[@IBAction func undoButtonTapped()]")
         kolodaView?.revertAction()
     }
     
     
     
     // this gets the encoded images from firebase
-    func pullValuesFromDB(){
-        let picRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
-         picRef.queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: {snapshot in
-            let temp = snapshot.value
-             if let encodedString = temp.valueForKey("base64Encoding"){
-                self.base64decode(encodedString as! String)
-            }
+    
+    func checkIfListSizeIsZero() -> Void{
+        if mainDecodedDataList.count == 0{
+            pullValuesFromDB(self.zipCode)
+        }
+        self.calledOnce = false
+    }
+    
+    
+    func pullValuesFromDB(zipCode : String){
+        
+        
+        
+        let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
+        
+        print("\n[pullValuesFromDB]\n")
+        
+         currentUserZipCodeRef.queryLimitedToFirst(3).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
+            for zipKeys in zipKeys.children{
+                print("Loading keys \(zipKeys.key)")
+                
+                if let temp = (zipKeys).value.objectForKey("base64Encoding"){
+                    self.base64decode(temp as! String)
+                }
+            }
         })
     }
+    
     
     // this decodes them and stores them in a list
     func base64decode(encodedString : String){
@@ -89,8 +113,10 @@ class BackgroundAnimationViewController: UIViewController {
                 decodedDataList.append(decodedData)
                 mainDecodedDataList.append(decodedData)
         }
+        
+        self.size = decodedDataList.count
+        self.calledOnce = true
     }
-    
     
 }
 
@@ -113,7 +139,7 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     }
     
     func kolodaShouldMoveBackgroundCard(koloda: KolodaView) -> Bool {
-        print("[kolodaShouldMoveBackgroundCard(koloda: KolodaView)]")
+        //print("[kolodaShouldMoveBackgroundCard(koloda: KolodaView)]")
         return false
     }
     
@@ -134,33 +160,31 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
 //MARK: KolodaViewDataSource
 extension BackgroundAnimationViewController: KolodaViewDataSource {
     
+    
+
     func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
         print("[kolodaNumberOfCards(koloda: KolodaView)]")
         return numberOfCards
     }
     
-    // this one has to do with moving to new cards
+    // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         print("[koloda(koloda: KolodaView, viewForCardAtIndex index: UInt)]")
         
-        
-        if let userConstants = NSUserDefaults.standardUserDefaults().objectForKey(rootRef.authData.uid){
-            print("in koloda swipe, id is  \(userConstants[0])")
-            print("in koloda swipe, zipCode is  \(userConstants[1])")
-            print("in koloda swipe displayname is  \(userConstants[2])")
-        }
-        
-        
-        
-        
-        //return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
-        
         if((mainDecodedDataList.count > 0)){
-            return UIImageView(image: UIImage(data: mainDecodedDataList[0]))
+            return UIImageView(image: UIImage(data: mainDecodedDataList.popLast()!))
+            
         }
-        else{
+            
+        else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
+            checkIfListSizeIsZero()
             return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
         }
+        else{
+            
+            return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+        }
+
     }
     
     func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
