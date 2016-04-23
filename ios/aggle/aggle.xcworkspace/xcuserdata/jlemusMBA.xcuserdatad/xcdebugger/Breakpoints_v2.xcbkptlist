@@ -236,11 +236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/ItemDetail.swift"
-            timestampString = "483097332.621873"
+            timestampString = "483097956.899117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "updateDataBase(_:price:)"
             landmarkType = "5">
          </BreakpointContent>

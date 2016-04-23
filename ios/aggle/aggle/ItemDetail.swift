@@ -64,6 +64,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func updateDataBase(description:String, price: String){
         let userDB_ref = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid)
         
+        
         userDB_ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
             print(snapshot.description)
             self.zipCode = snapshot.value.objectForKey("ZipCode") as! String
@@ -78,9 +79,12 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let soldTo = "someone"
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode).childByAutoId()
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
+        
+        let userSellingInfo = zipInfo
 
         
         zipRef.setValue(zipInfo)
+        userDB_ref.childByAppendingPath("Selling").setValue(userSellingInfo)
     }
     
     
