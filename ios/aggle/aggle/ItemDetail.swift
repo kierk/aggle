@@ -14,20 +14,15 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var itemDescription: UITextField!
-    
     @IBOutlet weak var itemPrice: UITextField!
-    
     @IBOutlet weak var priceLabel: UILabel!
-    
     @IBOutlet weak var itemImageView : UIImageView!
     
-    
-     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-     var tempUI = UIImage()
-     var base64String = String()
-     var zipCode = "10029"
+    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    var tempUI = UIImage()
+    var base64String = String()
+    var zipCode = "10029"
     
     override func viewDidLoad() {
         itemImageView.image = tempUI // this displays the image

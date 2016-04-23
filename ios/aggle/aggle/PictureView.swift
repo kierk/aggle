@@ -18,12 +18,14 @@ class PictureView: UIView {
     var originalCenter: CGPoint!
     var picture: String!
     var answer: Bool!
+    var TAG: String = "[PicturesView]"
     //--------------------------------------------------------------------------------------------------//
     
     
     //Initialization
     //--------------------------------------------------------------------------------------------------//
     init(frame: CGRect, picture: String, answer: Bool, center: CGPoint) {
+        print(TAG + "init")
         // Gives all the stuff Apple provides
         super.init(frame: frame)
         self.center = center
@@ -34,7 +36,6 @@ class PictureView: UIView {
         
         // Apple thing. For physics
         animator = UIDynamicAnimator(referenceView: self)
-        
         
         // Picture
         pictureField = UIImageView()
@@ -74,6 +75,7 @@ class PictureView: UIView {
     //Swipe animation
     //--------------------------------------------------------------------------------------------------//
     func swipe(answer: Bool) {
+        print(TAG + "swiped: " + (answer ? "right" : "left"))
         animator.removeAllBehaviors()
         
         // If the answer is false, Move to the left
