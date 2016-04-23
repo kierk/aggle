@@ -98,7 +98,6 @@ class SwipeViewController: UIViewController {
     
     //--------------------------------------------------------------------------------------------------//
     func determineJudgement(answer: Bool) {
-        
         let temp = ref.authData.uid
         
         if answer == true{
@@ -111,12 +110,6 @@ class SwipeViewController: UIViewController {
             let disLikesRef = ref.childByAppendingPath("UsersDB/" + (temp) + "/" + "Dislikes").childByAutoId()
             disLikesRef.setValue("dislikesTesting")
         }
-        
-//        // If its the right answer, set the score
-//        if self.currentPictureView.answer == answer && !self.done{
-//            self.score = self.score + 1
-//            //            self.scoreView.text = "Score: \(self.score)"
-//        }
         
         // Run the swipe animation
         self.currentPictureView.swipe(answer)

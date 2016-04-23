@@ -233,7 +233,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "setItemDetails(_:)"
+            landmarkName = "updateDataBase(_:price:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -281,7 +281,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "kolodaShouldTransparentizeNextCard(_:)"
+            landmarkName = "koloda(kolodaBackgroundCardAnimation:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -313,7 +313,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
             endingLineNumber = "188"
-            landmarkName = "koloda(_:viewForCardAtIndex:)"
+            landmarkName = "koloda(_:viewForCardOverlayAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

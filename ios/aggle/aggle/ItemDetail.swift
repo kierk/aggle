@@ -14,30 +14,22 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var itemDescription: UITextField!
-    
     @IBOutlet weak var itemPrice: UITextField!
-    
     @IBOutlet weak var priceLabel: UILabel!
-    
     @IBOutlet weak var itemImageView : UIImageView!
     
-    
-     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-     var tempUI = UIImage()
-     var base64String = String()
-     var zipCode = "10029"
+    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    var tempUI = UIImage()
+    var base64String = String()
+    var zipCode = "00000" // if this shows up in DB, there are problems.
     
     
     override func viewDidLoad() {
         
         let userID = rootRef.authData.uid
         if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
-            print("newwwwwwwwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWW is")
-            print(object)
             self.zipCode = object as! String
-            print(self.zipCode)
         }
         
         itemImageView.image = tempUI // this displays the image
@@ -84,11 +76,9 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let ownerID = rootRef.authData.uid
         let base64String = self.base64String
         let soldTo = "someone"
-        
-       
-        
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode).childByAutoId()
-        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : self.zipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
+        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
+
         
         zipRef.setValue(zipInfo)
     }
