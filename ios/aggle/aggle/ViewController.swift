@@ -13,11 +13,8 @@ import Firebase
 
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-    
+    let TAG = "[ViewController]"
     let user = User.sharedInstance
-    //let zip =
-    
-    
     
     @IBOutlet weak var zipText: UITextField!
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
@@ -43,32 +40,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        print("[\nViewController/viewDidLoad] hi");
+        print(TAG + "[viewDidLoad] hi");
         //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
         //FBSDKProfile.setCurrentProfile(nil)
         
-        
-        
         if (FBSDKAccessToken.currentAccessToken() != nil){  // if user has token, go to main screen
-            print("AccessToken exists");
-            print(FBSDKAccessToken.currentAccessToken().userID)
-            
+            print(TAG + "AccessToken exists");
+            print(TAG + FBSDKAccessToken.currentAccessToken().userID)
             self.performSegueWithIdentifier("showNew", sender: self)
-            
-        }
-            
-            
-        
-        
-        else{   //if user doesn't have token, go here
-            
-            
+        } else {   //if user doesn't have token, go here
             //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
             //FBSDKProfile.setCurrentProfile(nil)
-            
-
-            print("AccessToken doesn't exist exists")
-            
+        
+            print(TAG + "AccessToken doesn't exist exists")
             
             //print(FBSDKAccessToken.currentAccessToken().userID)
             
@@ -78,62 +62,40 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             loginButton.delegate = self
             
             self.view.addSubview(loginButton)
-            print("here, loaded correctly")
-            
-            
+            print(TAG + "here, loaded correctly")
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: -- Facebook Login
-    
-    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
-        print("[\nViewController/loginButton] hi");
-        
+        print(TAG + "[ViewController/loginButton] hi");
         
         if error != nil {  // This means we have an error
-            print(error.localizedDescription)
-            
-        }
-        
-        else if result.isCancelled {
-            
-        }
-            
-            
-        
-        else {
-            
-            print("[\nViewController/loginButton] in login else");
-            
-            
+            print(TAG + error.localizedDescription)
+        } else if result.isCancelled {
+            //
+        } else {
+            print("TAG + [ViewController/loginButton] in login else");
             
             let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
             ref.authWithOAuthProvider("facebook", token: accessToken,
                 withCompletionBlock: { error, authData in
                     
-                    
                     self.performSegueWithIdentifier("showNew", sender: self) //here new change
-                    
                     
                     self.user.name = String((authData.providerData["displayName"])!)
                     
                     print(authData)
-                    print("Logged in! \(authData) The Users uid is \(authData.uid)")
-                    print("And their display name is \(authData.providerData["displayName"])")
-                    print("And their email is \(authData.providerData["email"])")
-                    //_ = String(authData.uid)
-                        
+                    print(self.TAG + "Logged in! \(authData) The Users uid is \(authData.uid)")
+                    print(self.TAG + "And their display name is \(authData.providerData["displayName"])")
+                    print(self.TAG + "And their email is \(authData.providerData["email"])")
+                    
                     let userDisplayName = String((authData.providerData["displayName"])!)   // probably btter way of doing this
-                        
                     let userEmail = String((authData.providerData["email"])!)
                     
                     if (self.mainZipCode == ""){
@@ -145,34 +107,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.user.pic = String((authData.providerData["profileImageURL"])!)
                     
                     
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
-                        ] // key is uid
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,] // key is uid
                     
-                        
                     let usersRef = self.ref.childByAppendingPath("UsersDB")
-                    print("zipcode is " + self.mainZipCode)
+                    print(self.TAG + "zipcode is " + self.mainZipCode)
                     
                     User.sharedInstance.zip = self.mainZipCode
                     
-                    print(User.sharedInstance.zip)
+                    print(self.TAG + User.sharedInstance.zip)
                     
                     let users = [authData.uid : userInfo]
                     usersRef.updateChildValues(users)
-                    
-                    
-                    
             })
-            
         }
     }
     
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("in logout");
-        
+        print(TAG + "in logout");
     }
-
-    
-    
 }
 
