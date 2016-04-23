@@ -45,9 +45,7 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        self.pic.layer.borderWidth = 4
-        self.pic.layer.borderColor = UIColor.redColor().CGColor
-        self.pic.layer.cornerRadius = pic.frame.size.height/2
+        self.pic.layer.cornerRadius = pic.frame.size.height / 1.72
         self.pic.layer.masksToBounds = true;
         
         
