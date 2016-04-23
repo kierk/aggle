@@ -70,8 +70,6 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let base64String = self.base64String
         let soldTo = "someone"
         
-       
-        
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + "10029").childByAutoId()
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : "10029", "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
         

@@ -11,10 +11,6 @@ import Koloda
 import pop
 import Firebase
 
-
-
-
-
 private let numberOfCards: UInt = 5
 private let frameAnimationSpringBounciness: CGFloat = 9
 private let frameAnimationSpringSpeed: CGFloat = 16
