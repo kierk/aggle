@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnj-1q-hjN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -156,7 +156,7 @@
                         <outlet property="capturedImage" destination="UAU-aS-wyd" id="qKq-h4-yP4"/>
                         <outlet property="previewView" destination="xEA-7X-kIE" id="EqZ-x2-Odz"/>
                         <segue destination="fAA-Bf-Vtc" kind="presentation" identifier="photoSettingsSegue" id="pdX-rs-tLg"/>
-                        <segue destination="vA6-nD-3vK" kind="presentation" identifier="segueItemDetails" id="9lb-O0-tnr"/>
+                        <segue destination="vA6-nD-3vK" kind="presentation" identifier="segueItemDetails" id="WUD-wE-oGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBu-QZ-diM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,7 +286,7 @@
                                 <rect key="frame" x="90" y="132" width="195" height="188"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr9-jz-hfX">
-                                <rect key="frame" x="152" y="523" width="30" height="30"/>
+                                <rect key="frame" x="153" y="480" width="30" height="30"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -301,7 +301,7 @@
                             <constraint firstItem="HaY-WT-2mP" firstAttribute="leading" secondItem="Fkl-x5-RhS" secondAttribute="leading" id="2C3-bg-RtB"/>
                             <constraint firstItem="Oan-Vg-i4i" firstAttribute="centerX" secondItem="C8G-GS-OkY" secondAttribute="centerX" id="2GD-lh-t8V"/>
                             <constraint firstItem="7yJ-cB-u4B" firstAttribute="top" secondItem="FiD-ir-h9F" secondAttribute="bottom" constant="19" id="2z4-ES-9n0"/>
-                            <constraint firstItem="Rr9-jz-hfX" firstAttribute="leading" secondItem="7yJ-cB-u4B" secondAttribute="trailing" constant="25" id="5n7-BN-cGY"/>
+                            <constraint firstItem="Rr9-jz-hfX" firstAttribute="leading" secondItem="7yJ-cB-u4B" secondAttribute="trailing" constant="26" id="5n7-BN-cGY"/>
                             <constraint firstItem="jML-va-aev" firstAttribute="top" secondItem="7yJ-cB-u4B" secondAttribute="bottom" constant="30" id="6HO-gg-GJj"/>
                             <constraint firstItem="HaY-WT-2mP" firstAttribute="leading" secondItem="cEf-MQ-mjA" secondAttribute="leadingMargin" constant="14" id="6aQ-93-SIi"/>
                             <constraint firstItem="Fkl-x5-RhS" firstAttribute="leading" secondItem="FiD-ir-h9F" secondAttribute="leading" id="I9u-9s-1Q8"/>
@@ -311,7 +311,7 @@
                             <constraint firstItem="Fkl-x5-RhS" firstAttribute="trailing" secondItem="xFU-dj-MJc" secondAttribute="trailing" id="R6e-iv-Ns3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xFU-dj-MJc" secondAttribute="trailing" constant="4" id="Rc0-N9-Q8n"/>
                             <constraint firstItem="C8G-GS-OkY" firstAttribute="leading" secondItem="cEf-MQ-mjA" secondAttribute="leadingMargin" constant="41" id="S9F-wf-SSf"/>
-                            <constraint firstItem="Rr9-jz-hfX" firstAttribute="top" secondItem="Fkl-x5-RhS" secondAttribute="bottom" constant="98" id="a0O-Ig-s8i"/>
+                            <constraint firstItem="Rr9-jz-hfX" firstAttribute="top" secondItem="Fkl-x5-RhS" secondAttribute="bottom" constant="55" id="a0O-Ig-s8i"/>
                             <constraint firstItem="xFU-dj-MJc" firstAttribute="baseline" secondItem="jML-va-aev" secondAttribute="baseline" id="ckT-DG-qks"/>
                             <constraint firstItem="Fkl-x5-RhS" firstAttribute="top" secondItem="Oan-Vg-i4i" secondAttribute="bottom" constant="84" id="iNX-KI-6Sg"/>
                             <constraint firstItem="Fkl-x5-RhS" firstAttribute="top" secondItem="HaY-WT-2mP" secondAttribute="bottom" constant="18" id="lj9-38-QAe"/>
@@ -668,6 +668,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BGE-al-2xa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="JDM-YR-wzo" id="iSQ-72-mZw"/>
@@ -681,7 +682,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZI2-2o-1Ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fQK-KG-6Vg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4554.5" y="639.5"/>
+            <point key="canvasLocation" x="4350.5" y="639.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j3Z-6a-ZN6">
@@ -711,10 +712,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rbM-kL-4WX"/>
         <segue reference="QgY-Ws-uIF"/>
-        <segue reference="DJV-c7-wd3"/>
+        <segue reference="pdX-rs-tLg"/>
         <segue reference="sLe-yz-fa1"/>
+        <segue reference="DJV-c7-wd3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
