@@ -17,6 +17,42 @@ class SettingsViewController: UIViewController {
     let user = User.sharedInstance
     var TAG: String = "SettingsViewController"
     
+    let ref = Firebase(url:"https://aggle.firebaseio.com/")
+    
+    @IBAction func edit(sender: AnyObject) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Enter new zip code", message: "", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            self.zipCode.text = textField.text
+        }))
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
+    @IBAction func save(sender: AnyObject) {
+        
+        let userInfo = ["Full Name" : self.user.name, "Email": self.user.email, "ZipCode": zipCode.text]
+        
+        let usersRef = self.ref.childByAppendingPath("UsersDB")
+        
+        User.sharedInstance.zip = zipCode.text
+        
+        let users = [self.user.uid : userInfo]
+        usersRef.updateChildValues(users)
+
+    }
+    
+    
     func load_image(urlString:String) {
         print(TAG + "load_image")
         let imgURL: NSURL = NSURL(string: urlString)!
@@ -55,6 +91,7 @@ class SettingsViewController: UIViewController {
         
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(SettingsViewController.setBttnTouched(_:)))
+        
         
         
     }

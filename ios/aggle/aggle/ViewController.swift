@@ -150,7 +150,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     User.sharedInstance.zip = self.mainZipCode
                     
                     print(self.TAG + User.sharedInstance.zip)
-                    
+                    self.user.uid = authData.uid
                     let users = [authData.uid : userInfo]
                     usersRef.updateChildValues(users)
             })

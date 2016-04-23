@@ -22,6 +22,7 @@ class User {
         return Static.instance!
     }
     
+    var uid: String!
     var name: String!
     var email: String!
     var zip: String!
