@@ -209,11 +209,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print(TAG + "imagePickerController")
         
         //info is a dictionary that has lots of metadata on the image that you pick
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.image = chosenImage
-        capturedImage.contentMode = .ScaleAspectFit //3
-        capturedImage.image = chosenImage //4
-        dismissViewControllerAnimated(true, completion: nil) //5
+        capturedImage.contentMode = .ScaleAspectFit
+        capturedImage.image = chosenImage
+        dismissViewControllerAnimated(true, completion: nil)
         
         performSegueWithIdentifier("segueItemDetails", sender: self)
         

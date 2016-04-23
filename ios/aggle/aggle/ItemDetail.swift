@@ -24,9 +24,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     var base64String = String()
     var zipCode = "00000" // if this shows up in DB, there are problems.
     
-    
     override func viewDidLoad() {
-        
         let userID = rootRef.authData.uid
         if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
             self.zipCode = object as! String
@@ -46,16 +44,13 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func base64Encode(){
         let image : UIImage = itemImageView.image! as UIImage
         let imageData = UIImagePNGRepresentation(image)
-        
         self.base64String = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
     }
     
     
     
     @IBAction func setItemDetails(sender: AnyObject) {
-        
         descriptionLabel.text = itemDescription.text
-        
         priceLabel.text = itemPrice.text
         updateDataBase(descriptionLabel.text!, price: priceLabel.text!)
     }

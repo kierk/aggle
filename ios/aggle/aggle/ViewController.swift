@@ -51,7 +51,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(TAG + FBSDKAccessToken.currentAccessToken().userID)
             self.performSegueWithIdentifier("showNew", sender: self)
         } else {   //if user doesn't have token, go here
-            
             FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
             FBSDKProfile.setCurrentProfile(nil)
         
@@ -64,8 +63,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             self.view.addSubview(loginButton)
             print(TAG + "here, loaded correctly")
-            
-            
         }
     }
     
@@ -74,7 +71,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        
         print(TAG + "[ViewController/loginButton] hi");
         
         if error != nil {  // This means we have an error
@@ -146,8 +142,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     
                     
-                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,
-                    ]
+                    let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,]
                     
                     let usersRef = self.ref.childByAppendingPath("UsersDB")
                     print(self.TAG + "zipcode is " + self.mainZipCode)
