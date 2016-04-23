@@ -352,7 +352,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8YL-Aq-uqc" kind="relationship" relationship="viewControllers" id="II4-Ij-rYP"/>
+                        <segue destination="Spq-Pa-vbL" kind="relationship" relationship="viewControllers" id="Dv8-5c-YzQ"/>
                         <segue destination="iHX-0Q-FUZ" kind="relationship" relationship="viewControllers" id="ARU-LA-ZK5"/>
                         <segue destination="Osg-cK-400" kind="relationship" relationship="viewControllers" id="y1q-JU-xrZ"/>
                         <segue destination="m3R-q2-Slv" kind="relationship" relationship="viewControllers" id="kac-gU-IOR"/>
@@ -393,9 +393,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Spq-Pa-vbL" kind="relationship" relationship="rootViewController" id="mGk-uW-QlA"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2H-cI-zZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -477,7 +474,7 @@
                                 <rect key="frame" x="0.0" y="74" width="320" height="494"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
                                 <rect key="frame" x="76" y="504" width="34" height="34"/>
                                 <state key="normal" image="ic_skip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -486,7 +483,7 @@
                                     <action selector="leftButtonTapped" destination="Spq-Pa-vbL" eventType="touchUpInside" id="eCa-8r-Etx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-Mt-38n">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-Mt-38n">
                                 <rect key="frame" x="211" y="505" width="38" height="34"/>
                                 <state key="normal" image="ic_like">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -531,7 +528,7 @@
                                     <constraint firstAttribute="bottom" secondItem="uxy-Le-1To" secondAttribute="bottom" constant="12" id="mgD-hb-moU"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Il-IE-xFb">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Il-IE-xFb">
                                 <rect key="frame" x="160" y="504" width="1" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -563,7 +560,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Eql-sX-5jy"/>
                     <navigationItem key="navigationItem" id="H6s-uc-by4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="kolodaView" destination="GgT-am-vXH" id="w5n-Oc-e72"/>
@@ -653,10 +652,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vFD-4n-F7H"/>
         <segue reference="KVc-c6-tzB"/>
+        <segue reference="vFD-4n-F7H"/>
+        <segue reference="rbM-kL-4WX"/>
         <segue reference="sLe-yz-fa1"/>
-        <segue reference="pdX-rs-tLg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

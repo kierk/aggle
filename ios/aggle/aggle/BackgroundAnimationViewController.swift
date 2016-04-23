@@ -26,10 +26,13 @@ class BackgroundAnimationViewController: UIViewController {
     
     var calledOnce = false
     
-    
+    var startAtRef = ""
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     var zipCode : String = "00000"
     var size : Int = 0
+    
+    
+    
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -51,8 +54,8 @@ class BackgroundAnimationViewController: UIViewController {
             
         }
         
-        let tempZipCode = User.sharedInstance.zip
-        pullValuesFromDB(tempZipCode)
+        //let tempZipCode = User.sharedInstance.zip
+        pullValuesFromDB(self.zipCode)
         
 //        
 //        if let object = (NSUserDefaults.standardUserDefaults().objectForKey(userID))?.valueForKey("ZipCode"){
@@ -86,6 +89,8 @@ class BackgroundAnimationViewController: UIViewController {
     
     
     
+    
+    
     // this gets the encoded images from firebase
     
     func checkIfListSizeIsZero() -> Void{
@@ -96,13 +101,15 @@ class BackgroundAnimationViewController: UIViewController {
     }
     
     
+    
+    
     func pullValuesFromDB(zipCode : String){
         
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
         
         print("\n[pullValuesFromDB]\n")
         print(self.zipCode)
-         currentUserZipCodeRef.queryLimitedToFirst(3).observeSingleEventOfType(.Value, withBlock: {zipKeys in
+        currentUserZipCodeRef.queryLimitedToFirst(3).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
                 print("Loading keys \(zipKeys.key)")
@@ -117,6 +124,60 @@ class BackgroundAnimationViewController: UIViewController {
             }
         })
     }
+    
+    
+    
+    
+    
+    
+    
+//    func pullValuesFromDB(zipCode : String){
+//        
+//        let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
+//        
+//        print("\n[pullValuesFromDB]\n")
+//        print(self.zipCode)
+//        
+//        var checkerBool = false
+//        
+//        if checkerBool == true{
+//            
+//        }
+//        
+//         currentUserZipCodeRef.queryOrderedByKey().queryLimitedToFirst(3).observeSingleEventOfType(.Value, withBlock: {zipKeys in
+//            var count = 0
+//            
+//            for zipKeys in zipKeys.children{
+//                print("Loading keys \(zipKeys.key)")
+//                
+//                currentUserZipCodeRef.childByAppendingPath(zipKeys as! String).queryStartingAtValue(zipKeys as! String)
+//                
+//                let zipKeyIterator = zipKeys
+//                
+//                if let temp = (zipKeys).value.objectForKey("base64Encoding"){
+//                    print("higher hey")
+//                    
+//                    if(((zipKeys).value.objectForKey("OwnerID")) as! String != self.rootRef.authData.uid){
+//                        
+//                        
+//                        count += 1
+//                        self.base64decode(temp as! String)
+//                        if(count == 3){
+//                            var innerCount = 0
+//                            currentUserZipCodeRef.childByAppendingPath(zipKeys as! String).queryStartingAtValue(zipKeys as! String).queryLimitedToFirst(2).observeSingleEventOfType(.Value, withBlock: {testZipKeys in
+//                                    print("here")
+//                                    let temp = String(testZipKeys)
+//                                    innerCount += 1
+//                                if(innerCount == 2){
+//                                    self.startAtRef = temp
+//                                }
+//                            })
+//                        }
+//                    }
+//                }
+//            }
+//        })
+//    }
     
     
     // this decodes them and stores them in a list
@@ -140,6 +201,8 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
         print("[kolodaDidRunOutOfCards]")
         kolodaView.resetCurrentCardIndex()
+        kolodaView?.swipe(SwipeResultDirection.Left)
+        
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
@@ -167,6 +230,7 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
         let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
         animation.springBounciness = frameAnimationSpringBounciness
         animation.springSpeed = frameAnimationSpringSpeed
+        
         return animation
     }
 }
@@ -184,6 +248,36 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         print("[koloda(koloda: KolodaView, viewForCardAtIndex index: UInt)]")
+        
+        //kolodaView?.swipe(SwipeResultDirection.Left)
+        
+         //let main = koloda.swipe(SwipeResultDirection)  //.SwipeResultDirection()
+        
+        //let left = SwipeResultDirection.Left
+        //let right = SwipeResultDirection.Right
+        
+        
+//        if(case  == left){
+//            print("\n\nSwiped left\n\n")
+//        }
+//        
+//        else if(case .right == right){
+//            print("\n\nswiped right\n\n")
+//        }
+//        
+//        else{
+//            print("no direction")
+//        }
+//        
+//        if(left == SwipeResultDirection.Left){
+//            print("\n\nSwiped left\n\n")
+//        }
+//        
+//        else{
+//            print("\n\nswiped right\n\n")
+//        }
+        
+        
         
         if((mainDecodedDataList.count > 0)){
             return UIImageView(image: UIImage(data: mainDecodedDataList.popLast()!))
