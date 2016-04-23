@@ -30,6 +30,7 @@ class MessageViewController: JSQMessagesViewController {
         messageRef = rootRef.childByAppendingPath("ConvoDB")
         
         super.viewDidLoad()
+        self.inputToolbar.contentView.leftBarButtonItem = nil
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
