@@ -1,4 +1,4 @@
-# ![aggle logo](ios/icons/Icon-72.png?raw=true) aggle
+# ![aggle logo](ios/icons/Icon-72.png?raw=true) Aggle
 
 An open source mobile application serving as an alternative to Craigslist for fast local buying, haggling, and selling for cash.  
 
