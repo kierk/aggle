@@ -153,6 +153,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     let users = [authData.uid : userInfo]
                     usersRef.updateChildValues(users)
+                    
             })
         }
     }

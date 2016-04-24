@@ -473,6 +473,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgT-am-vXH" customClass="CustomKolodaView" customModule="aggle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="74" width="320" height="494"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8oe-sl-qe3" appends="YES" id="Xls-rb-ZgM"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
                                 <rect key="frame" x="76" y="504" width="34" height="34"/>
@@ -480,7 +484,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="leftButtonTapped" destination="Spq-Pa-vbL" eventType="touchUpInside" id="eCa-8r-Etx"/>
+                                    <action selector="leftButtonSelectorV2:" destination="Spq-Pa-vbL" eventType="touchUpInside" id="j4g-Z8-yUa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-Mt-38n">
@@ -570,6 +574,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4b-bW-rAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="8oe-sl-qe3" userLabel="Swipe Gesture Recognizer_left">
+                    <connections>
+                        <action selector="leftSwipe:" destination="Spq-Pa-vbL" id="ZJD-I5-mpP"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="uRj-Zs-gZr" userLabel="Swipe Gesture Recognizer_right">
+                    <connections>
+                        <action selector="rightSwipe:" destination="Spq-Pa-vbL" id="SfL-Qc-vtf"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3917" y="-391"/>
         </scene>

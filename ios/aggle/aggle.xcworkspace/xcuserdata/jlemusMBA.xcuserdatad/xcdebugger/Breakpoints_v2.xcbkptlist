@@ -23,22 +23,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "aggle/AppDelegate.swift"
-            timestampString = "481296645.04465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "aggle/PhotoViewController.swift"
             timestampString = "482968868.449438"
             startingColumnNumber = "9223372036854775807"
@@ -250,27 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483082003.807043"
+            timestampString = "483225119.455432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "BackgroundAnimationViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483113801.463367"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "koloda(kolodaBackgroundCardAnimation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483111748.855185"
+            timestampString = "483225119.455432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "BackgroundAnimationViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -298,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483116093.606088"
+            timestampString = "483225119.455432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
             landmarkName = "koloda(_:viewForCardOverlayAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,13 +282,173 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483115917.863976"
+            timestampString = "483225119.455432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
             landmarkName = "koloda(_:viewForCardAtIndex:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "pullValuesFromDB(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "pullValuesFromDB(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
+            landmarkName = "base64decode(_:itemID:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "rightButtonTapped()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "rightButtonTapped()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.BackgroundAnimationViewController.rightButtonTapped () -&gt; ()"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada/aggle/ios/aggle/aggle/BackgroundAnimationViewController.swift"
+                  timestampString = "483223306.666983"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "4290">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.BackgroundAnimationViewController.(rightButtonTapped () -&gt; ()).(closure #1)"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada/aggle/ios/aggle/aggle/BackgroundAnimationViewController.swift"
+                  timestampString = "483223306.667122"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/BackgroundAnimationViewController.swift"
+            timestampString = "483225119.455432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "rightButtonTapped()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.BackgroundAnimationViewController.rightButtonTapped () -&gt; ()"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada/aggle/ios/aggle/aggle/BackgroundAnimationViewController.swift"
+                  timestampString = "483223306.664235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "4900">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.BackgroundAnimationViewController.(rightButtonTapped () -&gt; ()).(closure #1)"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada/aggle/ios/aggle/aggle/BackgroundAnimationViewController.swift"
+                  timestampString = "483223306.664646"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "3703">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

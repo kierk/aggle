@@ -77,7 +77,15 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let base64String = self.base64String
         let soldTo = "someone"
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode).childByAutoId()
-        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo]
+        
+        
+        let itemID = String(zipRef.childByAutoId())
+        let r = itemID.startIndex.advancedBy(62)
+        let itemIDSubString = itemID.substringFromIndex(r)
+        
+        
+        
+        let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo, "ItemID": String(itemIDSubString)]
         
         let userSellingInfo = zipInfo
 
@@ -86,7 +94,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         userDB_ref.childByAppendingPath("Selling").setValue(userSellingInfo)
     }
     
-    
+   // https://aggle.firebaseio.com/ZipDB/11112/    40
     
     
     
