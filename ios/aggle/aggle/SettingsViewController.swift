@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var zipCode: UITextField!
     let user = User.sharedInstance
-    var TAG: String = "SettingsViewController"
+    var TAG: String = "[SettingsViewController]"
     
     let ref = Firebase(url:"https://aggle.firebaseio.com/")
     
