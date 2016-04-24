@@ -2,7 +2,8 @@
 //  MoreViewController.swift
 //  aggle
 //
-//  This controller SHOULD be used to display all items currently listed by the user
+//  This controller SHOULD be used to display all items currently listed by the user.
+//  It should be renamed to ListingsViewController.
 //  As of 4/22/2016, this controller does nothing.
 //
 //  Created by Max Li on 3/22/16.

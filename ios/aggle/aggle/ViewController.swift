@@ -2,6 +2,9 @@
 //  ViewController.swift
 //  aggle
 //
+//  This is the Login screen (the one w/ Facebook and all that fun stuff). 
+//  It should be renamed into something like LgoinViewController.
+//
 //  Created by Max Li on 3/3/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //

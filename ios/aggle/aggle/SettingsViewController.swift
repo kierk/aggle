@@ -2,6 +2,8 @@
 //  SettingsViewController.swift
 //  aggle
 //
+//  This is the Settings Screen.
+//
 //  Created by Max Li on 4/17/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
