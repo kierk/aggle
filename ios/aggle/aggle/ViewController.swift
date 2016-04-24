@@ -28,10 +28,21 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             zipText.text = ""
         }
         else{
-            let alert = UIAlertView()
-            alert.message = "Enter a valid zip code please"
-            alert.addButtonWithTitle("Okay")
-            alert.show()
+            let alert = UIAlertController(title: "Warning", message: "Enter a valid zip code please", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // ...
+            }
+            alert.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+                // ...
+            }
+            alert.addAction(OKAction)
+            
+            self.presentViewController(alert, animated: true) {
+                // ...
+            }
         }
     }
     
@@ -150,7 +161,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     User.sharedInstance.zip = self.mainZipCode
                     
                     print(self.TAG + User.sharedInstance.zip)
-                    
+                    self.user.uid = authData.uid
                     let users = [authData.uid : userInfo]
                     usersRef.updateChildValues(users)
             })
