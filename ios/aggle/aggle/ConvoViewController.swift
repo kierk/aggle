@@ -1,9 +1,8 @@
 //
-//  MoreViewController.swift
+//  ConvoViewController.swift
 //  aggle
 //
-//  This controller SHOULD be used to display all items currently listed by the user.
-//  It should be renamed to ListingsViewController.
+//  This controller SHOULD be used to display all items currently listed by the user
 //  As of 4/22/2016, this controller does nothing.
 //
 //  Created by Max Li on 3/22/16.
@@ -12,8 +11,8 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
-
+class ConvoViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Aggle"
@@ -28,25 +27,25 @@ class MoreViewController: UIViewController {
     
     func setBttnTouched(sender: UIBarButtonItem) {
         
-        performSegueWithIdentifier("moreSettingsSegue", sender: self)
+        performSegueWithIdentifier("convoSettingsSegue", sender: self)
         
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

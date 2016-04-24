@@ -2,6 +2,9 @@
 //  ItemDetail.swift
 //  aggle
 //
+//  This controller (yes it should be renamed ItemDetailController), is for filling in 
+//  information about an item that the user wants to sell
+//
 //  Created by Jose Lemus on 4/21/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
@@ -26,6 +29,10 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     override func viewDidLoad() {
         let userID = rootRef.authData.uid
+        self.navigationItem.title = "Aggle"
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // set zipcode
         if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
             self.zipCode = object.objectForKey("ZipCode")! as! String

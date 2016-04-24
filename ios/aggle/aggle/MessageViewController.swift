@@ -2,6 +2,8 @@
 //  MessageViewController.swift
 //  aggle
 //
+//  This controller SHOULD display a single conversation about an item, between 2 peoples
+//
 //  Created by Max Li on 4/10/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
@@ -176,18 +178,10 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     func setBttnTouched(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("convoSettingsSegue", sender: self)
+        performSegueWithIdentifier("messageSettingsSegue", sender: self)
     }
     
 }
-
-/* Some snippets that might help */
-//self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-//self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
-//self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-
-
 
 
 

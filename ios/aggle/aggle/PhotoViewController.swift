@@ -2,7 +2,10 @@
 //  PhotoViewController.swift
 //  aggle
 //
-//  Created by Max Li on 3/22/16.
+//  This is the SELL/CAMERA screen
+//  This controller is used to display the sell camera
+//
+//  Created by Max Li on 3/22/1s6.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
 
@@ -43,8 +46,21 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(PhotoViewController.setBttnTouched(_:)))
         
         if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            let myAlertView: UIAlertView = UIAlertView(title: "Error", message: "Device has no camera", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: "")
-            myAlertView.show()
+            let myAlertView = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // ...
+            }
+            myAlertView.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+                // ...
+            }
+            myAlertView.addAction(OKAction)
+            
+            self.presentViewController(myAlertView, animated: true) {
+                // ...
+            } 
         }
     }
     
