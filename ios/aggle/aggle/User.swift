@@ -2,6 +2,8 @@
 //  User.swift
 //  aggle
 //
+//  User vanilla object
+//
 //  Created by Max Li on 4/19/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //

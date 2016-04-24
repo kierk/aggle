@@ -2,7 +2,10 @@
 //  PhotoViewController.swift
 //  aggle
 //
-//  Created by Max Li on 3/22/16.
+//  This is the SELL/CAMERA screen
+//  This controller is used to display the sell camera
+//
+//  Created by Max Li on 3/22/1s6.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
 

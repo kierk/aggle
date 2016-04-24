@@ -2,6 +2,9 @@
 //  ItemDetail.swift
 //  aggle
 //
+//  This controller (yes it should be renamed ItemDetailController), is for filling in 
+//  information about an item that the user wants to sell
+//
 //  Created by Jose Lemus on 4/21/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //

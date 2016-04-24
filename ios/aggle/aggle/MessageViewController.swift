@@ -2,6 +2,8 @@
 //  MessageViewController.swift
 //  aggle
 //
+//  This controller SHOULD display a single conversation about an item, between 2 peoples
+//
 //  Created by Max Li on 4/10/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //

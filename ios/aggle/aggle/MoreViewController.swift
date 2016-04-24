@@ -2,6 +2,9 @@
 //  MoreViewController.swift
 //  aggle
 //
+//  This controller SHOULD be used to display all items currently listed by the user
+//  As of 4/22/2016, this controller does nothing.
+//
 //  Created by Max Li on 3/22/16.
 //  Copyright © 2016 Max Li. All rights reserved.
 //
