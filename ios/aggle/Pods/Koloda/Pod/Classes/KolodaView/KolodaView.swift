@@ -13,6 +13,24 @@ public enum SwipeResultDirection {
     case None
     case Left
     case Right
+    
+    public init?(symbol : SwipeResultDirection){
+        switch symbol{
+        case None:
+            self = .None
+            
+        case Left:
+            self = .Left
+            
+        case Right:
+            self = .Right
+            
+        default:
+            return nil
+            
+        }
+    }
+    
 }
 
 //Default values
@@ -72,11 +90,21 @@ public extension KolodaViewDelegate {
 
 public class KolodaView: UIView, DraggableCardDelegate {
     
+    
+    
+    
+    
+    //let myTemp = SwipeResultDirection.init(symbol: SwipeResultDirection)
+    
+     //var a = SwipeResultDirection.init(symbol:SwipeResultDirection)
+    
+    
     public weak var dataSource: KolodaViewDataSource? {
         didSet {
             setupDeck()
         }
     }
+    
     
     public weak var delegate: KolodaViewDelegate?
     
