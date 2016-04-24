@@ -193,6 +193,40 @@
             </objects>
             <point key="canvasLocation" x="3500.5" y="1534.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Y1s-t1-spM">
+            <objects>
+                <viewController id="A38-6m-R44" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UYf-BY-Q8M"/>
+                        <viewControllerLayoutGuide type="bottom" id="N3c-oG-Qev"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dOF-2j-6ZH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uR-Ol-b6F">
+                                <rect key="frame" x="303" y="106" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="VrO-ZU-SEp"/>
+                                    <segue destination="nO7-5F-cb9" kind="presentation" id="2sK-R3-4Lv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yJ2-T0-039"/>
+                    <connections>
+                        <segue destination="fAA-Bf-Vtc" kind="presentation" id="3xm-gH-oyN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBT-yY-UfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3085.5" y="1622.5"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="Mee-g6-qyL">
             <objects>
@@ -467,12 +501,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nO7-5F-cb9" kind="relationship" relationship="rootViewController" id="QFt-Iz-1R0"/>
+                        <segue destination="A38-6m-R44" kind="relationship" relationship="rootViewController" id="a2j-0M-8Mo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teW-au-Ns0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684.5" y="1534.5"/>
+            <point key="canvasLocation" x="2576.5" y="1622.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5qO-ul-xPi">
@@ -712,10 +746,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QgY-Ws-uIF"/>
-        <segue reference="KyI-zR-qsZ"/>
+        <segue reference="62K-RY-A0p"/>
+        <segue reference="3xm-gH-oyN"/>
         <segue reference="DJV-c7-wd3"/>
-        <segue reference="sLe-yz-fa1"/>
+        <segue reference="ah8-f2-3Eq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

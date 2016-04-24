@@ -183,14 +183,6 @@ class MessageViewController: JSQMessagesViewController {
     
 }
 
-/* Some snippets that might help */
-//self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-//self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
-//self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-
-
-
 
 
 
