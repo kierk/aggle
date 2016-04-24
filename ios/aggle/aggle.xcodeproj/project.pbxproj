@@ -27,6 +27,10 @@
 		50B7F8B71C88735D0026B95F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */; };
 		50B7F8B91C8873810026B95F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */; };
 		50ED753D1CCD5CC300ED58DD /* ConvoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */; };
+		B9CB06E51CCD68C100CD27E4 /* ConvoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB06E41CCD68C100CD27E4 /* ConvoTableViewCell.swift */; };
+		B9CB06E71CCD6F6000CD27E4 /* Convo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB06E61CCD6F6000CD27E4 /* Convo.swift */; };
+		B9CB06E91CCD6FC400CD27E4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB06E81CCD6FC400CD27E4 /* Message.swift */; };
+		B9CB06EB1CCD74E200CD27E4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB06EA1CCD74E200CD27E4 /* Item.swift */; };
 		E605104F1CC901830011A4AE /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */; };
 		E60510501CC901830011A4AE /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */; };
 		E60510511CC901830011A4AE /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605104A1CC901830011A4AE /* ExampleOverlayView.swift */; };
@@ -84,6 +88,10 @@
 		50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvoViewController.swift; sourceTree = "<group>"; };
 		7B8120F5DEE341B23F051E86 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B9CB06E41CCD68C100CD27E4 /* ConvoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvoTableViewCell.swift; sourceTree = "<group>"; };
+		B9CB06E61CCD6F6000CD27E4 /* Convo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convo.swift; sourceTree = "<group>"; };
+		B9CB06E81CCD6FC400CD27E4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B9CB06EA1CCD74E200CD27E4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
 		E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
 		E605104A1CC901830011A4AE /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
@@ -148,11 +156,13 @@
 			children = (
 				50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */,
 				50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */,
-				50B7F8861C886EA40026B95F /* AppDelegate.swift */,
+				B9CB06EC1CCD74F900CD27E4 /* Models */,
 				50B7F8881C886EA40026B95F /* ViewController.swift */,
+				50B7F8861C886EA40026B95F /* AppDelegate.swift */,
 				1060F2EB1CC9589C00734F44 /* ItemDetail.swift */,
-				508920FF1CC6695F002C0082 /* User.swift */,
 				506231921CA16EAA00E070A9 /* PhotoViewController.swift */,
+				50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */,
+				B9CB06E41CCD68C100CD27E4 /* ConvoTableViewCell.swift */,
 				501755FA1CBADA0500239F9E /* MessageViewController.swift */,
 				506231941CA17AC000E070A9 /* MoreViewController.swift */,
 				5002F5541CC411B500894BBE /* SettingsViewController.swift */,
@@ -171,7 +181,6 @@
 				107338A21CCB3C1A00011128 /* CustomView.xib */,
 				50B7F8921C886EA40026B95F /* Info.plist */,
 				E60510561CC902130011A4AE /* Images.xcassets */,
-				50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */,
 			);
 			path = aggle;
 			sourceTree = "<group>";
@@ -201,6 +210,17 @@
 				488765526E1E050F02943ABB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9CB06EC1CCD74F900CD27E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB06E81CCD6FC400CD27E4 /* Message.swift */,
+				B9CB06EA1CCD74E200CD27E4 /* Item.swift */,
+				B9CB06E61CCD6F6000CD27E4 /* Convo.swift */,
+				508920FF1CC6695F002C0082 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C806CDF9489E75856A5CFAE1 /* Frameworks */ = {
@@ -398,11 +418,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CB06EB1CCD74E200CD27E4 /* Item.swift in Sources */,
 				506231971CA1847A00E070A9 /* SwipeViewController.swift in Sources */,
 				E60510521CC901830011A4AE /* CustomKolodaView.swift in Sources */,
+				B9CB06E51CCD68C100CD27E4 /* ConvoTableViewCell.swift in Sources */,
 				E60510531CC901830011A4AE /* CustomOverlayView.swift in Sources */,
 				50B7F8891C886EA40026B95F /* ViewController.swift in Sources */,
+				B9CB06E71CCD6F6000CD27E4 /* Convo.swift in Sources */,
 				506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */,
+				B9CB06E91CCD6FC400CD27E4 /* Message.swift in Sources */,
 				E60510501CC901830011A4AE /* BackgroundKolodaAnimator.swift in Sources */,
 				501755F91CBAD84000239F9E /* PictureView.swift in Sources */,
 				50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */,

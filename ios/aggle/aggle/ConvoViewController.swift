@@ -11,18 +11,22 @@
 
 import UIKit
 
-class ConvoViewController: UIViewController {
+class ConvoViewController: UITableViewController {
+    
+    var convos = [Convo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /* Add the top bar w/ settings button */
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
         
         // Do any additional setup after loading the view.
+        
+        
     }
     
     func setBttnTouched(sender: UIBarButtonItem) {
