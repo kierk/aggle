@@ -14,14 +14,12 @@ class Message : NSObject {
     var _from : String
     var _date : NSDate
     var _to : String
-    var _item : Item
     
-    init(text: String?, from: String?, to: String?, item: Item?) {
+    init(text: String?, from: String?, to: String?) {
         self._text = text!
         self._from = from!
         self._to = to!
         self._date = NSDate()
-        self._item = item!
     }
     
     func text() -> String! {
@@ -38,9 +36,5 @@ class Message : NSObject {
     
     func date() -> NSDate! {
         return _date;
-    }
-    
-    func item() -> Item? {
-        return _item;
     }
 }

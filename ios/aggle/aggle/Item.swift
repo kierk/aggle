@@ -9,6 +9,7 @@
 import Foundation
 
 class Item : NSObject {
+    var _title : String
     var _description : String
     var _itemzip : String // TODO(eugenek): Is there a better type for this?, e.g. NSZip(?)
     var _owner : String
@@ -17,8 +18,9 @@ class Item : NSObject {
     var _soldto : String
     var _date : NSDate
     
-    init(description: String?, itemzip: String?, owner: String?, pic: String?,
+    init(title: String?, description: String?, itemzip: String?, owner: String?, pic: String?,
          price: String?, soldto: String?) {
+        self._title = title!
         self._description = description!
         self._itemzip = itemzip!
         self._owner = owner!
@@ -26,6 +28,10 @@ class Item : NSObject {
         self._price = price!
         self._soldto = soldto!
         self._date = NSDate()
+    }
+    
+    func title() -> String! {
+        return _title;
     }
     
     func desc() -> String! { // eugenek: the name 'description' is taken by NSObject, don't feel like figure that shit out.

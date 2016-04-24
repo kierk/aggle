@@ -12,6 +12,23 @@ import Foundation
 import JSQMessagesViewController
 
 class Convo {
-    var messages = [JSQMessage]()
+    var _messages = [Message]()
+    var _item : Item
+    
+    init(messages: [Message]?, item: Item?) {
+        self._messages = messages!
+        self._item = item!
+    }
+    
+    func messages() -> [Message]! {
+        return _messages;
+    }
+    
+    func item() -> Item! {
+        return _item;
+    }
 
+    func addMessage(message: Message) {
+        _messages.append(message)
+    }
 }
