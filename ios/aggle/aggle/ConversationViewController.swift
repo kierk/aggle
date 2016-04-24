@@ -1,5 +1,5 @@
 //
-//  MessageViewController.swift
+//  ConversationViewController.swift
 //  aggle
 //
 //  Created by Max Li on 4/10/16.
@@ -10,11 +10,10 @@ import UIKit
 import Firebase
 import JSQMessagesViewController
 
-class MessageViewController: JSQMessagesViewController {
+class ConversationViewController: JSQMessagesViewController {
     @IBOutlet weak var showImage: UIImageView!
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-    var messageRef: Firebase!
-    var ref = Firebase(url:"https://aggle.firebaseio.com/")
+    var convosRef: Firebase!
     var messages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -22,20 +21,24 @@ class MessageViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         print(TAG + "[viewDidLoad] hi")
-        self.senderId = ref.authData.uid!
-        self.senderDisplayName = String((ref.authData.providerData["displayName"])!)
+        self.senderId = rootRef.authData.uid!
+        self.senderDisplayName = String((rootRef.authData.providerData["displayName"])!)
         
+        /* Display the bubbles in the conversation */
         setupBubbles()
         
-        messageRef = rootRef.childByAppendingPath("ConvoDB")
+        /* Get a handle to the conversation */
+        convosRef = rootRef.childByAppendingPath("ConvoDB")
         
         super.viewDidLoad()
+        
+        /* Set up the top toolbar */
         self.inputToolbar.contentView.leftBarButtonItem = nil
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MessageViewController.setBttnTouched(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(ConversationViewController.setBttnTouched(_:)))
     }
     
     
@@ -81,14 +84,6 @@ class MessageViewController: JSQMessagesViewController {
         return messages.count
     }
     
-    private func setupBubbles() {
-        let factory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
-        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
-    }
-    
     /**
      * Change color(and other properties) of sender and receiver's message bubbles to their specific ones
      */
@@ -107,12 +102,9 @@ class MessageViewController: JSQMessagesViewController {
         return nil
     }
     
-    func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
-        print(TAG + "addMessage")
-        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
-        messages.append(message)
-    }
-    
+    /**
+    * When the user starts typing a message in the edit text
+    */
     override func didPressAccessoryButton(sender: UIButton!) {
         print(TAG + "didPressAccessoryButton")
         var picker: UIImagePickerController = UIImagePickerController()
@@ -121,9 +113,9 @@ class MessageViewController: JSQMessagesViewController {
         self.presentViewController(picker, animated: true, completion: { _ in })
     }
     
-    /*
+    /**
      * When send button is pressed, this adds the message to the database.
-     **/
+     */
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
         print(TAG + "didPressSendButton")
         
@@ -132,9 +124,9 @@ class MessageViewController: JSQMessagesViewController {
             "senderId": senderId
         ]
         
-        let convoRef = ref.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations")
+        let convoRef = rootRef.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations")
         let messageRef = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
-        let convoDB = ref.childByAppendingPath("ConvoDB/")
+        let convoDB = rootRef.childByAppendingPath("ConvoDB/")
         let convoDBref = convoDB.childByAutoId()
         
         let ConvoInfo = [
@@ -145,20 +137,34 @@ class MessageViewController: JSQMessagesViewController {
         convoDBref.setValue(ConvoInfo)
         messageRef.updateChildValues(messageItem)
         
-        self.messageRef = convoDBref.childByAppendingPath("Messages/")
-        print(self.messageRef)
+        convosRef = convoDBref.childByAppendingPath("Messages/")
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         finishSendingMessage()
     }
     
+    private func setupBubbles() {
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleBlueColor())
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    private func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
+        print(TAG + "addMessage")
+        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
+        messages.append(message)
+    }
+    
+    
     /** observeMessages
      * Query messages from the db and update them in the conversation
      */
     private func observeMessages() {
         print(TAG + "observeMessages")
-        let messagesQuery = self.messageRef.queryLimitedToLast(25)
+        let messagesQuery = self.convosRef.queryLimitedToLast(25)
         
         print(TAG + messagesQuery.description)
         messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -175,16 +181,12 @@ class MessageViewController: JSQMessagesViewController {
         })
     }
     
+    /* Settings button */
     func setBttnTouched(sender: UIBarButtonItem) {
         performSegueWithIdentifier("convoSettingsSegue", sender: self)
     }
     
 }
-
-/* Some snippets that might help */
-//self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-//self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
-//self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
 
 

@@ -12,7 +12,7 @@
 		107A05591CCB77D1008D6BAF /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 107A05581CCB77D1008D6BAF /* OverlayView.xib */; };
 		5002F5551CC411B500894BBE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002F5541CC411B500894BBE /* SettingsViewController.swift */; };
 		501755F91CBAD84000239F9E /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501755F81CBAD84000239F9E /* PictureView.swift */; };
-		501755FB1CBADA0500239F9E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501755FA1CBADA0500239F9E /* MessageViewController.swift */; };
+		501755FB1CBADA0500239F9E /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501755FA1CBADA0500239F9E /* ConversationViewController.swift */; };
 		506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231921CA16EAA00E070A9 /* PhotoViewController.swift */; };
 		506231951CA17AC000E070A9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231941CA17AC000E070A9 /* MoreViewController.swift */; };
 		506231971CA1847A00E070A9 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506231961CA1847A00E070A9 /* SwipeViewController.swift */; };
@@ -61,7 +61,7 @@
 		488765526E1E050F02943ABB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5002F5541CC411B500894BBE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		501755F81CBAD84000239F9E /* PictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
-		501755FA1CBADA0500239F9E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		501755FA1CBADA0500239F9E /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		506231921CA16EAA00E070A9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		506231941CA17AC000E070A9 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		506231961CA1847A00E070A9 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
@@ -148,18 +148,18 @@
 				50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */,
 				50B7F8861C886EA40026B95F /* AppDelegate.swift */,
 				50B7F8881C886EA40026B95F /* ViewController.swift */,
+				508920FF1CC6695F002C0082 /* User.swift */,
+				E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */,
 				506231921CA16EAA00E070A9 /* PhotoViewController.swift */,
 				1060F2EB1CC9589C00734F44 /* ItemDetail.swift */,
-				501755FA1CBADA0500239F9E /* MessageViewController.swift */,
+				501755FA1CBADA0500239F9E /* ConversationViewController.swift */,
 				506231941CA17AC000E070A9 /* MoreViewController.swift */,
-				508920FF1CC6695F002C0082 /* User.swift */,
 				5002F5541CC411B500894BBE /* SettingsViewController.swift */,
-				E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */,
-				E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */,
-				E605104A1CC901830011A4AE /* ExampleOverlayView.swift */,
+				50B7F88D1C886EA40026B95F /* Assets.xcassets */,
 				E605104B1CC901830011A4AE /* CustomKolodaView.swift */,
 				E605104C1CC901830011A4AE /* CustomOverlayView.swift */,
-				50B7F88D1C886EA40026B95F /* Assets.xcassets */,
+				E605104A1CC901830011A4AE /* ExampleOverlayView.swift */,
+				E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */,
 				501755F81CBAD84000239F9E /* PictureView.swift */,
 				506231961CA1847A00E070A9 /* SwipeViewController.swift */,
 				50B7F88A1C886EA40026B95F /* Main.storyboard */,
@@ -406,7 +406,7 @@
 				508921001CC6695F002C0082 /* User.swift in Sources */,
 				506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */,
 				E60510511CC901830011A4AE /* ExampleOverlayView.swift in Sources */,
-				501755FB1CBADA0500239F9E /* MessageViewController.swift in Sources */,
+				501755FB1CBADA0500239F9E /* ConversationViewController.swift in Sources */,
 				5002F5551CC411B500894BBE /* SettingsViewController.swift in Sources */,
 				1060F2EC1CC9589C00734F44 /* ItemDetail.swift in Sources */,
 				E605104F1CC901830011A4AE /* BackgroundAnimationViewController.swift in Sources */,

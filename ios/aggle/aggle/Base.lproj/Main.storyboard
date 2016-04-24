@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="3484.5" y="493.5"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Conversation View Controller-->
         <scene sceneID="UwJ-As-ROU">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="nO7-5F-cb9" customClass="MessageViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="nO7-5F-cb9" customClass="ConversationViewController" customModule="aggle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vfs-y3-Q2f"/>
                         <viewControllerLayoutGuide type="bottom" id="sjd-Gv-Ade"/>
@@ -652,10 +652,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KVc-c6-tzB"/>
-        <segue reference="vFD-4n-F7H"/>
-        <segue reference="rbM-kL-4WX"/>
         <segue reference="sLe-yz-fa1"/>
+        <segue reference="QgY-Ws-uIF"/>
+        <segue reference="KyI-zR-qsZ"/>
+        <segue reference="vFD-4n-F7H"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
