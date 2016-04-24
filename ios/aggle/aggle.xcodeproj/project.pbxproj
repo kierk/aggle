@@ -26,6 +26,7 @@
 		50B7F8A71C886EA50026B95F /* aggleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B7F8A61C886EA50026B95F /* aggleUITests.swift */; };
 		50B7F8B71C88735D0026B95F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */; };
 		50B7F8B91C8873810026B95F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */; };
+		50ED753D1CCD5CC300ED58DD /* ConvoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */; };
 		E605104F1CC901830011A4AE /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */; };
 		E60510501CC901830011A4AE /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */; };
 		E60510511CC901830011A4AE /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605104A1CC901830011A4AE /* ExampleOverlayView.swift */; };
@@ -81,6 +82,7 @@
 		50B7F8A81C886EA50026B95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B7F8B61C88735D0026B95F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		50B7F8B81C8873810026B95F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvoViewController.swift; sourceTree = "<group>"; };
 		7B8120F5DEE341B23F051E86 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E60510481CC901830011A4AE /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
 		E60510491CC901830011A4AE /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				107338A21CCB3C1A00011128 /* CustomView.xib */,
 				50B7F8921C886EA40026B95F /* Info.plist */,
 				E60510561CC902130011A4AE /* Images.xcassets */,
+				50ED753C1CCD5CC300ED58DD /* ConvoViewController.swift */,
 			);
 			path = aggle;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				E60510501CC901830011A4AE /* BackgroundKolodaAnimator.swift in Sources */,
 				501755F91CBAD84000239F9E /* PictureView.swift in Sources */,
 				50B7F8871C886EA40026B95F /* AppDelegate.swift in Sources */,
+				50ED753D1CCD5CC300ED58DD /* ConvoViewController.swift in Sources */,
 				508921001CC6695F002C0082 /* User.swift in Sources */,
 				506231931CA16EAA00E070A9 /* PhotoViewController.swift in Sources */,
 				E60510511CC901830011A4AE /* ExampleOverlayView.swift in Sources */,

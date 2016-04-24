@@ -178,7 +178,7 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     func setBttnTouched(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("convoSettingsSegue", sender: self)
+        performSegueWithIdentifier("messageSettingsSegue", sender: self)
     }
     
 }
