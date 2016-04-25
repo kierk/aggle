@@ -24,7 +24,7 @@ class MessageViewController: JSQMessagesViewController {
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-    var messageRef: Firebase!
+    var messagesRef: Firebase!
 
     override func viewDidLoad() {
         print(TAG + "[viewDidLoad] hi")
@@ -41,7 +41,8 @@ class MessageViewController: JSQMessagesViewController {
         /* Set up the scene, load the appropriate data */
         self.senderId = rootRef.authData.uid!
         self.senderDisplayName = String((rootRef.authData.providerData["displayName"])!)
-        messageRef = rootRef.childByAppendingPath("ConvoDB")
+        self.messagesRef = rootRef.childByAppendingPath("ConvoDB/" + convo.id() + "/Messages")
+
         
         /* Set up the message bubbles to be nice and pretty */
         let factory = JSQMessagesBubbleImageFactory()
@@ -133,55 +134,37 @@ class MessageViewController: JSQMessagesViewController {
         
         let messageItem = [
             "text": text,
-            "senderId": senderId
+            "senderId": senderId,
+            "date": String(date.timeIntervalSince1970),
+            "senderDisplayName": senderDisplayName
         ]
         
-        let convoRef = rootRef.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations")
-        let messageRef = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
-        let convoDB = rootRef.childByAppendingPath("ConvoDB/")
-        let convoDBref = convoDB.childByAutoId()
-        
-        let ConvoInfo = [
-            "itemID": "itemID",
-            "Messages" : ["date" : String(date), "from" : self.senderId, "text" : text, "to" : "someone", "name": self.senderDisplayName]
-        ]
-        
-        convoDBref.setValue(ConvoInfo)
-        messageRef.updateChildValues(messageItem)
-        
-        self.messageRef = convoDBref.childByAppendingPath("Messages/")
-        print(self.messageRef)
+        messagesRef.childByAutoId().setValue(messageItem)
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
         finishSendingMessage()
     }
-    
-    /**
-    * Add a message to the conversation */
-    func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
-        print(TAG + "addMessage")
-        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
-        messages.append(message)
-    }
-
     
     /**
      * Query messages from the db and update them in the conversation */
     private func observeMessages() {
         print(TAG + "observeMessages")
-        let messagesQuery = self.messageRef.queryLimitedToLast(25)
+        //let messagesQuery = self.messageRef.queryLimitedToLast(25)
         
-        print(TAG + messagesQuery.description)
-        messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+        messagesRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            print(self.TAG + "we just observed a new message!")
             print(self.TAG + snapshot.description)
-            let id = snapshot.childSnapshotForPath("Messages").value["from"] as! String
-            let text = snapshot.childSnapshotForPath("Messages").value["text"] as! String
-            let displayName = self.senderDisplayName as! String
             
-            let myDate = NSDate()
+            let senderId = snapshot.value["senderId"] as! String
+            let text = snapshot.value["text"] as! String
+            let senderDisplayName = snapshot.value["senderDisplayName"] as! String
+            let date = snapshot.value["date"] as! String
+            let message = JSQMessage(senderId: senderId,
+                senderDisplayName: senderDisplayName,
+                date: NSDate(timeIntervalSince1970: Double(date)!),
+                text: text)
             
-            self.addMessage(id, displayName: displayName, date: myDate, text: text)
+            self.messages.append(message)
             
             self.finishReceivingMessage()
         })

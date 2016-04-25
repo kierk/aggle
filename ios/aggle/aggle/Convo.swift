@@ -13,10 +13,12 @@ import Foundation
 class Convo {
     var _messages = [Message]()
     var _item : Item
+    var _id : String
     
-    init(messages: [Message]?, item: Item?) {
+    init(id: String?, messages: [Message]?, item: Item?) {
         self._messages = messages!
         self._item = item!
+        self._id = id!
     }
     
     func messages() -> [Message]! {
@@ -27,6 +29,10 @@ class Convo {
         return _item;
     }
 
+    func id() -> String! {
+        return _id;
+    }
+    
     func addMessage(message: Message) {
         _messages.append(message)
     }

@@ -13,6 +13,7 @@ import UIKit
 class ConvoViewController: UITableViewController {
     
     var convos = [Convo]()
+    var TAG: String! = "[ConvoViewController]"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class ConvoViewController: UITableViewController {
     }
     
     func loadConvos() {
+        
         // TODO(eugenek): Pull convos for the user from firebase
     }
     
@@ -79,14 +81,14 @@ class ConvoViewController: UITableViewController {
                          soldto: "")
         
         // Start some conversations about them
-        let convo1 = Convo(messages: [], item: item1)
-        let msg1 = Message(text: "Hello there", from: "Scott", to: "The Doctor")
-        let msg2 = Message(text: "What do you want?", from: "The Doctor", to: "Scott")
+        let convo1 = Convo(id: "-KFt11myiuNbselRNDI5", messages: [], item: item1)
+        let msg1 = Message(text: "Hello there", senderId: "1231123", senderDisplayName: "Scott")
+        let msg2 = Message(text: "What do you want?", senderId: "123116", senderDisplayName: "The Doctor")
         convo1.addMessage(msg1)
         convo1.addMessage(msg2)
         
-        let msg3 = Message(text: "This is another message", from: "Timmy", to: "Doc")
-        let convo2 = Convo(messages: [msg3], item: item2)
+        let msg3 = Message(text: "This is another message", senderId: "1661", senderDisplayName: "Timmy")
+        let convo2 = Convo(id: "-KGAPApTawqNczUreSxd", messages: [msg3], item: item2)
         
         self.convos = [convo1, convo2]
     }
@@ -96,12 +98,10 @@ class ConvoViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-     // MARK: - Navigation
-     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ConvoTableViewCell", let destination = segue.destinationViewController as? MessageViewController {
+        print(TAG + segue.identifier!)
+        if segue.identifier == "ConvoTableViewCellSegue", let destination = segue.destinationViewController as? MessageViewController {
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
                 let convo = convos[indexPath.row]
                 destination.convo = convo
