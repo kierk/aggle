@@ -28,7 +28,8 @@ var mainItemIDList = [String]()
 class BackgroundAnimationViewController: UIViewController{
     
     let swipeResult = KolodaView()
-    
+    var TAG: String! = "[BackgroundAnimiationViewController]"
+
     
 //    @IBAction func leftSwipe(sender: UISwipeGestureRecognizer) {
 //        print ("\n\nswiped Left\n\n")
@@ -54,7 +55,7 @@ class BackgroundAnimationViewController: UIViewController{
     
     //MARK: Lifecycle
     override func viewDidLoad() {
-        print("STARTING\n")
+        print(TAG + "STARTING")
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(BackgroundAnimationViewController.handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(BackgroundAnimationViewController.handleSwipes(_:)))
@@ -85,8 +86,8 @@ class BackgroundAnimationViewController: UIViewController{
         if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
             self.zipCode = object.objectForKey("ZipCode")! as! String
             self.displayNmae = object.objectForKey("Full Name") as! String
-            print(self.displayNmae)
-            print(rootRef.authData.uid)
+            print(TAG + self.displayNmae)
+            print(TAG + rootRef.authData.uid)
             
         }
         
@@ -99,15 +100,15 @@ class BackgroundAnimationViewController: UIViewController{
 
     
     @IBAction func leftButtonSelectorV2(sender: AnyObject?) {
-        print("in left button")
+        print(TAG + "in left button")
         kolodaView?.swipe(SwipeResultDirection.Left)
         
         let userDB = rootRef.childByAppendingPath("UsersDB")
         let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
         
         print(userDB)
-        print(rootRef.authData.uid)
-        print(self.displayNmae)
+        print(TAG + rootRef.authData.uid)
+        print(TAG + self.displayNmae)
         print(mainItemIDList.count)
         print(itemIDListSize)
         
@@ -117,7 +118,7 @@ class BackgroundAnimationViewController: UIViewController{
             let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
             // likedItemID and removed it from mainItemIDList
             
-            print("\n[inLeftButtonAction]\n")
+            print(TAG + "[inLeftButtonAction]")
             
             userDB.observeSingleEventOfType(.Value, withBlock: {zipKeys in
                 
@@ -150,8 +151,8 @@ class BackgroundAnimationViewController: UIViewController{
         let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
         
         print(userDB)
-        print(rootRef.authData.uid)
-        print(self.displayNmae)
+        print(TAG + rootRef.authData.uid)
+        print(TAG + self.displayNmae)
         print(mainItemIDList.count)
         print(itemIDListSize)
         
@@ -161,7 +162,7 @@ class BackgroundAnimationViewController: UIViewController{
             let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to 
                                                        // likedItemID and removed it from mainItemIDList
             
-            print("\n[inRightButtonAction]\n")
+            print(TAG + "inRightButtonAction]")
             
             userDB.observeSingleEventOfType(.Value, withBlock: {zipKeys in
                 
@@ -236,19 +237,15 @@ class BackgroundAnimationViewController: UIViewController{
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
 
         currentUserZipCodeRef.queryLimitedToLast(25).observeSingleEventOfType(.Value, withBlock: {zipKeys in
-            
             for zipKeys in zipKeys.children{
-                
                 let tempOwner = (zipKeys).value.objectForKey("OwnerID") as! String
                 
                 if let base64EncodedString = (zipKeys).value.objectForKey("base64Encoding"){
                     if let myItemID = (zipKeys).value.objectForKey("ItemID"){
                         if((((zipKeys).value.objectForKey("OwnerID")) as! String) != self.rootRef.authData.uid){
-                                print(tempOwner)  // should not be user that is logged in
+                                print(self.TAG + "test" + tempOwner)  // should not be user that is logged in
                                 self.base64decode(base64EncodedString as! String, itemID: myItemID as! String)
-                            
-                            }
-                        
+                        }
                     }
                 }
             }
@@ -327,7 +324,7 @@ class BackgroundAnimationViewController: UIViewController{
 extension BackgroundAnimationViewController: KolodaViewDelegate {
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
-        print("[kolodaDidRunOutOfCards]")
+        print(TAG + "[kolodaDidRunOutOfCards]")
         kolodaView.resetCurrentCardIndex()
         kolodaView?.swipe(SwipeResultDirection.Left)
         
@@ -335,11 +332,11 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
         UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
-        print("[koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt)]")
+        print(TAG + "[koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt)]")
     }
     
     func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
-        print("[kolodaShouldApplyAppearAnimation(koloda: KolodaView)]")
+        print(TAG + "[kolodaShouldApplyAppearAnimation(koloda: KolodaView)]")
         return true
     }
     
@@ -354,7 +351,7 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     }
     
     func koloda(kolodaBackgroundCardAnimation koloda: KolodaView) -> POPPropertyAnimation? {
-        print("[koloda(kolodaBackgroundCardAnimation koloda: KolodaView)]")
+        print(TAG + "[koloda(kolodaBackgroundCardAnimation koloda: KolodaView)]")
         let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
         animation.springBounciness = frameAnimationSpringBounciness
         animation.springSpeed = frameAnimationSpringSpeed
@@ -372,7 +369,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     
 
     func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
-        print("[kolodaNumberOfCards(koloda: KolodaView)]")
+        print(TAG + "[kolodaNumberOfCards(koloda: KolodaView)]")
         return numberOfCards
         
     }
@@ -406,7 +403,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     
     
     func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
-        print("[koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? ]")
+        print(TAG + "[koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? ]")
         return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
             owner: self, options: nil)[0] as? OverlayView
     }
