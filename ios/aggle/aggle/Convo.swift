@@ -9,7 +9,6 @@
 //
 
 import Foundation
-import JSQMessagesViewController
 
 class Convo {
     var _messages = [Message]()
