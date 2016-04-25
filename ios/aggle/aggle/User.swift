@@ -29,4 +29,8 @@ class User {
     var email: String!
     var zip: String!
     var pic: String!
+    var itemText: String!
+    var itemDescrip: String!
+    var itemPic: String!
+    var numberSold: Int = 0
 }

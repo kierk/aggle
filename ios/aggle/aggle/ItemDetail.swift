@@ -15,6 +15,7 @@ import Firebase
 
 class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    let user = User.sharedInstance
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var itemDescription: UITextField!
@@ -63,6 +64,10 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBAction func setItemDetails(sender: AnyObject) {
         descriptionLabel.text = itemDescription.text
         priceLabel.text = itemPrice.text
+        self.user.itemText = itemPrice.text
+        self.user.itemDescrip = itemDescription.text
+        self.user.itemPic = self.base64String
+        self.user.numberSold += 1
         updateDataBase(descriptionLabel.text!, price: priceLabel.text!)
     }
     
