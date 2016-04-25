@@ -236,11 +236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "kolodaShouldTransparentizeNextCard(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -252,11 +252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "BackgroundAnimationViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -268,11 +268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "koloda(_:viewForCardOverlayAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -284,11 +284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "koloda(_:viewForCardAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -300,11 +300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "pullValuesFromDB(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -316,11 +316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "pullValuesFromDB(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -332,11 +332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "base64decode(_:itemID:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -348,11 +348,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "rightButtonTapped()"
             landmarkType = "5">
          </BreakpointContent>
@@ -364,11 +364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "rightButtonTapped()"
             landmarkType = "5">
             <Locations>
@@ -412,11 +412,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aggle/BackgroundAnimationViewController.swift"
-            timestampString = "483251260.09957"
+            timestampString = "483252929.691828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "rightButtonTapped()"
             landmarkType = "5">
             <Locations>
@@ -483,6 +483,130 @@
             endingLineNumber = "163"
             landmarkName = "updateDataBase(_:price:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/CustomOverlayView.swift"
+            timestampString = "483255215.831922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "CustomOverlayView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.CustomOverlayView.overlayImageView.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.210043"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.CustomOverlayView.overlayImageView.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.210558"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.CustomOverlayView.overlayImageView.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.210781"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.CustomOverlayView.init (frame : __C.CGRect) -&gt; aggle.CustomOverlayView"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.210965"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aggle.CustomOverlayView.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;aggle.CustomOverlayView&gt;"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.211134"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Stack Promoted from Box&gt; of aggle.CustomOverlayView.(overlayImageView.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;).(closure #1)"
+                  moduleName = "aggle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlemusMBA/yada_bk/aggle/ios/aggle/aggle/CustomOverlayView.swift"
+                  timestampString = "483254312.211311"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aggle/CustomOverlayView.swift"
+            timestampString = "483255215.831922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "CustomOverlayView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

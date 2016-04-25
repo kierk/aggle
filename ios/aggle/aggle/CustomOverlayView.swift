@@ -11,12 +11,15 @@ import Koloda
 
 private let overlayRightImageName = "overlay_like"
 private let overlayLeftImageName = "overlay_skip"
+let temp = BackgroundAnimationViewController()
+
 
 class CustomOverlayView: OverlayView {
 
+    
     @IBOutlet lazy var overlayImageView: UIImageView! = {
         [unowned self] in
-        
+        print("in lazy var outlet")
         var imageView = UIImageView(frame: self.bounds)
         self.addSubview(imageView)
         
@@ -25,9 +28,11 @@ class CustomOverlayView: OverlayView {
     
     override var overlayState:OverlayMode  {
         didSet {
+            
             switch overlayState {
             case .Left :
                 overlayImageView.image = UIImage(named: overlayLeftImageName)
+                temp.leftButtonSelectorV2("hey")
             case .Right :
                 overlayImageView.image = UIImage(named: overlayRightImageName)
             default:

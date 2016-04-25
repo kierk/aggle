@@ -56,7 +56,18 @@ class BackgroundAnimationViewController: UIViewController{
     override func viewDidLoad() {
         print("STARTING\n")
         
-
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(BackgroundAnimationViewController.handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(BackgroundAnimationViewController.handleSwipes(_:)))
+        
+        leftSwipe.direction = .Left
+        rightSwipe.direction = .Right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        
+        
+        
+        
         let temp = UITextField()
         
         let userID = rootRef.authData.uid
@@ -69,6 +80,8 @@ class BackgroundAnimationViewController: UIViewController{
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         
         
+        
+        
         if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
             self.zipCode = object.objectForKey("ZipCode")! as! String
             self.displayNmae = object.objectForKey("Full Name") as! String
@@ -76,7 +89,7 @@ class BackgroundAnimationViewController: UIViewController{
             print(rootRef.authData.uid)
             
         }
-
+        
         
         pullValuesFromDB(self.zipCode) // the first batch of images are pulled, decoded and added to maindecoded list
                                        // before the first call to the kolodaswipe handler.
@@ -86,7 +99,7 @@ class BackgroundAnimationViewController: UIViewController{
 
     
     @IBAction func leftButtonSelectorV2(sender: AnyObject?) {
-        
+        print("in left button")
         kolodaView?.swipe(SwipeResultDirection.Left)
         
         let userDB = rootRef.childByAppendingPath("UsersDB")
@@ -175,7 +188,15 @@ class BackgroundAnimationViewController: UIViewController{
     }
     
     
-    
+    func handleSwipes(sender: UISwipeGestureRecognizer){
+        if(sender.direction == .Left){
+            leftButtonSelectorV2("swipedLeft")
+        }
+        
+        else{
+            rightButtonTapped()
+        }
+    }
     
     
 //    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
