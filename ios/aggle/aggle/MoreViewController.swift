@@ -43,11 +43,8 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         
         let decodedData = NSData(base64EncodedString: self.user.itemPic, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        var decodedimage = UIImage(data: decodedData!)
-        cell.pic.image = decodedimage! as UIImage
+        cell.pic.image = UIImage(data: decodedData!)
         
-        
-        cell.pic.image = UIImage(named:self.user.itemPic)
         cell.price.text = self.user.itemText
         cell.descrip.text = self.user.itemDescrip
         
