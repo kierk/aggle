@@ -39,13 +39,14 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return self.user.numberSold
+//        return self.user.numberSold
+        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
 //        cell.pic.image = self.user.itemPic
-        cell.price.text = self.user.itemText
+        cell.price.text = "100"
         cell.descrip.text = self.user.itemDescrip
         
         return cell
