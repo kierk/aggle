@@ -44,7 +44,7 @@ class BackgroundAnimationViewController: UIViewController{
     
     var calledOnce = false
     var startAtRef = ""
-    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
     var zipCode : String = "00000"
     var size : Int = 0 // size for decoded data list
     var displayNmae : String = ""

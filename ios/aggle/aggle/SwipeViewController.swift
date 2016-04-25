@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 class SwipeViewController: UIViewController {
     
-    let ref = Firebase(url:"https://aggle.firebaseio.com/")
+    let ref = Firebase(url:"https://aggle.firebaseio2.com/")
     //--------------------------------------------------------------------------------------------------//
     var score: Int!
     var done: Bool = false

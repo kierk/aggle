@@ -23,7 +23,7 @@ class MessageViewController: JSQMessagesViewController {
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
-    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
     var messagesRef: Firebase!
 
     override func viewDidLoad() {

@@ -15,7 +15,7 @@ class ConvoViewController: UITableViewController {
     
     var convos = [Convo]()
     var TAG: String! = "[ConvoViewController]"
-    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
     var userConvosRef: Firebase!
 
     override func viewDidLoad() {

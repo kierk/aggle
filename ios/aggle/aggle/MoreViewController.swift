@@ -17,7 +17,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var table: UITableView!
     
     let user = User.sharedInstance
-//    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()

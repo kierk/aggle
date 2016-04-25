@@ -23,7 +23,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var itemImageView : UIImageView!
     @IBOutlet weak var itemDescription2: UITextView!
     
-    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
     var tempUI = UIImage()
     var base64String = String()
     var zipCode = "00000" // if this shows up in DB, there are problems.
@@ -170,7 +170,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         userDB_ref.childByAppendingPath("Selling").setValue(userSellingInfo)
     }
     
-   // https://aggle.firebaseio.com/ZipDB/11112/    40
+   
     
     
     @IBAction func dismissKeyboard() {
