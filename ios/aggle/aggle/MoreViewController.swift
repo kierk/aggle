@@ -42,12 +42,10 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         
+        print (self.user.itemPic)
         let decodedData = NSData(base64EncodedString: self.user.itemPic, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        var decodedimage = UIImage(data: decodedData!)
-        cell.pic.image = decodedimage! as UIImage
+        cell.pic.image = UIImage(data: decodedData!)
         
-        
-        cell.pic.image = UIImage(named:self.user.itemPic)
         cell.price.text = self.user.itemText
         cell.descrip.text = self.user.itemDescrip
         
