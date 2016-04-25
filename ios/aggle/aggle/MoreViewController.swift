@@ -42,7 +42,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         
-        print (self.user.itemPic)
         let decodedData = NSData(base64EncodedString: self.user.itemPic, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         cell.pic.image = UIImage(data: decodedData!)
         
