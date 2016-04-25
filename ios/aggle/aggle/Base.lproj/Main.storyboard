@@ -323,7 +323,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ufo-m6-hSg" customClass="CustomCell" customModule="aggle" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ufo-m6-hSg" customClass="CustomCell" customModule="aggle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ufo-m6-hSg" id="BRT-RY-M5S">
@@ -352,7 +352,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-a8-ig3">
-                                                    <rect key="frame" x="267" y="49" width="42" height="21"/>
+                                                    <rect key="frame" x="168" y="78" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -361,11 +361,11 @@
                                             <constraints>
                                                 <constraint firstItem="SA5-Tu-VUP" firstAttribute="leading" secondItem="W2H-fm-D5K" secondAttribute="leading" id="9qF-zR-wve"/>
                                                 <constraint firstItem="t1h-eJ-uTt" firstAttribute="centerY" secondItem="W2H-fm-D5K" secondAttribute="centerY" id="Exb-sg-iWn"/>
-                                                <constraint firstItem="bz8-a8-ig3" firstAttribute="leading" secondItem="W2H-fm-D5K" secondAttribute="trailing" constant="8" symbolic="YES" id="IoO-hy-2vn"/>
+                                                <constraint firstItem="bz8-a8-ig3" firstAttribute="leading" secondItem="W2H-fm-D5K" secondAttribute="trailing" constant="-91" id="IoO-hy-2vn"/>
                                                 <constraint firstItem="SA5-Tu-VUP" firstAttribute="top" secondItem="BRT-RY-M5S" secondAttribute="topMargin" id="O3z-hp-Oi0"/>
                                                 <constraint firstItem="t1h-eJ-uTt" firstAttribute="top" secondItem="BRT-RY-M5S" secondAttribute="topMargin" constant="-12" id="SSk-y5-E8e"/>
                                                 <constraint firstItem="SA5-Tu-VUP" firstAttribute="centerX" secondItem="BRT-RY-M5S" secondAttribute="centerX" id="b1k-fe-aef"/>
-                                                <constraint firstItem="W2H-fm-D5K" firstAttribute="baseline" secondItem="bz8-a8-ig3" secondAttribute="baseline" id="ihf-Hn-EoI"/>
+                                                <constraint firstItem="W2H-fm-D5K" firstAttribute="baseline" secondItem="bz8-a8-ig3" secondAttribute="baseline" constant="-29" id="ihf-Hn-EoI"/>
                                                 <constraint firstItem="K7v-Ci-cvM" firstAttribute="trailing" secondItem="W2H-fm-D5K" secondAttribute="trailing" id="plU-fw-V93"/>
                                                 <constraint firstItem="SA5-Tu-VUP" firstAttribute="leading" secondItem="t1h-eJ-uTt" secondAttribute="trailing" constant="6" id="qQW-I3-1uH"/>
                                                 <constraint firstItem="t1h-eJ-uTt" firstAttribute="leading" secondItem="BRT-RY-M5S" secondAttribute="leading" id="qVx-La-CKh"/>

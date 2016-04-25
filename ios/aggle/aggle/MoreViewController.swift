@@ -27,11 +27,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
-        
-        
-        if (self.user.itemText != nil){
-            print (self.user.itemText)
-        }
+
         
         // Do any additional setup after loading the view.
     }
@@ -40,11 +36,15 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.user.numberSold
+//        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-//        cell.pic.image = self.user.itemPic
+        
+        let decodedData = NSData(base64EncodedString: self.user.itemPic, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        cell.pic.image = UIImage(data: decodedData!)
+        
         cell.price.text = self.user.itemText
         cell.descrip.text = self.user.itemDescrip
         
