@@ -71,29 +71,18 @@ class BackgroundAnimationViewController: UIViewController{
         if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
             self.zipCode = object.objectForKey("ZipCode")! as! String
             self.displayNmae = object.objectForKey("Full Name") as! String
-            //print("mainZip is")
-            //print(self.zipCode)
+            print(self.displayNmae)
+            print(rootRef.authData.uid)
             
         }
-        
-        //let tempZipCode = User.sharedInstance.zip
+
         
         pullValuesFromDB(self.zipCode) // the first batch of images are pulled, decoded and added to maindecoded list
                                        // before the first call to the kolodaswipe handler.
         
     }
     
-    
-    
-    
-    
-    //MARK: IBActions
-//    @IBAction func leftButtonTapped() {
-//        
-//        
-//    }
-    
-    
+
     
     @IBAction func leftButtonSelectorV2(sender: AnyObject?) {
         
@@ -136,46 +125,7 @@ class BackgroundAnimationViewController: UIViewController{
                 }
             })
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        //print(sender)
-//        let tempString = sender
-//        let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
-//        let userDB = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
-//        
-//        currentUserZipCodeRef.observeSingleEventOfType(.Value, withBlock: {zipKeys in
-//        
-//            
-//           let newString = String(tempString!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
-//            
-//            
-//            for zipKeys in zipKeys.children{
-//                //print("Loading keys \(zipKeys.key)")
-//                //print(userDB)
-//                //print("\n\nZipKeys are \(zipKeys.key)\n\n\n")
-//                
-//                //print((zipKeys).value.objectForKey("base64Encoding"))
-//                //print("\n\n\n\n\\n\n\n\n")
-//                //print(tempString)
-//                if((zipKeys).value.objectForKey("base64Encoding") as! String == newString){
-//                    userDB.setValue((zipKeys).value.objectForKey("ItemID"))
-//                    print("user dislikes item \((zipKeys).valueForKey("ItemID"))")
-//                }
-//                
-//                
-//            }
-//        })
-        
     }
-    
-    
-    
     
     @IBAction func rightButtonTapped() {
         
@@ -193,7 +143,7 @@ class BackgroundAnimationViewController: UIViewController{
         
         let userID = rootRef.authData.uid
         
-        if itemIDListSize > 0{  // check if itemIDList is not empty
+        if itemIDListSize > 0{                          // check if itemIDList is not empty
             let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to 
                                                        // likedItemID and removed it from mainItemIDList
             
@@ -202,9 +152,6 @@ class BackgroundAnimationViewController: UIViewController{
             userDB.observeSingleEventOfType(.Value, withBlock: {zipKeys in
                 
                 for zipKeys in zipKeys.children{
-                    
-                    //print("Loading keys in right button action click \(zipKeys.key)")
-                    //print(zipKeys)
                     
                     if userID == zipKeys.key as String{
                         //print("in the if")
@@ -219,7 +166,6 @@ class BackgroundAnimationViewController: UIViewController{
                 }
             })
         }
-        
     }
     
     @IBAction func undoButtonTapped() {
@@ -266,14 +212,10 @@ class BackgroundAnimationViewController: UIViewController{
     
     func pullValuesFromDB(zipCode : String){
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
-        
-        //print("\n[pullValuesFromDB]\n")
-        //print(self.zipCode)
+
         currentUserZipCodeRef.queryLimitedToLast(25).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
-                //print("Loading keys \(zipKeys.key)")
-                //print(zipKeys)
                 
                 let tempOwner = (zipKeys).value.objectForKey("OwnerID") as! String
                 
