@@ -18,7 +18,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var currentImage: UIImageView!
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     internal var base64Image = "";
-    let ref = Firebase(url:"https://aggle.firebaseio2.com/")
+    let ref = Firebase(url:"https://aggle2.firebaseio.com/")
     
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var capturedImage: UIImageView!

@@ -19,7 +19,7 @@ let userDefaults = NSUserDefaults.standardUserDefaults()
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     let TAG = "[ViewController]"
     let user = User.sharedInstance
-    let ref = Firebase(url:"https://aggle.firebaseio2.com/")
+    let ref = Firebase(url:"https://aggle2.firebaseio.com/")
     var mainZipCode : String = ""
     
     @IBOutlet weak var zipText: UITextField!

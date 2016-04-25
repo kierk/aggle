@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
     let user = User.sharedInstance
     var TAG: String = "[SettingsViewController]"
     
-    let ref = Firebase(url:"https://aggle.firebaseio2.com/")
+    let ref = Firebase(url:"https://aggle2.firebaseio.com/")
     
     @IBAction func edit(sender: AnyObject) {
         //1. Create the alert controller.
