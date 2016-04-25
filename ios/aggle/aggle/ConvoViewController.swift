@@ -28,7 +28,7 @@ class ConvoViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(ConvoViewController.setBttnTouched(_:)))
         
         // Do any additional setup after loading the view.
-        self.userConvosRef = rootRef.childByAppendingPath("UserDB/" + rootRef.authData.uid! + "/Conversations")
+        self.userConvosRef = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid! + "/Conversations")
 
         observeUserConvos()
         
@@ -72,15 +72,32 @@ class ConvoViewController: UITableViewController {
             print(self.TAG + "we just observed a new convo!")
             print(self.TAG + snapshot.description)
             
-            let messages = snapshot.value["messages"] as! [Message]
-            let item = snapshot.value["item"] as! Item
-            let id = snapshot.key as! String
-
-            let convo = Convo(id: id,
-                messages: messages,
-                item: item)
+            let convoId = snapshot.value as! String
+            let convoRef = self.rootRef.childByAppendingPath("ConvoDB/" + convoId + "/item")
             
-            self.convos.append(convo)
+            convoRef.observeEventType(.Value, withBlock: { snapshot in
+                let description = snapshot.value["Description"] as! String
+                let itemzip = snapshot.value["ItemZipCode"] as! String
+                let owner = snapshot.value["OwnerID"] as! String
+                let pic = snapshot.value["base64Encoding"] as! String
+                let price = snapshot.value["Price"] as! String
+                
+                let item = Item(title: "Testy McTestface",
+                    description: description,
+                    itemzip: itemzip,
+                    owner: owner,
+                    pic: pic,
+                    price: price,
+                    soldto: "")
+                
+                let convo = Convo(id: convoId,
+                    messages: [],
+                    item: item)
+
+                self.convos.append(convo)
+                self.tableView.reloadData()
+
+            })
         })
     }
     

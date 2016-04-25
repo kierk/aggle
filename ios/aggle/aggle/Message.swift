@@ -44,4 +44,9 @@ class Message : NSObject {
     func date() -> NSDate! {
         return _date;
     }
+    
+    // TODO(eugenek)
+    func toJSQMessage() {
+        //
+    }
 }

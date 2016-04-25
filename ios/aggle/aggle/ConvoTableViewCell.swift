@@ -11,8 +11,6 @@
 import UIKit
 
 class ConvoTableViewCell: UITableViewCell {
-
-    // MARK: Properties
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
