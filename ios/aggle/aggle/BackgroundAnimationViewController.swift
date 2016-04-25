@@ -56,6 +56,7 @@ class BackgroundAnimationViewController: UIViewController{
         print("STARTING\n")
         
 
+        let temp = UITextField()
         
         let userID = rootRef.authData.uid
         super.viewDidLoad()
@@ -81,6 +82,9 @@ class BackgroundAnimationViewController: UIViewController{
                                        // before the first call to the kolodaswipe handler.
         
     }
+    
+    
+    
     
     
     //MARK: IBActions
@@ -409,11 +413,12 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
         
     }
     
+    
+    
+    
+    
     // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
-        
-
-        
         
         if((mainDecodedDataList.count > 0)){
             // pass decoded array count to button
@@ -432,6 +437,9 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
         }
 
     }
+    
+    
+    
     
     func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
         print("[koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? ]")
