@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -27,6 +27,11 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     var base64String = String()
     var zipCode = "00000" // if this shows up in DB, there are problems.
     
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         let userID = rootRef.authData.uid
         self.navigationItem.title = "Aggle"
@@ -39,17 +44,75 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             //print("mainZip is")
             //print(self.zipCode)
             
+            
+            
         }
         
         itemImageView.image = tempUI // this displays the image
         if (itemImageView.image != nil){
             base64Encode()
         }
+        
+       
+        
+        
     }
     
-    override func viewWillAppear(animated: Bool) {
-        // nothing atm
+
+    
+    
+    @IBAction func editingPriceBegan(sender: AnyObject) {
+        
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        // if you want to slide up the view
+        var rect: CGRect = self.view.frame
+        rect.origin.y -= 100
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+        
+        
+        
     }
+    
+    
+    
+    @IBAction func editingPriceEndedV2(sender: AnyObject) {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        var rect: CGRect = self.view.frame
+        rect.origin.y += 100
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+    }
+    
+    
+    @IBAction func DescriptionEditingBegin(sender: AnyObject) {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        // if you want to slide up the view
+        var rect: CGRect = self.view.frame
+        rect.origin.y -= 100
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+        
+    }
+    
+    
+    @IBAction func DescriptionEditingEnd(sender: AnyObject) {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        var rect: CGRect = self.view.frame
+        rect.origin.y += 100
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+        
+    }
+
     
     
     func base64Encode(){
