@@ -117,7 +117,8 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func base64Encode(){
         let image : UIImage = itemImageView.image! as UIImage
-        let imageData = UIImagePNGRepresentation(image)
+    
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
         self.base64String = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
     }
     
@@ -159,7 +160,6 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         let userSellingInfo = zipInfo
 
-        
         zipRef.setValue(zipInfo)
         userDB_ref.childByAppendingPath("Selling").setValue(userSellingInfo)
     }

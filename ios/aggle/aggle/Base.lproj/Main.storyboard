@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjC-xZ-tbj">
                                 <rect key="frame" x="16" y="20" width="134" height="30"/>
                                 <state key="normal" title="Open Photo Library">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,17 +85,17 @@
                                     <action selector="PhotoLibraryAction:" destination="JUM-fB-Cal" eventType="touchUpInside" id="JZP-Zj-GoW"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
                                 <rect key="frame" x="20" y="58" width="335" height="245"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="248" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-aS-wyd">
                                 <rect key="frame" x="16" y="358" width="339" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="7CL-6s-fur"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-jY-40z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-jY-40z">
                                 <rect key="frame" x="34" y="558" width="57" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="ufw-MU-l5T"/>
@@ -107,7 +107,7 @@
                                     <action selector="selectPhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="V74-ip-xgU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
                                 <rect key="frame" x="289" y="558" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,7 +116,7 @@
                                     <action selector="didPressTakePhoto:" destination="JUM-fB-Cal" eventType="touchUpInside" id="cio-SE-bi7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeF-6x-ZFE">
                                 <rect key="frame" x="149" y="605" width="60" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="mQ6-H5-zso"/>
@@ -487,7 +487,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HoP-CF-AeB" id="uzs-sG-V6o">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sweet new bike!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzn-VH-g5M">
@@ -503,7 +503,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lawn_500" translatesAutoresizingMaskIntoConstraints="NO" id="vzC-gB-Yi6">
-                                            <rect key="frame" x="0.0" y="0.0" width="191" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="191" height="80"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
