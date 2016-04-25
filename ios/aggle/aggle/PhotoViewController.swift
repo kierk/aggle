@@ -174,14 +174,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print(TAG + "prepareForSegue")
         
         if(segue.identifier == "segueItemDetails"){
-            //let image = UIImage()
+            
             let DestViewController = segue.destinationViewController as! ItemDetail
-            //self.image = DestViewController.tempUI
+            
             DestViewController.tempUI = self.image!
-            //let tempImage = UIImage()
-            //DestViewController.itemImageView.image = UIImage()
-            //DestViewController.itemImageView.image = image
-            //itemImageView.image = image
+           
         }
     }
     
