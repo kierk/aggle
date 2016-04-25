@@ -12,8 +12,13 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
-
+class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var table: UITableView!
+    
+    let user = User.sharedInstance
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Aggle"
@@ -23,8 +28,33 @@ class MoreViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
         
+        
+        if (self.user.itemText != nil){
+            print (self.user.itemText)
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return self.user.numberSold
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
+//        cell.pic.image = self.user.itemPic
+        cell.price.text = self.user.itemText
+        cell.descrip.text = self.user.itemDescrip
+        
+        return cell
+    }
+    
+    
+    
+    
+    
     
     func setBttnTouched(sender: UIBarButtonItem) {
         
