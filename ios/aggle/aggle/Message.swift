@@ -7,30 +7,38 @@
 //
 
 import Foundation
+import JSQMessagesViewController
 
 class Message : NSObject {
     var _text : String
-    var _from : String
+    var _senderId : String
+    var _senderDisplayName : String
     var _date : NSDate
-    var _to : String
     
-    init(text: String?, from: String?, to: String?) {
+    init(text: String?, senderId: String?, senderDisplayName: String?) {
         self._text = text!
-        self._from = from!
-        self._to = to!
+        self._senderId = senderId!
+        self._senderDisplayName = senderDisplayName!
         self._date = NSDate()
+    }
+    
+    init(text: String?, senderId: String?, senderDisplayName: String?, date: NSDate?) {
+        self._text = text!
+        self._senderId = senderId!
+        self._senderDisplayName = senderDisplayName!
+        self._date = date!
     }
     
     func text() -> String! {
         return _text;
     }
     
-    func from() -> String! {
-        return _from;
+    func senderId() -> String! {
+        return _senderId;
     }
     
-    func to() -> String! {
-        return _to;
+    func senderDisplayName() -> String! {
+        return _senderDisplayName;
     }
     
     func date() -> NSDate! {

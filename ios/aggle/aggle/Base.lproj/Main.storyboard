@@ -327,7 +327,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ufo-m6-hSg" id="BRT-RY-M5S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t1h-eJ-uTt">
@@ -535,7 +535,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HoP-CF-AeB" id="uzs-sG-V6o">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sweet new bike!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzn-VH-g5M">
@@ -560,7 +560,7 @@
                                     <outlet property="itemImageView" destination="vzC-gB-Yi6" id="z03-80-9JK"/>
                                     <outlet property="itemText" destination="qzn-VH-g5M" id="1fZ-sH-jcO"/>
                                     <outlet property="itemTitle" destination="Jcy-EO-MC2" id="yn3-SA-yuJ"/>
-                                    <segue destination="nO7-5F-cb9" kind="presentation" id="xhv-oH-FO6"/>
+                                    <segue destination="nO7-5F-cb9" kind="presentation" identifier="ConvoTableViewCellSegue" id="xhv-oH-FO6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -844,10 +844,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="sLe-yz-fa1"/>
+        <segue reference="hak-N2-efB"/>
         <segue reference="QgY-Ws-uIF"/>
         <segue reference="rbM-kL-4WX"/>
-        <segue reference="hak-N2-efB"/>
-        <segue reference="sLe-yz-fa1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
