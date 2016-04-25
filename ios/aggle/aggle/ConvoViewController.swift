@@ -9,12 +9,15 @@
 //
 
 import UIKit
+import Firebase
 
 class ConvoViewController: UITableViewController {
     
     var convos = [Convo]()
     var TAG: String! = "[ConvoViewController]"
-    
+    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    var userConvosRef: Firebase!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         /* Add the top bar w/ settings button */
@@ -25,9 +28,12 @@ class ConvoViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(ConvoViewController.setBttnTouched(_:)))
         
         // Do any additional setup after loading the view.
+        self.userConvosRef = rootRef.childByAppendingPath("UserDB/" + rootRef.authData.uid! + "/Conversations")
+
+        observeUserConvos()
         
         /* This is to test... too lazy to create a test class right now */
-        testConvos()
+        //testConvos()
         
     }
     
@@ -39,6 +45,8 @@ class ConvoViewController: UITableViewController {
         return convos.count;
     }
     
+    /**
+    * Update each ConvoTableViewCell with data pulled from the list of Convos */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId = "ConvoTableViewCell";
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! ConvoTableViewCell
@@ -56,9 +64,24 @@ class ConvoViewController: UITableViewController {
         performSegueWithIdentifier("convoSettingsSegue", sender: self)
     }
     
-    func loadConvos() {
+    private func observeUserConvos() {
+        print(TAG + "observeUserConvos")
+        //let messagesQuery = self.messageRef.queryLimitedToLast(25)
         
-        // TODO(eugenek): Pull convos for the user from firebase
+        userConvosRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            print(self.TAG + "we just observed a new convo!")
+            print(self.TAG + snapshot.description)
+            
+            let messages = snapshot.value["messages"] as! [Message]
+            let item = snapshot.value["item"] as! Item
+            let id = snapshot.key as! String
+
+            let convo = Convo(id: id,
+                messages: messages,
+                item: item)
+            
+            self.convos.append(convo)
+        })
     }
     
     /**

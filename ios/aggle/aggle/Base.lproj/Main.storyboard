@@ -535,11 +535,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HoP-CF-AeB" id="uzs-sG-V6o">
-<<<<<<< Updated upstream
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-=======
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
->>>>>>> Stashed changes
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sweet new bike!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzn-VH-g5M">
@@ -887,17 +883,10 @@
         <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< Updated upstream
         <segue reference="sLe-yz-fa1"/>
         <segue reference="hak-N2-efB"/>
         <segue reference="QgY-Ws-uIF"/>
         <segue reference="rbM-kL-4WX"/>
-=======
-        <segue reference="CtU-gw-1b8"/>
-        <segue reference="sLe-yz-fa1"/>
-        <segue reference="rbM-kL-4WX"/>
-        <segue reference="DJV-c7-wd3"/>
->>>>>>> Stashed changes
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
