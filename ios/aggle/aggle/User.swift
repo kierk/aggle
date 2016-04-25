@@ -33,4 +33,7 @@ class User {
     var itemDescrip: String!
     var itemPic: String!
     var numberSold: Int = 0
+    var picArray: [String] = []
+    var priceArray: [String] = []
+    var descArray: [String] = []
 }

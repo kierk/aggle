@@ -11,13 +11,13 @@
 //
 
 import UIKit
+//import Firebase
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var table: UITableView!
     
     let user = User.sharedInstance
-    
-    
+//    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,21 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
 
+        
+        
+        
+        
+        
+//        
+//        
+//        let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.user.zip)
+//        zipRef.queryOrderedByChild("ItemID").observeEventType(.ChildAdded, withBlock: {snapshot in
+//            if let height = snapshot.value["ItemID"] as? String {
+//                print("test")
+//            }
+//        })
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -42,11 +57,11 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         
-        let decodedData = NSData(base64EncodedString: self.user.itemPic, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        let decodedData = NSData(base64EncodedString: self.user.picArray[indexPath.row], options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         cell.pic.image = UIImage(data: decodedData!)
         
-        cell.price.text = self.user.itemText
-        cell.descrip.text = self.user.itemDescrip
+        cell.price.text = self.user.priceArray[indexPath.row]
+        cell.descrip.text = self.user.descArray[indexPath.row]
         
         return cell
     }

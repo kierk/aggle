@@ -129,9 +129,9 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         print(self.TAG + itemDescription2.text!)
 
         priceLabel.text = itemPrice.text
-        self.user.itemText = itemPrice.text
-        self.user.itemDescrip = itemDescription2.text
-        self.user.itemPic = self.base64String
+        self.user.priceArray.append(itemPrice.text!)
+        self.user.descArray.append(itemDescription2.text)
+        self.user.picArray.append(self.base64String)
         self.user.numberSold += 1
         updateDataBase(itemDescription2.text!, price: itemPrice.text!)
     }
