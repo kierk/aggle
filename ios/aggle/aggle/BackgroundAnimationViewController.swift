@@ -5,6 +5,7 @@
 //  This is the main screen right now w/ all the swiping.
 //
 //  Created by Eugene Andreyev on 7/11/15.
+//  Modified heavilty by Jose Lemus on 4/25/2016
 //  Copyright (c) 2015 CocoaPods. All rights reserved.
 //
 
@@ -29,14 +30,14 @@ class BackgroundAnimationViewController: UIViewController{
     let swipeResult = KolodaView()
     
     
-    @IBAction func leftSwipe(sender: UISwipeGestureRecognizer) {
-        print ("\n\nswiped Left\n\n")
-    }
-    
-    @IBAction func rightSwipe(sender: UISwipeGestureRecognizer) {
-        print("\n\nswiped Right\n\n")
-    }
-    
+//    @IBAction func leftSwipe(sender: UISwipeGestureRecognizer) {
+//        print ("\n\nswiped Left\n\n")
+//    }
+//    
+//    @IBAction func rightSwipe(sender: UISwipeGestureRecognizer) {
+//        print("\n\nswiped Right\n\n")
+//    }
+//    
     @IBOutlet weak var kolodaView: CustomKolodaView!
     
     
@@ -177,25 +178,25 @@ class BackgroundAnimationViewController: UIViewController{
     
     
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                print("Swiped right")
-            case UISwipeGestureRecognizerDirection.Down:
-                print("Swiped down")
-            case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
-            case UISwipeGestureRecognizerDirection.Up:
-                print("Swiped up")
-            default:
-                break
-            }
-        }
-    }
+//    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+//        
+//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+//            
+//            
+//            switch swipeGesture.direction {
+//            case UISwipeGestureRecognizerDirection.Right:
+//                print("Swiped right")
+//            case UISwipeGestureRecognizerDirection.Down:
+//                print("Swiped down")
+//            case UISwipeGestureRecognizerDirection.Left:
+//                print("Swiped left")
+//            case UISwipeGestureRecognizerDirection.Up:
+//                print("Swiped up")
+//            default:
+//                break
+//            }
+//        }
+//    }
     
     
     // this gets the encoded images from firebase
