@@ -871,15 +871,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sLe-yz-fa1"/>
-<<<<<<< HEAD
         <segue reference="KVc-c6-tzB"/>
         <segue reference="DJV-c7-wd3"/>
         <segue reference="B2q-QZ-kf4"/>
-=======
-        <segue reference="62K-RY-A0p"/>
-        <segue reference="KyI-zR-qsZ"/>
-        <segue reference="DJV-c7-wd3"/>
->>>>>>> 3d2eda719e7b9ab6d219552766028a0e26403c45
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
