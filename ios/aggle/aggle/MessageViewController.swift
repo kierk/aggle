@@ -14,44 +14,51 @@ import Firebase
 import JSQMessagesViewController
 
 class MessageViewController: JSQMessagesViewController {
+    var TAG: String = "[MessageViewController]"
+
     @IBOutlet weak var showImage: UIImageView!
-    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
-    var messageRef: Firebase!
-    var ref = Firebase(url:"https://aggle.firebaseio.com/")
+
+    var convo: Convo!
     var messages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
-    var TAG: String = "[MessageViewController]"
     
-    var convo: Convo!
-    
+    let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
+    var messageRef: Firebase!
+
     override func viewDidLoad() {
         print(TAG + "[viewDidLoad] hi")
-        self.senderId = ref.authData.uid!
-        self.senderDisplayName = String((ref.authData.providerData["displayName"])!)
-        
-        setupBubbles()
-        
-        messageRef = rootRef.childByAppendingPath("ConvoDB")
-        
         super.viewDidLoad()
-        self.inputToolbar.contentView.leftBarButtonItem = nil
+        
+        /* Set up the top settings bar */
+        self.inputToolbar.contentView.leftBarButtonItem = nil // Disable the ability to upload images. TODO(eugenek): Renable it.
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MessageViewController.setBttnTouched(_:)))
+        
+        /* Set up the scene, load the appropriate data */
+        self.senderId = rootRef.authData.uid!
+        self.senderDisplayName = String((rootRef.authData.providerData["displayName"])!)
+        messageRef = rootRef.childByAppendingPath("ConvoDB")
+        
+        /* Set up the message bubbles to be nice and pretty */
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        /* Load and display the messages */
         observeMessages()
     }
     
+    
     /**
-     * Update the display text associated with a message bubble
-     */
+     * Update the display text associated with a message bubble */
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.item];
         
@@ -64,8 +71,7 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     /**
-     * Update the size of the message bubble associated w/ am essage
-     */
+     * Update the size of the message bubble associated w/ am essage */
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let message = messages[indexPath.item];
         
@@ -77,26 +83,20 @@ class MessageViewController: JSQMessagesViewController {
         return kJSQMessagesCollectionViewCellLabelHeightDefault
     }
     
-    
+    /**
+    * Return the message selected */
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
     
+    /** 
+    * Return the number of messages on the screen */
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
-    private func setupBubbles() {
-        let factory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
-        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
-    }
-    
     /**
-     * Change color(and other properties) of sender and receiver's message bubbles to their specific ones
-     */
+     * Return the type of message bubble to display. Sender and receiver gets their own message bubble style, based on their perspective. */
     override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item]
@@ -107,17 +107,17 @@ class MessageViewController: JSQMessagesViewController {
         }
     }
     
+    /**
+    * Return each message user's avatar. */
     override func collectionView(collectionView: JSQMessagesCollectionView!,
-                                 avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+                                avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
     }
     
-    func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
-        print(TAG + "addMessage")
-        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
-        messages.append(message)
-    }
     
+    /**
+    * When the upload button is pressed, this lets the user upload something and share it. 
+    * eugenek: DOES NOT WORK AS OF APRIL 24, 2016 */
     override func didPressAccessoryButton(sender: UIButton!) {
         print(TAG + "didPressAccessoryButton")
         var picker: UIImagePickerController = UIImagePickerController()
@@ -126,9 +126,8 @@ class MessageViewController: JSQMessagesViewController {
         self.presentViewController(picker, animated: true, completion: { _ in })
     }
     
-    /*
-     * When send button is pressed, this adds the message to the database.
-     **/
+    /**
+     * When send button is pressed, this adds the message to the database. */
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,senderDisplayName: String!, date: NSDate!) {
         print(TAG + "didPressSendButton")
         
@@ -137,9 +136,9 @@ class MessageViewController: JSQMessagesViewController {
             "senderId": senderId
         ]
         
-        let convoRef = ref.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations")
+        let convoRef = rootRef.childByAppendingPath("UsersDB/" + (self.senderId) + "/" + "Conversations")
         let messageRef = convoRef.childByAutoId() // generates a unique id for each conversation that a user has had
-        let convoDB = ref.childByAppendingPath("ConvoDB/")
+        let convoDB = rootRef.childByAppendingPath("ConvoDB/")
         let convoDBref = convoDB.childByAutoId()
         
         let ConvoInfo = [
@@ -158,9 +157,17 @@ class MessageViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
-    /** observeMessages
-     * Query messages from the db and update them in the conversation
-     */
+    /**
+    * Add a message to the conversation */
+    func addMessage(id: String, displayName: String, date : NSDate, text : String ) {
+        print(TAG + "addMessage")
+        let message = JSQMessage(senderId: id, senderDisplayName: displayName, date: date, text: text)
+        messages.append(message)
+    }
+
+    
+    /**
+     * Query messages from the db and update them in the conversation */
     private func observeMessages() {
         print(TAG + "observeMessages")
         let messagesQuery = self.messageRef.queryLimitedToLast(25)
@@ -180,6 +187,8 @@ class MessageViewController: JSQMessagesViewController {
         })
     }
     
+    /**
+    * Send the user to the settings */
     func setBttnTouched(sender: UIBarButtonItem) {
         performSegueWithIdentifier("messageSettingsSegue", sender: self)
     }
