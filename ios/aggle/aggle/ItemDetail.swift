@@ -18,10 +18,10 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     let user = User.sharedInstance
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var itemDescription: UITextField!
     @IBOutlet weak var itemPrice: UITextField!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemImageView : UIImageView!
+    @IBOutlet weak var itemDescription2: UITextView!
     
     let rootRef = Firebase(url:"https://aggle.firebaseio.com/")
     var tempUI = UIImage()
@@ -30,23 +30,24 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     var TAG: String = "[ItemDetail]"
     
     
-    
-    
-    
-    
     override func viewDidLoad() {
         let userID = rootRef.authData.uid
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        itemDescription2.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+        itemDescription2.layer.borderWidth = 1.0
+        itemDescription2.layer.cornerRadius = 5
+    
+        
         // set zipcode
         if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
             self.zipCode = object.objectForKey("ZipCode")! as! String
             //print("mainZip is")
             //print(self.zipCode)
-            
-            
+    
             
         }
         
@@ -55,31 +56,26 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             base64Encode()
         }
         
-       
-        
-        
+ 
     }
     
 
     
-    
+    //Only function in use for moving on text box click
     @IBAction func editingPriceBegan(sender: AnyObject) {
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         // if you want to slide up the view
         var rect: CGRect = self.view.frame
-        rect.origin.y -= 100
+        rect.origin.y = -150
         
         self.view.frame = rect
         UIView.commitAnimations()
-        
-        
-        
     }
     
     
-    
+    //Deprecated
     @IBAction func editingPriceEndedV2(sender: AnyObject) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
@@ -90,7 +86,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         UIView.commitAnimations()
     }
     
-    
+    //Deprecated
     @IBAction func DescriptionEditingBegin(sender: AnyObject) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
@@ -103,7 +99,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
     }
     
-    
+    //Deprecated
     @IBAction func DescriptionEditingEnd(sender: AnyObject) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
@@ -129,15 +125,15 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBAction func setItemDetails(sender: AnyObject) {
 
         //Need check for valid input
-        print(TAG + itemDescription.text!)
-        print(TAG + itemPrice.text!)
+        print(self.TAG + itemPrice.text!)
+        print(self.TAG + itemDescription2.text!)
 
         priceLabel.text = itemPrice.text
         self.user.itemText = itemPrice.text
-        self.user.itemDescrip = itemDescription.text
+        self.user.itemDescrip = itemDescription2.text
         self.user.itemPic = self.base64String
         self.user.numberSold += 1
-        updateDataBase(itemDescription.text!, price: itemPrice.text!)
+        updateDataBase(itemDescription2.text!, price: itemPrice.text!)
     }
     
     
@@ -177,8 +173,18 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
    // https://aggle.firebaseio.com/ZipDB/11112/    40
     
     
-    
-    
+    @IBAction func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+        
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        var rect: CGRect = self.view.frame
+        rect.origin.y = 0
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+    }
     
     
     
