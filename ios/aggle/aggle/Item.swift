@@ -34,7 +34,7 @@ class Item : NSObject {
         return _title;
     }
     
-    func desc() -> String! { // eugenek: the name 'description' is taken by NSObject, don't feel like figure that shit out.
+    func desc() -> String! { // TODO(eugenek): the name 'description' is taken by NSObject, don't feel like figure that shit out.
         return _description;
     }
     

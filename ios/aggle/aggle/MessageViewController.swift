@@ -3,6 +3,7 @@
 //  aggle
 //
 //  This controller SHOULD display a single conversation about an item, between 2 peoples
+//  It should be renamed ConvoViewController
 //
 //  Created by Max Li on 4/10/16.
 //  Copyright © 2016 Max Li. All rights reserved.
@@ -21,6 +22,8 @@ class MessageViewController: JSQMessagesViewController {
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     var TAG: String = "[MessageViewController]"
+    
+    var convo: Convo!
     
     override func viewDidLoad() {
         print(TAG + "[viewDidLoad] hi")

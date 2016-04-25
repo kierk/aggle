@@ -2,8 +2,7 @@
 //  ConvoViewController.swift
 //  aggle
 //
-//  This controller SHOULD be used to display all items currently listed by the user
-//  As of 4/22/2016, this controller does nothing.
+//  This view controller displays a list of conversations. It should be renamed ConvosViewController.swift
 //
 //  Created by Max Li on 3/22/16.
 //  Copyright © 2016 Max Li. All rights reserved.
@@ -98,14 +97,16 @@ class ConvoViewController: UITableViewController {
     }
     
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+        if segue.identifier == "ConvoTableViewCell", let destination = segue.destinationViewController as? MessageViewController {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
+                let convo = convos[indexPath.row]
+                destination.convo = convo
+            }
+        }
+    }
     
 }
