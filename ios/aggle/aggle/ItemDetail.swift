@@ -27,6 +27,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     var tempUI = UIImage()
     var base64String = String()
     var zipCode = "00000" // if this shows up in DB, there are problems.
+    var TAG: String = "[ItemDetail]"
     
     
     
@@ -124,15 +125,19 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     
-    
+    //Submit Button action
     @IBAction func setItemDetails(sender: AnyObject) {
-        descriptionLabel.text = itemDescription.text
+
+        //Need check for valid input
+        print(TAG + itemDescription.text!)
+        print(TAG + itemPrice.text!)
+
         priceLabel.text = itemPrice.text
         self.user.itemText = itemPrice.text
         self.user.itemDescrip = itemDescription.text
         self.user.itemPic = self.base64String
         self.user.numberSold += 1
-        updateDataBase(descriptionLabel.text!, price: priceLabel.text!)
+        updateDataBase(itemDescription.text!, price: itemPrice.text!)
     }
     
     
@@ -143,7 +148,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         userDB_ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
             //print(snapshot.description)
             self.zipCode = snapshot.value.objectForKey("ZipCode") as! String
-            print(self.zipCode)
+            print(self.TAG + self.zipCode)
         })
         
         let itemDescription = description
