@@ -173,6 +173,32 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print(TAG + "prepareForSegue")
         
+        
+        
+//        let image : UIImage = self.image! as UIImage
+//        let imageData = UIImageJPEGRepresentation(image, 1.0)
+//        let checkSizeString = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
+//        let sizeLimit = 9700000
+//        
+//        
+//        if(checkSizeString.characters.count >  sizeLimit) {
+//            let alert = UIAlertController(title: "Warning", message: "Image is too large. Please choose another photo", preferredStyle: .Alert)
+//            
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+//            }
+//            alert.addAction(cancelAction)
+//            
+//            let OKAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+//            }
+//            alert.addAction(OKAction)
+//            
+//            self.presentViewController(alert, animated: true) {
+//            }
+//        }
+        
+        
+        
+        
         if(segue.identifier == "segueItemDetails"){
             
             let DestViewController = segue.destinationViewController as! ItemDetail
