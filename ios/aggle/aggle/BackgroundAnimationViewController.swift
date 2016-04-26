@@ -249,6 +249,8 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         
+        usleep(2000)
+        
         if((mainDecodedDataList.count > 0)){
             // pass decoded array count to button
             //leftButtonSelectorV2(mainDecodedDataList[mainDecodedDataList.count - 1])
@@ -258,13 +260,11 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
             
         else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
             checkIfListSizeIsZero()
-            return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+            return UIImageView(image: UIImage(named: "NoSale"))
         }
         else{
-            
-            return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+            return UIImageView(image: UIImage(named: "overlay_skip"))
         }
-        
     }
     
     
