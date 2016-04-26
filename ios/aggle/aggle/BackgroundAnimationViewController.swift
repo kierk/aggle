@@ -14,7 +14,7 @@ import Koloda
 import pop
 import Firebase
 
-private let numberOfCards: UInt = 5
+private let numberOfCards: UInt = 50
 private let frameAnimationSpringBounciness: CGFloat = 9
 private let frameAnimationSpringSpeed: CGFloat = 16
 private let kolodaCountOfVisibleCards = 1
@@ -58,7 +58,7 @@ class BackgroundAnimationViewController: UIViewController{
         
         
         let userID = rootRef.authData.uid
-        //super.viewDidLoad()
+        
         kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
         kolodaView.countOfVisibleCards = kolodaCountOfVisibleCards
         kolodaView.delegate = self
@@ -68,15 +68,6 @@ class BackgroundAnimationViewController: UIViewController{
         
         
         self.zipCode = user.zip
-        
-//        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-//            self.zipCode = object.objectForKey("ZipCode")! as! String
-//            self.displayNmae = object.objectForKey("Full Name") as! String
-//            print(self.displayNmae)
-//            print(rootRef.authData.uid)
-//            
-//        }
-        
         
         pullValuesFromDB(self.zipCode)
         
@@ -99,7 +90,8 @@ class BackgroundAnimationViewController: UIViewController{
         
         print("the index is : \(index)")
         
-        
+        //print(mainItemIDList)
+        print(itemIDListSize)
         
         
         if(mainItemIDList.count == 1){
@@ -141,11 +133,14 @@ class BackgroundAnimationViewController: UIViewController{
                 userConvosRef.setValue(convoRef.key)
                 
                 }
+                
             }
-            self.firstSwipe = true
+            
         }
             
-        else{
+            
+        self.firstSwipe = true
+        if(direction == SwipeResultDirection.Left && itemIDListSize > 0){
             let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
             if(itemIDListSize > 0){  // check if itemIDList is not empty
                 
@@ -156,7 +151,7 @@ class BackgroundAnimationViewController: UIViewController{
                 
             }
         }
-        
+       itemIDListSize -= 1
         
     }
     
@@ -178,7 +173,7 @@ class BackgroundAnimationViewController: UIViewController{
     func pullValuesFromDB(zipCode : String){
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
        
-        currentUserZipCodeRef.queryLimitedToLast(5).observeSingleEventOfType(.Value, withBlock: {zipKeys in
+        currentUserZipCodeRef.queryLimitedToFirst(10).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
                 
@@ -245,8 +240,8 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
         print("[kolodaDidRunOutOfCards]")
-        kolodaView.resetCurrentCardIndex()
-        kolodaView?.swipe(SwipeResultDirection.Left)
+        //kolodaView.resetCurrentCardIndex()
+        //kolodaView?.swipe(SwipeResultDirection.Left)
         
     }
     
@@ -302,18 +297,20 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         
-        if((mainDecodedDataList.count > 0)){
+        if((itemIDListSize > 0)){
             // pass decoded array count to button
             //leftButtonSelectorV2(mainDecodedDataList[mainDecodedDataList.count - 1])
             return UIImageView(image: UIImage(data: mainDecodedDataList.popLast()!))
             
         }
-            
-        else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
-            checkIfListSizeIsZero()
-            return UIImageView(image: UIImage(named: "NoSale"))
-        }
+//            
+//        else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
+//            //checkIfListSizeIsZero()
+//            pullValuesFromDB(self.zipCode)
+//            //return UIImageView(image: UIImage(named: "NoSale"))
+//        }
         else{
+            pullValuesFromDB(self.zipCode)
             return UIImageView(image: UIImage(named: "GGCard"))
         }
     }

@@ -127,29 +127,31 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         //print(self.TAG + User.sharedInstance.zip)
                                         
                                         
-                                        print("name, zip and uid are")
-                                        print(self.user.name)
-                                        print(self.user.email)
-                                        print(self.user.zip)
+//                                        print("name, zip and uid are")
+//                                        print(self.user.name)
+//                                        print(self.user.email)
+//                                        print(self.user.zip)
                                         let users = [authData.uid : userInfo]
                                         
-                                        print(users)
+                                        //print(users)
                                         
                                         
                                         
                                         
                                         usersRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
-                                            print(snapshot.key)
+                                            //print(snapshot.key)
                                             
                                             
                                             
                                             if(snapshot.value.objectForKey(authData.uid) != nil){
-                                                print(snapshot.value.objectForKey(authData.uid))
-                                                usersRef.updateChildValues(users)
+                                                //print(snapshot.value.objectForKey(authData.uid))
+                                                usersRef.childByAppendingPath(("\(authData.uid)/ZipCode")).setValue(self.mainZipCode)
+                                                usersRef.childByAppendingPath(("\(authData.uid)/Full Name")).setValue(self.user.name)
+                                                usersRef.childByAppendingPath(("\(authData.uid)/Email")).setValue(self.user.email)
                                                 
                                             }
                                             else{
-                                                usersRef.updateChildValues(users)
+                                                //
                                             }
                                         })
                                         
