@@ -21,19 +21,35 @@ In our final sprint we had a huge amount of growth though everything isn't in it
 Please see below for image examples of some of our new screens.
 
 #### Home Page with Icon
+
+The following photos will walk you through our basic control flow:
+
 ![icon](ss/icon.png?raw=true)
+
 #### Login with Zipcode
+
 ![login](ss/login.png?raw=true)
+
 #### Landing Page with Swipe Browsing
+
 ![browse](ss/browse.png?raw=true)
+
 Check out the new icons and aesthetic improvements along the nav bar at the bottom!  When you move the photo it now changes from gree to red when the photo is being swiped in one direction or another.
+
 #### Settings Page now with FB
+
 ![settings](ss/settings.png?raw=true)
+
 #### Editable Zip Code
+
 ![settings_prompt](ss/settings_prompt.png?raw=true)
+
 #### Storyboard showing control flow
+
 ![storyboard](ss/main.png?raw=true)
+
 #### Our new BETA Website!
+
 ![website](ss/website.png?raw=true)
 
 
