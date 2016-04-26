@@ -121,7 +121,19 @@ class BackgroundAnimationViewController: UIViewController{
                 
                 userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
                 
-               // let convoRef = rootRef.childByAppendingPath("ConvoDB/").childByAutoId().childByAppendingPath(likedItemID)
+                //let convoID = rootRef.childByAppendingPath("ConvoDB/").childByAutoId()
+                
+                
+                
+               let convoRef = (rootRef.childByAppendingPath("ConvoDB/").childByAutoId()).childByAppendingPath("item")
+               let item = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid + "/Selling" + likedItemID!)
+               //let userConvoRef = convoID.childByAutoId()
+                
+                item.observeSingleEventOfType(.Value, withBlock: {snapshot in
+                    print(snapshot)
+                    })
+                
+               convoRef.setValue(item)
                 
                 
                 
