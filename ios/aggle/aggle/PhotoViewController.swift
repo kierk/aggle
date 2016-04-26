@@ -111,23 +111,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func didPressTakePhoto(sender: UIButton) {
         print(TAG + "didPressTakePhoto")
-        //if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
-        //    videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
-        //    stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
-        //        if (sampleBuffer != nil) {
-        //            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-        //            let dataProvider = CGDataProviderCreateWithCFData(imageData)
-        //            let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
-        //
-        //
-        //            //let image = UIImageView(image: cgImageRef!, highlightedImage: 1.0)
-        //            let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-        //            self.capturedImage.image = image
-        //            //self.previewView.i = image
-        //            
-        //        }
-        //    })
-        //}
+        
         let picker: UIImagePickerController = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -173,32 +157,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print(TAG + "prepareForSegue")
         
-        
-        
-//        let image : UIImage = self.image! as UIImage
-//        let imageData = UIImageJPEGRepresentation(image, 1.0)
-//        let checkSizeString = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
-//        let sizeLimit = 9700000
-//        
-//        
-//        if(checkSizeString.characters.count >  sizeLimit) {
-//            let alert = UIAlertController(title: "Warning", message: "Image is too large. Please choose another photo", preferredStyle: .Alert)
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-//            }
-//            alert.addAction(cancelAction)
-//            
-//            let OKAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
-//            }
-//            alert.addAction(OKAction)
-//            
-//            self.presentViewController(alert, animated: true) {
-//            }
-//        }
-        
-        
-        
-        
         if(segue.identifier == "segueItemDetails"){
             
             let DestViewController = segue.destinationViewController as! ItemDetail
@@ -210,24 +168,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     // this function is triggered when user presses post on the app.
     @IBAction func PostAction(sender: UIButton) {
-        //self.presentedViewController(capturedImage.image, animated: true, completion: nil)
-        //self.presentViewController(UIVie, animated: <#T##Bool#>, completion:
-        //presentViewController(PhotoViewController() as UIViewController, animated: true, completion: nil)
         print(TAG + "[PostAction]")
-        //performSegueWithIdentifier("segueItemDetails", sender: self)
-        
-        //print("[PostAction] hey");
-        //
-        //let picBase64 = self.base64Image;
-        //let description = "test description of item"
-        //let price = 11235
-        //let imageInfo = ["description" : description, "price" : price, "pic_base64" : picBase64, "owner_id" : "authData.uid"] // value for image uploaded
-        //
-        //let imageRef = ref.childByAppendingPath("items_for_sale");
-        //let imageIDref = imageRef.childByAutoId()  // this generates a unique ID each time it is called. When can then use this to find the image later on. Note that this is now the ref that we will update
-        //
-        //imageIDref.updateChildValues(imageInfo as! [NSObject : AnyObject]) // this updates the DB
-    }
+            }
     
     @IBAction func PhotoLibraryAction(sender: UIButton) {
         print(TAG + "[PhotoLibraryAction] hi");

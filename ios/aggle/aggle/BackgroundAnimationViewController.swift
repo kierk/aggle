@@ -53,10 +53,6 @@ class BackgroundAnimationViewController: UIViewController{
         super.viewDidLoad()
         print("STARTING\n")
         
-        
-        
-        
-        
         let userID = rootRef.authData.uid
         //super.viewDidLoad()
         kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
@@ -83,91 +79,50 @@ class BackgroundAnimationViewController: UIViewController{
     }
     
     
-    
-    
-    
-    
     @IBAction func leftButtonSelectorV2(sender: AnyObject?) {
         print("in left button")
-        //kolodaView?.swipe(SwipeResultDirection.Left)
-        //actuallySwiped = true
-        let userDB = rootRef.childByAppendingPath("UsersDB")
-        let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
-        
-        //        //print(userDB)
-        //        print(rootRef.authData.uid)
-        //        print(self.displayNmae)
-        //        print(mainItemIDList.count)
-        //        print(itemIDListSize) // this is 0
-        
-        let userID = rootRef.authData.uid
-        
-        
-        if(itemIDListSize > 0){  // check if itemIDList is not empty
-            
-            let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
-            
-            print("\n[inLeftButtonAction]\n")
-            
-            userDB.observeSingleEventOfType(.Value, withBlock: {zipKeys in
-                
-                for zipKeys in zipKeys.children{
-                    
-                    //print("Loading keys in right button action click \(zipKeys.key)")
-                    //print(zipKeys)
-                    
-                    if userID == zipKeys.key as String{
-                        //print("in the if")
-                        
-                        var likedInfoDic = [:]
-                        
-                        likedInfoDic = [likedItemID! : likedItemID!]
-                        
-                        
-                        userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
-                    }
-                }
-            })
-        }
+        kolodaView?.swipe(SwipeResultDirection.Left)
     }
     
     
     @IBAction func rightButtonTapped() {
         print("\n[inRightButtonAction]\n")
-        
-        //kolodaView?.swipe(SwipeResultDirection.Right)
-        
-        let userDB = rootRef.childByAppendingPath("UsersDB")
-        let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
-        
-        
-        let userID = rootRef.authData.uid
-        
-        if itemIDListSize > 0{                          // check if itemIDList is not empty
-            let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
-            // likedItemID and removed it from mainItemIDList
-            
-            print("\n[inRightButtonAction]\n")
-            
-            userDB.observeSingleEventOfType(.Value, withBlock: {zipKeys in
-                
-                for zipKeys in zipKeys.children{
-                    
-                    if userID == zipKeys.key as String{
-                        //print("in the if")
-                        
-                        var likedInfoDic = [:]
-                        
-                        likedInfoDic = [likedItemID! : likedItemID!]
-                        
-                        
-                        userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
-                    }
-                }
-            })
-        }
-        print("finished left swipe")
+        kolodaView?.swipe(SwipeResultDirection.Right)
     }
+    
+    
+    func koloda(koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection){
+        
+        print("the index is : \(index)")
+        if(direction == SwipeResultDirection.Right){
+            
+            let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
+            if itemIDListSize > 0{                          // check if itemIDList is not empty
+                let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
+                
+                
+                var likedInfoDic = [:]
+                likedInfoDic = [likedItemID! : likedItemID!]
+                
+                userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
+            }
+        }
+            
+        else{
+            let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
+            if(itemIDListSize > 0){  // check if itemIDList is not empty
+                
+                let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
+                var likedInfoDic = [:]
+                likedInfoDic = [likedItemID! : likedItemID!]
+                userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
+                
+            }
+        }
+        
+        
+    }
+    
     
     @IBAction func undoButtonTapped() {
         //print("[@IBAction func undoButtonTapped()]")
@@ -181,8 +136,6 @@ class BackgroundAnimationViewController: UIViewController{
         }
         self.calledOnce = false
     }
-    
-    
     
     
     func pullValuesFromDB(zipCode : String){
@@ -210,27 +163,7 @@ class BackgroundAnimationViewController: UIViewController{
         })
     }
     
-    
-    
-    func koloda(koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection){
-        
-        print("the index is : \(index)")
-        if(direction == SwipeResultDirection.Right){
-            print("in right swipe direction \(direction)")
-            rightButtonTapped()
-        }
-            
-        else{
-            print("in left swipe direction \(direction)")
-            leftButtonSelectorV2("hey")
-        }
-        
-        
-    }
-    
-    
-    
-    
+
     func base64decode(encodedString : String, itemID : String){
         var decodedDataList = [NSData]()
         
