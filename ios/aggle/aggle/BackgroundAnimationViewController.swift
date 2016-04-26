@@ -35,11 +35,11 @@ class BackgroundAnimationViewController: UIViewController{
     
     @IBOutlet weak var kolodaView: CustomKolodaView!
     
+    let user = User.sharedInstance
     
     
     
-    
-    
+    var firstSwipe = false
     var calledOnce = false
     var startAtRef = ""
     let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
@@ -66,15 +66,15 @@ class BackgroundAnimationViewController: UIViewController{
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         
         
+        self.zipCode = user.zip
         
-        
-        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-            self.zipCode = object.objectForKey("ZipCode")! as! String
-            self.displayNmae = object.objectForKey("Full Name") as! String
-            print(self.displayNmae)
-            print(rootRef.authData.uid)
-            
-        }
+//        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
+//            self.zipCode = object.objectForKey("ZipCode")! as! String
+//            self.displayNmae = object.objectForKey("Full Name") as! String
+//            print(self.displayNmae)
+//            print(rootRef.authData.uid)
+//            
+//        }
         
         
         pullValuesFromDB(self.zipCode)
@@ -107,6 +107,8 @@ class BackgroundAnimationViewController: UIViewController{
         
         if(direction == SwipeResultDirection.Right){
             
+            if(self.firstSwipe == true){
+            
             let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
             //let convoRef = self.rootRef.childByAppendingPath("ConvoDB/" + convoId + "/item")
             
@@ -124,7 +126,9 @@ class BackgroundAnimationViewController: UIViewController{
                 
                 
                 
+                }
             }
+            self.firstSwipe = true
         }
             
         else{
@@ -179,6 +183,7 @@ class BackgroundAnimationViewController: UIViewController{
                             if(self.firstDBPull == false){
                                 self.firstDBPull = true
                                 self.kolodaView?.swipe(SwipeResultDirection.Right)
+                                
                             }
                             
                         }

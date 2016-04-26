@@ -26,7 +26,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     let rootRef = Firebase(url:"https://aggle2.firebaseio.com/")
     var tempUI = UIImage()
     var base64String = String()
-    var zipCode = "00000" // if this shows up in DB, there are problems.
+    var zipCode = "" // if this shows up in DB, there are problems.
     var TAG: String = "[ItemDetail]"
     
     
@@ -42,16 +42,18 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         itemDescription2.layer.borderWidth = 1.0
         itemDescription2.layer.cornerRadius = 5
         
-    
+        self.zipCode = user.zip
         
-        // set zipcode
-        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-            self.zipCode = object.objectForKey("ZipCode")! as! String
-            //print("mainZip is")
-            //print(self.zipCode)
-    
-            
-        }
+//        // set zipcode
+//        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
+//            self.zipCode = object.objectForKey("ZipCode")! as! String
+//            //print("mainZip is")
+//            //print(self.zipCode)
+//    
+//            
+//        }
+        
+        //print(userDefaults.objectForKey(rootRef.authData.uid))
         
         itemImageView.image = tempUI // this displays the image
         if (itemImageView.image != nil){
@@ -128,6 +130,7 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     
     func base64Encode(){
+        
         let image : UIImage = itemImageView.image! as UIImage
     
         let imageData = UIImageJPEGRepresentation(image, 1.0)
@@ -177,6 +180,9 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo, "ItemID": String(itemIDSubString)]
+        
+        
+        
         
         let userSellingInfo = zipInfo
 

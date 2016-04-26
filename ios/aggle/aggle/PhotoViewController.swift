@@ -67,35 +67,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewWillAppear(animated: Bool) {
         print(TAG + "viewWillAppear")
         super.viewWillAppear(animated)
-        //captureSession = AVCaptureSession()
-        //captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
         
-        //let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        
-        //var error: NSError?
-        //var input: AVCaptureDeviceInput!
-        //do {
-        //    input = try AVCaptureDeviceInput(device: backCamera)
-        //} catch let error1 as NSError {
-        //    error = error1
-        //    input = nil
-        //}
-        //
-        //if error == nil && captureSession!.canAddInput(input) {
-        //    captureSession!.addInput(input)
-        //
-        //    stillImageOutput = AVCaptureStillImageOutput()
-        //    stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-        //    if captureSession!.canAddOutput(stillImageOutput) {
-        //        captureSession!.addOutput(stillImageOutput)
-        //
-        //        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        //        previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-        //        previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
-        //        previewView.layer.addSublayer(previewLayer!)
-        //        captureSession!.startRunning()
-        //    }
-        //}
     }
     
     @IBAction func selectPhoto(sender: UIButton) {

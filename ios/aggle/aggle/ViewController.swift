@@ -111,32 +111,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                         
                                         
-                                        //* NSUser default logic*//
                                         
-                                        // initialize the dicitonary to be stored in userDefaults
-                                        let userDict : [String : [String:String]] = [
-                                            userID : ["ZipCode" : self.mainZipCode, "Full Name" : userDisplayName]]
-                                        
-                                        // set the userDefault
-                                        userDefaults.setObject(userDict, forKey: userID)
-                                        
-                                        // first get values for userID, then get values for zipCode
-                                        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-                                            self.mainZipCode = object.objectForKey("ZipCode")! as! String
-                                            print("mainZip is")
-                                            print(self.mainZipCode)
-                                            
-                                        }
-                                        
-                                        
-                                        //* NSUser default logic*//
-                                    
-                                        
-                                        let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,]
+                                        let userInfo = ["Full Name" : self.user.name, "Email": self.user.email, "ZipCode": self.user.zip,]
                                         
                                         let usersRef = self.ref.childByAppendingPath("UsersDB")
-                                        print(self.TAG + "zipcode is " + self.mainZipCode)
-                                        
+                                        //print(self.TAG + "zipcode is " + self.mainZipCode)
+                                        //print(userDefaults.objectForKey(authData.uid))
                                         
                                         
                                         
@@ -144,13 +124,29 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                         User.sharedInstance.zip = self.mainZipCode
                                         
-                                        print(self.TAG + User.sharedInstance.zip)
+                                        //print(self.TAG + User.sharedInstance.zip)
                                         
+                                        
+                                        print("name, zip and uid are")
+                                        print(self.user.name)
+                                        print(self.user.email)
+                                        print(self.user.zip)
                                         let users = [authData.uid : userInfo]
                                         
+                                        print(users)
+                                        
+                                        
+                                        
+                                        
                                         usersRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
-                                            if snapshot.hasChild(authData.uid){
-                                                //let go
+                                            print(snapshot.key)
+                                            
+                                            
+                                            
+                                            if(snapshot.value.objectForKey(authData.uid) != nil){
+                                                print(snapshot.value.objectForKey(authData.uid))
+                                                usersRef.updateChildValues(users)
+                                                
                                             }
                                             else{
                                                 usersRef.updateChildValues(users)
