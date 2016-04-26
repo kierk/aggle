@@ -94,6 +94,11 @@ class BackgroundAnimationViewController: UIViewController{
     func koloda(koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection){
         
         print("the index is : \(index)")
+        
+        if(mainItemIDList.count == 1){
+            pullValuesFromDB(self.zipCode)
+        }
+        
         if(direction == SwipeResultDirection.Right){
             
             let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
