@@ -133,19 +133,39 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                         
                                         
+                                            
                                         
+            
+            
+            
                                         
                                         let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,]
                                         
                                         let usersRef = self.ref.childByAppendingPath("UsersDB")
                                         print(self.TAG + "zipcode is " + self.mainZipCode)
                                         
+                                        
+                                        
+                                        
+                                        
+                                        
                                         User.sharedInstance.zip = self.mainZipCode
                                         
                                         print(self.TAG + User.sharedInstance.zip)
                                         
                                         let users = [authData.uid : userInfo]
-                                        usersRef.updateChildValues(users)
+                                        
+                                        usersRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+                                            if snapshot.hasChild(authData.uid){
+                                                //let go
+                                            }
+                                            else{
+                                                usersRef.updateChildValues(users)
+                                            }
+                                        })
+                                        
+                                        
+                                        //usersRef.updateChildValues(users)
                                         
             })
         }

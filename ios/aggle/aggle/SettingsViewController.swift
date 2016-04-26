@@ -51,7 +51,7 @@ class SettingsViewController: UIViewController {
         
         let users = [self.user.uid : userInfo]
         usersRef.updateChildValues(users)
-
+        
     }
     
     

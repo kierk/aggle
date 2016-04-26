@@ -55,7 +55,7 @@ class BackgroundAnimationViewController: UIViewController{
         
         
         
-        let temp = UITextField()
+        
         
         let userID = rootRef.authData.uid
         //super.viewDidLoad()
@@ -83,10 +83,7 @@ class BackgroundAnimationViewController: UIViewController{
     }
     
     
-    override func viewWillAppear(animated: Bool) {
-        // pullValuesFromDB(self.zipCode) // the first batch of images are pulled, decoded and added to maindecoded list
-        // before the first call to the kolodaswipe handler.
-    }
+    
     
     
     
@@ -190,7 +187,7 @@ class BackgroundAnimationViewController: UIViewController{
     
     func pullValuesFromDB(zipCode : String){
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
-        
+       
         currentUserZipCodeRef.queryLimitedToLast(5).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
@@ -198,8 +195,9 @@ class BackgroundAnimationViewController: UIViewController{
                 let tempOwner = (zipKeys).value.objectForKey("OwnerID") as! String
                 
                 if let base64EncodedString = (zipKeys).value.objectForKey("base64Encoding"){
-                    
+                    print("hey base64 pass")
                     if let myItemID = (zipKeys).value.objectForKey("ItemID"){
+                        print("hey myItemIDpass pass \(myItemID)")
                         if((((zipKeys).value.objectForKey("OwnerID")) as! String) != self.rootRef.authData.uid){
                             print(tempOwner)  // should not be user that is logged in
                             self.base64decode(base64EncodedString as! String, itemID: myItemID as! String)

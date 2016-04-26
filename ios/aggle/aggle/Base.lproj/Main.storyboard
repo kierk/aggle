@@ -614,9 +614,6 @@
                                 <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="8oe-sl-qe3" appends="YES" id="Xls-rb-ZgM"/>
-                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-QF-sI8">
                                 <rect key="frame" x="103" y="554" width="34" height="34"/>
@@ -719,16 +716,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4b-bW-rAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="8oe-sl-qe3" userLabel="Swipe Gesture Recognizer_left">
-                    <connections>
-                        <action selector="leftSwipe:" destination="Spq-Pa-vbL" id="ZJD-I5-mpP"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="uRj-Zs-gZr" userLabel="Swipe Gesture Recognizer_right">
-                    <connections>
-                        <action selector="rightSwipe:" destination="Spq-Pa-vbL" id="SfL-Qc-vtf"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3479" y="-387"/>
         </scene>
