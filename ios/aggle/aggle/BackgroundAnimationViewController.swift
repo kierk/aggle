@@ -21,6 +21,8 @@ private let kolodaCountOfVisibleCards = 1
 private let kolodaAlphaValueSemiTransparent: CGFloat = 0.1
 var actuallySwiped = false
 
+
+
 var mainDecodedDataList = [NSData]()
 var mainItemIDList = [String]()
 
@@ -45,13 +47,14 @@ class BackgroundAnimationViewController: UIViewController{
     var size : Int = 0 // size for decoded data list
     var displayNmae : String = ""
     var itemIDListSize : Int = 0 // size for itemIDlist
-    
+    var firstDBPull = false
     
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("STARTING\n")
+        
         
         let userID = rootRef.authData.uid
         //super.viewDidLoad()
@@ -158,7 +161,14 @@ class BackgroundAnimationViewController: UIViewController{
                         print("hey myItemIDpass pass \(myItemID)")
                         if((((zipKeys).value.objectForKey("OwnerID")) as! String) != self.rootRef.authData.uid){
                             print(tempOwner)  // should not be user that is logged in
+                            
+                            
+                            
                             self.base64decode(base64EncodedString as! String, itemID: myItemID as! String)
+                            if(self.firstDBPull == false){
+                                self.firstDBPull = true
+                                self.kolodaView?.swipe(SwipeResultDirection.Right)
+                            }
                             
                         }
                         
