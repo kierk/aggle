@@ -32,6 +32,7 @@ class BackgroundAnimationViewController: UIViewController{
     
     let swipeResult = KolodaView().swipe
     
+    var items: [Item] = []
     
     @IBOutlet weak var kolodaView: CustomKolodaView!
     
@@ -110,25 +111,26 @@ class BackgroundAnimationViewController: UIViewController{
                 
                 var likedInfoDic = [:]
                 likedInfoDic = [likedItemID! : likedItemID!]
+                print("wehere")
                 
                 userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
+                let convoRef = rootRef.childByAppendingPath("ConvoDB/").childByAutoId()
+
+                let item = items.popLast()!
                 
-                //let convoID = rootRef.childByAppendingPath("ConvoDB/").childByAutoId()
+                let itemtopush = [
+                    "Text": item.title(),
+                    "Description": item.desc(),
+                    "ItemZipCode": item.itemzip(),
+                    "OwnerID": item.owner(),
+                    "base64Encoding": item.pic(),
+                    "Price": item.price(),
+                    "soldto": item.soldto()
+                ]
                 
-                
-                
-              // let convoRef = (rootRef.childByAppendingPath("ConvoDB/").childByAutoId()).childByAppendingPath("item")
-              // let item = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid + "/Selling" + likedItemID!)
-               //let userConvoRef = convoID.childByAutoId()
-                
-                //item.observeSingleEventOfType(.Value, withBlock: {snapshot in
-                  //  print(snapshot)
-                   // })
-                
-              // convoRef.setValue(item)
-                
-                
-                
+                convoRef.childByAppendingPath("item").setValue(itemtopush)
+                let userConvosRef = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid + "/Conversations").childByAppendingPath(convoRef.key)
+                userConvosRef.setValue(convoRef.key)
                 
                 }
                 
@@ -184,7 +186,15 @@ class BackgroundAnimationViewController: UIViewController{
                         if((((zipKeys).value.objectForKey("OwnerID")) as! String) != self.rootRef.authData.uid){
                             print(tempOwner)  // should not be user that is logged in
                             
+                            let item = Item(title: "Item1",
+                                description: (zipKeys).value.objectForKey("Description") as! String,
+                                itemzip: (zipKeys).value.objectForKey("ItemZipCode") as! String,
+                                owner: (zipKeys).value.objectForKey("OwnerID") as! String,
+                                pic: (zipKeys).value.objectForKey("base64Encoding") as! String,
+                                price: (zipKeys).value.objectForKey("Price") as! String,
+                                soldto: "someone")
                             
+                            self.items.append(item)
                             
                             self.base64decode(base64EncodedString as! String, itemID: myItemID as! String)
                             if(self.firstDBPull == false){
