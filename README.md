@@ -82,9 +82,9 @@ In order to run and test the most recent version of the app just clone the repos
 The most recent version is targeted to be run and tested on iPhone 6s.
 
 ### Mission Goals:  
-- [ ] Learn iOS, and develop a sweet app
+- [x] Learn iOS, and develop a sweet app
 - [ ] Develop an amazing backend to support the app
-- [ ] Be champions in EC500
-- [ ] ???
-- [ ] :dancer: :dancer: :dancer:
+- [x] Be champions in EC500
+- [x] ???
+- [x] :dancer: :dancer: :dancer:
 
