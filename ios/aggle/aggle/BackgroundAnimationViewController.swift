@@ -288,7 +288,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
             return UIImageView(image: UIImage(named: "NoSale"))
         }
         else{
-            return UIImageView(image: UIImage(named: "overlay_skip"))
+            return UIImageView(image: UIImage(named: "GGCard"))
         }
     }
     
