@@ -55,7 +55,8 @@ class ConvoViewController: UITableViewController {
         
         cell.itemTitle.text = convo.item().title()
         cell.itemText.text = convo.item().desc()
-        //cell.itemText = convo.item().pic() // TODO(eugenek): Need to actually have valid b64 data here, and it won't atm w/ the test
+        let decodedData = NSData(base64EncodedString: convo.item().pic()!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        cell.itemImageView.image = UIImage(data: decodedData!)// TODO(eugenek): Need to actually have valid b64 data here, and it won't atm w/ the test
         
         return cell
     }
