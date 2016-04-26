@@ -44,6 +44,14 @@ Check out the new icons and aesthetic improvements along the nav bar at the bott
 
 ![settings_prompt](ss/settings_prompt.png?raw=true)
 
+#### Use Camera or Photo Library to Post new items!
+
+![post](ss/Post.png?raw=true)
+
+#### See what items you have listed for sale!
+
+![list](ss/Listings.png?raw=true)
+
 #### Storyboard showing control flow
 
 ![storyboard](ss/main.png?raw=true)
@@ -68,6 +76,8 @@ In order to run and test the most recent version of the app just clone the repos
 `ios/aggle/aggle.xcworkspace`
 
 - Please make sure you are working from the file listed as it is required to run projects utilizing cocoapods from this project file.
+
+- Please also make sure you have installed cocoapods: Koloda, Firebase & JSQMessagesViewController (these can be installed via the requirements file by going into project folder, with cocoapods installed in your XCode, and running `pod install`)
 
 The most recent version is targeted to be run and tested on iPhone 6s.
 
