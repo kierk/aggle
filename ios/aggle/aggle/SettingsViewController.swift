@@ -41,18 +41,23 @@ class SettingsViewController: UIViewController {
         
         
     }
+    
     @IBAction func save(sender: AnyObject) {
-        
         let userInfo = ["Full Name" : self.user.name, "Email": self.user.email, "ZipCode": zipCode.text]
         
+        print (self.user.name)
+        print (self.user.email)
+        print (zipCode.text)
         let usersRef = self.ref.childByAppendingPath("UsersDB")
         
         User.sharedInstance.zip = zipCode.text
         
-        let users = [self.user.uid : userInfo]
+        let users = [ref.authData.uid : userInfo]
         usersRef.updateChildValues(users)
-        
+
     }
+    
+    
     
     
     func load_image(urlString:String) {

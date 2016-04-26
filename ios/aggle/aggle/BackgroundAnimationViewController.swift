@@ -265,7 +265,8 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+        //Action on card tap
+        //UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
         print("[koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt)]")
     }
     
