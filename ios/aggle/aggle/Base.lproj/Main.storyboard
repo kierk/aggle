@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-7X-kIE">
                                 <rect key="frame" x="20" y="58" width="335" height="245"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -86,7 +86,7 @@
                                     <constraint firstAttribute="height" constant="162" id="7CL-6s-fur"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-T7-Tw7">
                                 <rect key="frame" x="281" y="558" width="54" height="30"/>
                                 <state key="normal" title="Camera">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,11 +482,11 @@
             </objects>
             <point key="canvasLocation" x="1284.5" y="-538.5"/>
         </scene>
-        <!--Sell-->
+        <!--Navigation Controller-->
         <scene sceneID="dsk-AL-BoV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iHX-0Q-FUZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sell" image="camera" id="P9K-iG-N4I"/>
+                    <tabBarItem key="tabBarItem" title="" image="Camera" id="P9K-iG-N4I"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cFU-uL-dVQ">
@@ -502,11 +502,11 @@
             </objects>
             <point key="canvasLocation" x="2684.5" y="639.5"/>
         </scene>
-        <!--Messages-->
+        <!--Navigation Controller-->
         <scene sceneID="Y4v-ld-IAp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Osg-cK-400" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" image="messages" id="RLv-ex-yUw"/>
+                    <tabBarItem key="tabBarItem" title="" image="HeartMessage" id="RLv-ex-yUw"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ogs-VQ-iVQ">
@@ -582,7 +582,7 @@
         <scene sceneID="5qO-ul-xPi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m3R-q2-Slv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="sNB-kd-JzI"/>
+                    <tabBarItem key="tabBarItem" image="Clip" id="sNB-kd-JzI"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sS2-NI-72p">
@@ -709,7 +709,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Eql-sX-5jy"/>
+                    <tabBarItem key="tabBarItem" image="House" id="Eql-sX-5jy"/>
                     <navigationItem key="navigationItem" id="H6s-uc-by4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -874,19 +874,21 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="30" height="30"/>
+        <image name="Clip" width="25" height="25"/>
+        <image name="HeartMessage" width="30" height="30"/>
+        <image name="House" width="25" height="25"/>
         <image name="Settings-50" width="50" height="50"/>
-        <image name="camera" width="32" height="32"/>
         <image name="ic_like" width="38" height="34"/>
         <image name="ic_skip" width="34" height="34"/>
         <image name="ic_undo" width="21" height="21"/>
         <image name="lawn_500" width="300" height="225"/>
-        <image name="messages" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KVc-c6-tzB"/>
         <segue reference="hak-N2-efB"/>
         <segue reference="rbM-kL-4WX"/>
-        <segue reference="sLe-yz-fa1"/>
+        <segue reference="ah8-f2-3Eq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

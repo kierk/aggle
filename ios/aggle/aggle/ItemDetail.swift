@@ -36,10 +36,12 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
         
         itemDescription2.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
         itemDescription2.layer.borderWidth = 1.0
         itemDescription2.layer.cornerRadius = 5
+        
     
         
         // set zipcode
@@ -64,6 +66,18 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     //Only function in use for moving on text box click
     @IBAction func editingPriceBegan(sender: AnyObject) {
         
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        // if you want to slide up the view
+        var rect: CGRect = self.view.frame
+        rect.origin.y = -150
+        
+        self.view.frame = rect
+        UIView.commitAnimations()
+    }
+    
+    func textViewDidBeginEditing(itemDescription2: UITextView) {
+        self.itemDescription2.text = ""
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         // if you want to slide up the view
