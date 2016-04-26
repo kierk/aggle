@@ -14,7 +14,7 @@ import Koloda
 import pop
 import Firebase
 
-private let numberOfCards: UInt = 5
+private let numberOfCards: UInt = 50
 private let frameAnimationSpringBounciness: CGFloat = 9
 private let frameAnimationSpringSpeed: CGFloat = 16
 private let kolodaCountOfVisibleCards = 1
@@ -57,7 +57,7 @@ class BackgroundAnimationViewController: UIViewController{
         
         
         let userID = rootRef.authData.uid
-        //super.viewDidLoad()
+        
         kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
         kolodaView.countOfVisibleCards = kolodaCountOfVisibleCards
         kolodaView.delegate = self
@@ -67,15 +67,6 @@ class BackgroundAnimationViewController: UIViewController{
         
         
         self.zipCode = user.zip
-        
-//        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-//            self.zipCode = object.objectForKey("ZipCode")! as! String
-//            self.displayNmae = object.objectForKey("Full Name") as! String
-//            print(self.displayNmae)
-//            print(rootRef.authData.uid)
-//            
-//        }
-        
         
         pullValuesFromDB(self.zipCode)
         
@@ -97,6 +88,10 @@ class BackgroundAnimationViewController: UIViewController{
     func koloda(koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection){
         
         print("the index is : \(index)")
+        
+        //print(mainItemIDList)
+        print(itemIDListSize)
+        
         
         if(mainItemIDList.count == 1){
             pullValuesFromDB(self.zipCode)
@@ -154,7 +149,7 @@ class BackgroundAnimationViewController: UIViewController{
                 
             }
         }
-        
+       itemIDListSize -= 1
         
     }
     
@@ -235,8 +230,8 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
         print("[kolodaDidRunOutOfCards]")
-        kolodaView.resetCurrentCardIndex()
-        kolodaView?.swipe(SwipeResultDirection.Left)
+        //kolodaView.resetCurrentCardIndex()
+        //kolodaView?.swipe(SwipeResultDirection.Left)
         
     }
     
@@ -292,7 +287,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     // this  function has to do with moving to new cards
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         
-        if((mainDecodedDataList.count > 0)){
+        if((itemIDListSize > 0)){
             // pass decoded array count to button
             //leftButtonSelectorV2(mainDecodedDataList[mainDecodedDataList.count - 1])
             return UIImageView(image: UIImage(data: mainDecodedDataList.popLast()!))
@@ -305,6 +300,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
 //            //return UIImageView(image: UIImage(named: "NoSale"))
 //        }
         else{
+            pullValuesFromDB(self.zipCode)
             return UIImageView(image: UIImage(named: "GGCard"))
         }
     }
