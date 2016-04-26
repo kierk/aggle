@@ -10,11 +10,66 @@ This project is for Boston University's course EC500 Agile Software Development 
 
 ## App Features
 
-Add descriptions and screenshots of final products here
+In our final sprint we had a huge amount of growth though everything isn't in it's final form we made more progress than any other sprint:
+- Added zip code on login and local item only browsing accordingly
+- Added ‘Settings’ page that pulls picture from fb and allows you to save changed zip code
+- Switched from the ugly swipe function to a streamlined working view with Koloda
+- Camera and picture upload now function properly, tested on phone, and take you to an item description page where you can update the database with the proper info
+- Chat functionality added, then broken :(
+- Added current seller listings page that shows listing after you post from images
+
+Please see below for image examples of some of our new screens.
+
+#### Home Page with Icon
+
+The following photos will walk you through our basic control flow:
+
+![icon](ss/icon.png?raw=true)
+
+#### Login with Zipcode
+
+![login](ss/login.png?raw=true)
+
+#### Landing Page with Swipe Browsing
+
+![browse](ss/browse.png?raw=true)
+
+Check out the new icons and aesthetic improvements along the nav bar at the bottom!  When you move the photo it now changes from gree to red when the photo is being swiped in one direction or another.
+
+#### Settings Page now with FB
+
+![settings](ss/settings.png?raw=true)
+
+#### Editable Zip Code
+
+![settings_prompt](ss/settings_prompt.png?raw=true)
+
+#### Storyboard showing control flow
+
+![storyboard](ss/main.png?raw=true)
+
+#### Our new BETA Website!
+
+![website](ss/website.png?raw=true)
+
 
 ## Repository Contents & Hierarchy
 
-Add description of github repo heiarchy and breif content descriptions.
+- `ios/` - This folder contains the main app code and project files
+- `mockup/` - This folder contains icons in development as well as initial projections for layout and aethetics of the app
+- `old/` - Old reference materials such as tutorials and segmented features of the app before they were merged into the master applciation
+- `scratch/` - Various database and testing files
+- `website/` - Contains the code for our BETA website @ http://maxphilipli.com/teamAggle.html (be sure to be in full screen with proper zoom) ;)
+
+### Build Instructions
+
+In order to run and test the most recent version of the app just clone the repository and open the following file with your Xcode program on an apple computer:  
+
+`ios/aggle/aggle.xcworkspace`
+
+- Please make sure you are working from the file listed as it is required to run projects utilizing cocoapods from this project file.
+
+The most recent version is targeted to be run and tested on iPhone 6s.
 
 ### Mission Goals:  
 - [ ] Learn iOS, and develop a sweet app
