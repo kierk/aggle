@@ -98,6 +98,9 @@ class BackgroundAnimationViewController: UIViewController{
         
         print("the index is : \(index)")
         
+        
+        
+        
         if(mainItemIDList.count == 1){
             pullValuesFromDB(self.zipCode)
         }
@@ -105,6 +108,8 @@ class BackgroundAnimationViewController: UIViewController{
         if(direction == SwipeResultDirection.Right){
             
             let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/Likes")
+            //let convoRef = self.rootRef.childByAppendingPath("ConvoDB/" + convoId + "/item")
+            
             if itemIDListSize > 0{                          // check if itemIDList is not empty
                 let likedItemID = mainItemIDList.popLast() // assigns the last element of mainItemIDList to
                 
@@ -113,6 +118,13 @@ class BackgroundAnimationViewController: UIViewController{
                 likedInfoDic = [likedItemID! : likedItemID!]
                 
                 userLikes_ref.updateChildValues(likedInfoDic as [NSObject : AnyObject])
+                
+                
+                
+               // let item = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo, "ItemID": String(itemIDSubString)]
+               // convoRef.setValue(item)
+                
+                
             }
         }
             
