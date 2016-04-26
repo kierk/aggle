@@ -98,9 +98,6 @@ class SettingsViewController: UIViewController {
         
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(SettingsViewController.setBttnTouched(_:)))
-        
-        
-        
     }
     
     

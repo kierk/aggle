@@ -102,49 +102,15 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         self.user.email = userEmail
                                         self.user.pic = String((authData.providerData["profileImageURL"])!)
                                         let userID = authData.uid
-                                        //userDict.append(["ZipCode" : self.mainZipCode, "Full Name" : userDisplayName])
-                                        
-                                        
-                                        //var userDict = [String : [String : String]]()
-                                        
-                                        
-                                        
-                                        
                                         
                                         
                                         let userInfo = ["Full Name" : self.user.name, "Email": self.user.email, "ZipCode": self.user.zip,]
-                                        
                                         let usersRef = self.ref.childByAppendingPath("UsersDB")
-                                        //print(self.TAG + "zipcode is " + self.mainZipCode)
-                                        //print(userDefaults.objectForKey(authData.uid))
-                                        
-                                        
-                                        
-                                        
-                                        
                                         User.sharedInstance.zip = self.mainZipCode
-                                        
-                                        //print(self.TAG + User.sharedInstance.zip)
-                                        
-                                        
-//                                        print("name, zip and uid are")
-//                                        print(self.user.name)
-//                                        print(self.user.email)
-//                                        print(self.user.zip)
                                         let users = [authData.uid : userInfo]
                                         
-                                        //print(users)
-                                        
-                                        
-                                        
-                                        
                                         usersRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
-                                            //print(snapshot.key)
-                                            
-                                            
-                                            
                                             if(snapshot.value.objectForKey(authData.uid) != nil){
-                                                //print(snapshot.value.objectForKey(authData.uid))
                                                 usersRef.childByAppendingPath(("\(authData.uid)/ZipCode")).setValue(self.mainZipCode)
                                                 usersRef.childByAppendingPath(("\(authData.uid)/Full Name")).setValue(self.user.name)
                                                 usersRef.childByAppendingPath(("\(authData.uid)/Email")).setValue(self.user.email)
@@ -156,10 +122,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         })
                                         
                                         let userZipCodeRef = usersRef.childByAppendingPath(("\(authData.uid)/ZipCode")).setValue(self.mainZipCode)
-                                        //userZipCodeRef.updateChildValues(self.mainZipCode)
-
-                                        
-                                        //usersRef.updateChildValues(users)
                                         
             })
         }

@@ -149,7 +149,6 @@ class MessageViewController: JSQMessagesViewController {
      * Query messages from the db and update them in the conversation */
     private func observeMessages() {
         print(TAG + "observeMessages")
-        //let messagesQuery = self.messageRef.queryLimitedToLast(25)
         
         messagesRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             print(self.TAG + "we just observed a new message!")

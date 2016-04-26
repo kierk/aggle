@@ -11,7 +11,6 @@
 //
 
 import UIKit
-//import Firebase
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var table: UITableView!
@@ -26,22 +25,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action: #selector(MoreViewController.setBttnTouched(_:)))
-
-        
-        
-        
-        
-        
-//        
-//        
-//        let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.user.zip)
-//        zipRef.queryOrderedByChild("ItemID").observeEventType(.ChildAdded, withBlock: {snapshot in
-//            if let height = snapshot.value["ItemID"] as? String {
-//                print("test")
-//            }
-//        })
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -50,7 +33,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.user.numberSold
-//        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,12 +48,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
-    
-    
-    
     func setBttnTouched(sender: UIBarButtonItem) {
-        
         performSegueWithIdentifier("moreSettingsSegue", sender: self)
         
     }
@@ -84,8 +61,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.

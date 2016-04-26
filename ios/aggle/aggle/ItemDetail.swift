@@ -31,35 +31,23 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     
     override func viewDidLoad() {
-        let userID = rootRef.authData.uid
+        /* Set up top bar */
         self.navigationItem.title = "Aggle"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
-        
+        /* Set the background, and layout of the scene */
         itemDescription2.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
         itemDescription2.layer.borderWidth = 1.0
         itemDescription2.layer.cornerRadius = 5
         
         self.zipCode = user.zip
         
-//        // set zipcode
-//        if let object = userDefaults.objectForKey(userID)?.valueForKey(userID){
-//            self.zipCode = object.objectForKey("ZipCode")! as! String
-//            //print("mainZip is")
-//            //print(self.zipCode)
-//    
-//            
-//        }
-        
-        //print(userDefaults.objectForKey(rootRef.authData.uid))
-        
-        itemImageView.image = tempUI // this displays the image
+        itemImageView.image = tempUI
         if (itemImageView.image != nil){
             base64Encode()
         }
-        
  
     }
     
@@ -67,7 +55,6 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     //Only function in use for moving on text box click
     @IBAction func editingPriceBegan(sender: AnyObject) {
-        
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         // if you want to slide up the view
@@ -127,12 +114,8 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
     }
 
-    
-    
     func base64Encode(){
-        
         let image : UIImage = itemImageView.image! as UIImage
-    
         let imageData = UIImageJPEGRepresentation(image, 1.0)
         self.base64String = String(imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength))
     }
@@ -157,7 +140,6 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func updateDataBase(description:String, price: String){
         let userDB_ref = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid)
         
-        
         userDB_ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
             //print(snapshot.description)
             self.zipCode = snapshot.value.objectForKey("ZipCode") as! String
@@ -172,26 +154,17 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let soldTo = "someone"
         let zipRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode).childByAutoId()
         
-        
         let itemID = String(zipRef.childByAutoId())
         let r = itemID.startIndex.advancedBy(62)
         let itemIDSubString = itemID.substringFromIndex(r)
         
-        
-        
         let zipInfo = ["Description": itemDescription, "Price" : itemPrice, "ItemZipCode" : itemZipCode, "OwnerID" : ownerID, "base64Encoding" : base64String, "BuyerID" : soldTo, "ItemID": String(itemIDSubString)]
-        
-        
-        
         
         let userSellingInfo = zipInfo
 
         zipRef.setValue(zipInfo)
         userDB_ref.childByAppendingPath("Selling").setValue(userSellingInfo)
     }
-    
-   
-    
     
     @IBAction func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -205,10 +178,4 @@ class ItemDetail: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.view.frame = rect
         UIView.commitAnimations()
     }
-    
-    
-    
-    
-    
-    
 }

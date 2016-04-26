@@ -21,8 +21,6 @@ private let kolodaCountOfVisibleCards = 1
 private let kolodaAlphaValueSemiTransparent: CGFloat = 0.1
 var actuallySwiped = false
 
-
-
 var mainDecodedDataList = [NSData]()
 var mainItemIDList = [String]()
 

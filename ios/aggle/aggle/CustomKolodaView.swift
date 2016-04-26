@@ -18,20 +18,11 @@ let defaultHeightRatio:CGFloat = 1.25
 let backgroundCardHorizontalMarginMultiplier:CGFloat = 0.25
 let backgroundCardScalePercent:CGFloat = 1.5
 
-
-
 class CustomKolodaView: KolodaView {
 
     override func frameForCardAtIndex(index: UInt) -> CGRect {
-        
-       //let a = SwipeResultDirection()
-       // let b = a
-        
-        
-        
-        
-        
         if index == 0 {
+            /* Create a frame */
             let topOffset:CGFloat = defaultTopOffset
             let xOffset:CGFloat = defaultHorizontalOffset
             let width = CGRectGetWidth(self.frame ) - 2 * defaultHorizontalOffset
@@ -44,6 +35,7 @@ class CustomKolodaView: KolodaView {
             let horizontalMargin = -self.bounds.width * backgroundCardHorizontalMarginMultiplier
             let width = self.bounds.width * backgroundCardScalePercent
             let height = width * defaultHeightRatio
+            
             return CGRect(x: horizontalMargin, y: 0, width: width, height: height)
         }
         return CGRectZero

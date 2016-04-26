@@ -15,17 +15,6 @@ class SwipeViewController: UIViewController {
     //--------------------------------------------------------------------------------------------------//
     var score: Int!
     var done: Bool = false
-    //
-    //    @IBOutlet var scoreView: UITextView!
-    //
-    //
-    //    @IBAction func truePressed(sender: AnyObject) {
-    //        self.determineJudgement(true)
-    //    }
-    //
-    //    @IBAction func falsePressed(sender: AnyObject) {
-    //        self.determineJudgement(false)
-    //    }
     
     //--------------------------------------------------------------------------------------------------//
     var pictureViews: [PictureView] = []
