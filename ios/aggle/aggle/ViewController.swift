@@ -43,16 +43,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print(TAG + "[viewDidLoad] hi");
-        //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        //FBSDKProfile.setCurrentProfile(nil)
+        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        FBSDKProfile.setCurrentProfile(nil)
         
         if (FBSDKAccessToken.currentAccessToken() != nil){  // if user has token, go to main screen
             print(TAG + "AccessToken exists");
             print(TAG + FBSDKAccessToken.currentAccessToken().userID)
             self.performSegueWithIdentifier("showNew", sender: self)
         } else {   //if user doesn't have token, go here
-            //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-            //FBSDKProfile.setCurrentProfile(nil)
+            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            FBSDKProfile.setCurrentProfile(nil)
             
             print(TAG + "AccessToken doesn't exist exists")
             
@@ -97,7 +97,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         }
                                         
                                         
-                                        print(self.mainZipCode)
+                                        print("printing self.mainZipCode\(self.mainZipCode)")
                                         self.user.zip = self.mainZipCode
                                         self.user.email = userEmail
                                         self.user.pic = String((authData.providerData["profileImageURL"])!)
@@ -130,14 +130,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                         
                                         //* NSUser default logic*//
-                                        
-                                        
-                                        
-                                            
-                                        
-            
-            
-            
+                                    
                                         
                                         let userInfo = ["Full Name" : userDisplayName, "Email": userEmail, "ZipCode": self.mainZipCode,]
                                         
@@ -164,6 +157,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                             }
                                         })
                                         
+                                        let userZipCodeRef = usersRef.childByAppendingPath(("\(authData.uid)/ZipCode")).setValue(self.mainZipCode)
+                                        //userZipCodeRef.updateChildValues(self.mainZipCode)
+
                                         
                                         //usersRef.updateChildValues(users)
                                         
