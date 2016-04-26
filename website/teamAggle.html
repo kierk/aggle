@@ -1,0 +1,87 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>aggle</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="background-image: url(backgroundNew.jpg); background-size: cover; overflow-x: hidden; overflow-y: hidden; zoom: 1">
+    <form id="form1" runat="server">
+        <div>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <a href="#" class="navbar-brand">
+                        <span style="color: white">A</span>
+                        <span style="color: red">g</span>
+                        <span style="color: red">g</span>
+                        <span style="color: white">l</span>
+                        <span style="color: white">e</span>
+                    </a>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="navHeaderCollapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navHeaderCollapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="active"href="teamAggle.html">Home</a></li>
+                            <li><a href="team.html">The Team</a></li>
+                            <li><a href="###">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: absolute; top: 26vh; left: 20%">
+                <p style="font: bold 50px arial, verdana; color: white;">Discover a New Way to Shop</p>
+                <p style="font: 30px arial, verdana; color: white">Browse through local products at high speeds!</p>
+                <br />
+                <img src="app.png" style="width: 12vw; height: 8vh; border: 2px solid white; border-radius: 15px;" />
+            </div>
+            <div style="position: relative; left: 50vw; top: 20vh">
+                <div style="position: absolute; top: 0; left: 0;">
+                    <img src="iphone6-frame.png" />
+                </div>
+
+                <div style="position: absolute; top: 12.5vh; left: 12.05vw; width: 14.5vw;">
+                    <div id="myCarousel" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="Landing.png" alt="first" class="img-responsive" />
+                            </div>
+
+                            <div class="item">
+                                <img src="Selling.png" alt="second" class="img-responsive" />
+                            </div>
+
+                            <div class="item">
+                                <img src="Settings.png" alt="third" class="img-responsive" />
+                            </div>
+
+                        </div>
+
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
