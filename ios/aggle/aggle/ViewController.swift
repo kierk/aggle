@@ -43,16 +43,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         print(TAG + "[viewDidLoad] hi");
-        FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-        FBSDKProfile.setCurrentProfile(nil)
+        //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+        //FBSDKProfile.setCurrentProfile(nil)
         
         if (FBSDKAccessToken.currentAccessToken() != nil){  // if user has token, go to main screen
             print(TAG + "AccessToken exists");
             print(TAG + FBSDKAccessToken.currentAccessToken().userID)
             self.performSegueWithIdentifier("showNew", sender: self)
         } else {   //if user doesn't have token, go here
-            FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
-            FBSDKProfile.setCurrentProfile(nil)
+            //FBSDKAccessToken.setCurrentAccessToken(nil)  // for debugging when a new user logs in
+            //FBSDKProfile.setCurrentProfile(nil)
             
             print(TAG + "AccessToken doesn't exist exists")
             
