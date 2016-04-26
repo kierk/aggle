@@ -98,9 +98,6 @@ class BackgroundAnimationViewController: UIViewController{
         
         print("the index is : \(index)")
         
-        
-        
-        
         if(mainItemIDList.count == 1){
             pullValuesFromDB(self.zipCode)
         }
@@ -125,25 +122,28 @@ class BackgroundAnimationViewController: UIViewController{
                 
                 
                 
-               let convoRef = (rootRef.childByAppendingPath("ConvoDB/").childByAutoId()).childByAppendingPath("item")
-               let item = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid + "/Selling" + likedItemID!)
+              // let convoRef = (rootRef.childByAppendingPath("ConvoDB/").childByAutoId()).childByAppendingPath("item")
+              // let item = rootRef.childByAppendingPath("UsersDB/" + rootRef.authData.uid + "/Selling" + likedItemID!)
                //let userConvoRef = convoID.childByAutoId()
                 
-                item.observeSingleEventOfType(.Value, withBlock: {snapshot in
-                    print(snapshot)
-                    })
+                //item.observeSingleEventOfType(.Value, withBlock: {snapshot in
+                  //  print(snapshot)
+                   // })
                 
-               convoRef.setValue(item)
+              // convoRef.setValue(item)
                 
                 
                 
                 
                 }
+                
             }
-            self.firstSwipe = true
+            
         }
             
-        else{
+            
+        self.firstSwipe = true
+        if(direction == SwipeResultDirection.Left && itemIDListSize > 0){
             let userLikes_ref = rootRef.childByAppendingPath("UsersDB/\(rootRef.authData.uid)/DisLikes")
             if(itemIDListSize > 0){  // check if itemIDList is not empty
                 
@@ -176,7 +176,7 @@ class BackgroundAnimationViewController: UIViewController{
     func pullValuesFromDB(zipCode : String){
         let currentUserZipCodeRef = rootRef.childByAppendingPath("ZipDB/" + self.zipCode)
        
-        currentUserZipCodeRef.queryLimitedToLast(5).observeSingleEventOfType(.Value, withBlock: {zipKeys in
+        currentUserZipCodeRef.queryLimitedToFirst(10).observeSingleEventOfType(.Value, withBlock: {zipKeys in
             
             for zipKeys in zipKeys.children{
                 
@@ -298,11 +298,12 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
             return UIImageView(image: UIImage(data: mainDecodedDataList.popLast()!))
             
         }
-            
-        else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
-            checkIfListSizeIsZero()
-            return UIImageView(image: UIImage(named: "NoSale"))
-        }
+//            
+//        else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
+//            //checkIfListSizeIsZero()
+//            pullValuesFromDB(self.zipCode)
+//            //return UIImageView(image: UIImage(named: "NoSale"))
+//        }
         else{
             return UIImageView(image: UIImage(named: "GGCard"))
         }
