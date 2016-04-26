@@ -263,13 +263,11 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
             
         else if(mainDecodedDataList.count == 0 && self.calledOnce == true){
             checkIfListSizeIsZero()
-            return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+            return UIImageView(image: UIImage(named: "NoSale"))
         }
         else{
-            
-            return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+            return UIImageView(image: UIImage(named: "overlay_skip"))
         }
-        
     }
     
     
